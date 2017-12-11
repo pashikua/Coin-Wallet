@@ -1,0 +1,449 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		773F23801FDE81E600D1F7FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773F237F1FDE81E600D1F7FA /* AppDelegate.swift */; };
+		773F23821FDE81E600D1F7FA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773F23811FDE81E600D1F7FA /* ViewController.swift */; };
+		773F23851FDE81E600D1F7FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 773F23831FDE81E600D1F7FA /* Main.storyboard */; };
+		773F23871FDE81E600D1F7FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 773F23861FDE81E600D1F7FA /* Assets.xcassets */; };
+		773F238A1FDE81E600D1F7FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 773F23881FDE81E600D1F7FA /* LaunchScreen.storyboard */; };
+		773F23951FDE81E600D1F7FA /* Coin_WalletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773F23941FDE81E600D1F7FA /* Coin_WalletTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		773F23911FDE81E600D1F7FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 773F23741FDE81E600D1F7FA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 773F237B1FDE81E600D1F7FA;
+			remoteInfo = "Coin Wallet";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		773F237C1FDE81E600D1F7FA /* Coin Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Coin Wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		773F237F1FDE81E600D1F7FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		773F23811FDE81E600D1F7FA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		773F23841FDE81E600D1F7FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		773F23861FDE81E600D1F7FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		773F23891FDE81E600D1F7FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		773F238B1FDE81E600D1F7FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		773F23901FDE81E600D1F7FA /* Coin WalletTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Coin WalletTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		773F23941FDE81E600D1F7FA /* Coin_WalletTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin_WalletTests.swift; sourceTree = "<group>"; };
+		773F23961FDE81E600D1F7FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		773F23791FDE81E600D1F7FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		773F238D1FDE81E600D1F7FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		773F23731FDE81E600D1F7FA = {
+			isa = PBXGroup;
+			children = (
+				773F237E1FDE81E600D1F7FA /* Coin Wallet */,
+				773F23931FDE81E600D1F7FA /* Coin WalletTests */,
+				773F237D1FDE81E600D1F7FA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		773F237D1FDE81E600D1F7FA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				773F237C1FDE81E600D1F7FA /* Coin Wallet.app */,
+				773F23901FDE81E600D1F7FA /* Coin WalletTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		773F237E1FDE81E600D1F7FA /* Coin Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				773F237F1FDE81E600D1F7FA /* AppDelegate.swift */,
+				773F23811FDE81E600D1F7FA /* ViewController.swift */,
+				773F23831FDE81E600D1F7FA /* Main.storyboard */,
+				773F23861FDE81E600D1F7FA /* Assets.xcassets */,
+				773F23881FDE81E600D1F7FA /* LaunchScreen.storyboard */,
+				773F238B1FDE81E600D1F7FA /* Info.plist */,
+			);
+			path = "Coin Wallet";
+			sourceTree = "<group>";
+		};
+		773F23931FDE81E600D1F7FA /* Coin WalletTests */ = {
+			isa = PBXGroup;
+			children = (
+				773F23941FDE81E600D1F7FA /* Coin_WalletTests.swift */,
+				773F23961FDE81E600D1F7FA /* Info.plist */,
+			);
+			path = "Coin WalletTests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		773F237B1FDE81E600D1F7FA /* Coin Wallet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 773F23991FDE81E600D1F7FA /* Build configuration list for PBXNativeTarget "Coin Wallet" */;
+			buildPhases = (
+				773F23781FDE81E600D1F7FA /* Sources */,
+				773F23791FDE81E600D1F7FA /* Frameworks */,
+				773F237A1FDE81E600D1F7FA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Coin Wallet";
+			productName = "Coin Wallet";
+			productReference = 773F237C1FDE81E600D1F7FA /* Coin Wallet.app */;
+			productType = "com.apple.product-type.application";
+		};
+		773F238F1FDE81E600D1F7FA /* Coin WalletTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 773F239C1FDE81E600D1F7FA /* Build configuration list for PBXNativeTarget "Coin WalletTests" */;
+			buildPhases = (
+				773F238C1FDE81E600D1F7FA /* Sources */,
+				773F238D1FDE81E600D1F7FA /* Frameworks */,
+				773F238E1FDE81E600D1F7FA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				773F23921FDE81E600D1F7FA /* PBXTargetDependency */,
+			);
+			name = "Coin WalletTests";
+			productName = "Coin WalletTests";
+			productReference = 773F23901FDE81E600D1F7FA /* Coin WalletTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		773F23741FDE81E600D1F7FA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Özgür Celebi";
+				TargetAttributes = {
+					773F237B1FDE81E600D1F7FA = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					773F238F1FDE81E600D1F7FA = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 773F237B1FDE81E600D1F7FA;
+					};
+				};
+			};
+			buildConfigurationList = 773F23771FDE81E600D1F7FA /* Build configuration list for PBXProject "Coin Wallet" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 773F23731FDE81E600D1F7FA;
+			productRefGroup = 773F237D1FDE81E600D1F7FA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				773F237B1FDE81E600D1F7FA /* Coin Wallet */,
+				773F238F1FDE81E600D1F7FA /* Coin WalletTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		773F237A1FDE81E600D1F7FA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				773F238A1FDE81E600D1F7FA /* LaunchScreen.storyboard in Resources */,
+				773F23871FDE81E600D1F7FA /* Assets.xcassets in Resources */,
+				773F23851FDE81E600D1F7FA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		773F238E1FDE81E600D1F7FA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		773F23781FDE81E600D1F7FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				773F23821FDE81E600D1F7FA /* ViewController.swift in Sources */,
+				773F23801FDE81E600D1F7FA /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		773F238C1FDE81E600D1F7FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				773F23951FDE81E600D1F7FA /* Coin_WalletTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		773F23921FDE81E600D1F7FA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 773F237B1FDE81E600D1F7FA /* Coin Wallet */;
+			targetProxy = 773F23911FDE81E600D1F7FA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		773F23831FDE81E600D1F7FA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				773F23841FDE81E600D1F7FA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		773F23881FDE81E600D1F7FA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				773F23891FDE81E600D1F7FA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		773F23971FDE81E600D1F7FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		773F23981FDE81E600D1F7FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		773F239A1FDE81E600D1F7FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 34MP7UPC72;
+				INFOPLIST_FILE = "Coin Wallet/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.oezguercelebi.Coin-Wallet";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		773F239B1FDE81E600D1F7FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 34MP7UPC72;
+				INFOPLIST_FILE = "Coin Wallet/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.oezguercelebi.Coin-Wallet";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		773F239D1FDE81E600D1F7FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 34MP7UPC72;
+				INFOPLIST_FILE = "Coin WalletTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.oezguercelebi.Coin-WalletTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Coin Wallet.app/Coin Wallet";
+			};
+			name = Debug;
+		};
+		773F239E1FDE81E600D1F7FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 34MP7UPC72;
+				INFOPLIST_FILE = "Coin WalletTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.oezguercelebi.Coin-WalletTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Coin Wallet.app/Coin Wallet";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		773F23771FDE81E600D1F7FA /* Build configuration list for PBXProject "Coin Wallet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				773F23971FDE81E600D1F7FA /* Debug */,
+				773F23981FDE81E600D1F7FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		773F23991FDE81E600D1F7FA /* Build configuration list for PBXNativeTarget "Coin Wallet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				773F239A1FDE81E600D1F7FA /* Debug */,
+				773F239B1FDE81E600D1F7FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		773F239C1FDE81E600D1F7FA /* Build configuration list for PBXNativeTarget "Coin WalletTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				773F239D1FDE81E600D1F7FA /* Debug */,
+				773F239E1FDE81E600D1F7FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 773F23741FDE81E600D1F7FA /* Project object */;
+}
