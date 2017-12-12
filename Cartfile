@@ -1,0 +1,4 @@
+github "SwiftyJSON/SwiftyJSON"
+github "daltoniam/SwiftHTTP"
+github "saoudrizwan/Disk"
+github "onevcat/Kingfisher"

@@ -1,0 +1,9 @@
+{
+  "commitish" : "3.0.1",
+  "iOS" : [
+    {
+      "name" : "SwiftHTTP",
+      "hash" : "885ae98b6bfb985e579c88c6a84431bfeb075c823302985262f3573c9ab62137"
+    }
+  ]
+}
