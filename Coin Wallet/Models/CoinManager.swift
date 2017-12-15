@@ -10,23 +10,25 @@ import Foundation
 
 class CoinManager {
     
-    var coinsCount: Int { return coinsArray.count }
+    var coinsCount: Int { return coinsLibrary.count }
     
-    private var coinsArray = [Coin]()
+    private var coinsLibrary = [Coin]()
     
     func addCoinToLibrary(coin: Coin) {
-        coinsArray.append(coin)
+        coinsLibrary.append(coin)
     }
     
     func coinAtIndex(index: Int) -> Coin {
-        return coinsArray[index]
+        return coinsLibrary[index]
     }
     
     func removeCoinFromLibrary(index: Int) {
-        coinsArray.remove(at: index)
+        coinsLibrary.remove(at: index)
+        
+        _ = CoinHandler.updateCoinsDataOnDisk(coins: coinsLibrary)
     }
     
     func clearArray() {
-        coinsArray.removeAll()
+        coinsLibrary.removeAll()
     }
 }
