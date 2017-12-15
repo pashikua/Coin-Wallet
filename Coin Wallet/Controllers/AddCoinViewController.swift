@@ -90,8 +90,8 @@ extension AddCoinViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         let titleData = pickerData[row].name
-        let myTitle = NSAttributedString(string: titleData!, attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 17) ,NSAttributedStringKey.foregroundColor: UIColor.white])
-        return myTitle
+        let title = NSAttributedString(string: titleData!, attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 17), NSAttributedStringKey.foregroundColor: UIColor(red:0.22, green:0.25, blue:0.29, alpha:1.0)])
+        return title
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
