@@ -25,10 +25,13 @@ class CoinTableViewCell: UITableViewCell {
         
         if let priceUSD = withCoin.price_usd, let holding = withCoin.holding {
             let value = priceUSD * holding
-            self.holdingValueLabel?.text = "$" + String(format: "%.2f", value)
-            
+            self.holdingValueLabel?.text = value.changeToDollarCurrencyString()
             self.holdingCoinLabel?.text = withCoin.holding?.description
-            self.priceLabel?.text = "$" + String(format: "%.2f", withCoin.price_usd!)
+            self.priceLabel?.text = withCoin.price_usd!.changeToDollarCurrencyString()
         }
+        
+        
     }
+    
+    
 }
