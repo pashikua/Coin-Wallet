@@ -39,25 +39,6 @@ class MainViewController: UIViewController {
         
         updateTableViewFromDisk()
     }
-
-    
-    @IBAction func addCoinBtnPressed(_ sender: Any) {
-//        _ = CoinHandler.getCoinsData(completion: { (coins) in
-//            if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddCoinVC") as? AddCoinViewController {
-//                vc.pickerData = coins
-//
-//                DispatchQueue.main.async {
-//                    self.navigationController?.pushViewController(vc, animated: true)
-//                }
-//            }
-//        })
-        
-        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddCoinVC") as? AddCoinViewController {
-            DispatchQueue.main.async {
-                self.navigationController?.pushViewController(vc, animated: true)
-            }
-        }
-    }
     
     @objc func refreshCoinData(_ sender: UIRefreshControl) {
         sender.beginRefreshing()
@@ -144,17 +125,18 @@ class MainViewController: UIViewController {
     }
     
     func updateTotalPortfolioLabel(coinsArray: [Coin]) {
-        var coinValues: [CGFloat] = []
+        var coinValues: [Float] = []
         
         for coin in coinsArray {
             // Multiply coin holding with current price of coin
-            let value = CGFloat(coin.holding!) * CGFloat(coin.price_usd!)
+            let value = Float(coin.holding!) * Float(coin.price_usd!)
             
             coinValues.append(value)
         }
         
         DispatchQueue.main.async {
-            self.totalPortfolioValue.text = String(format: "%.2f", coinValues.reduce(0, +))
+            let total = coinValues.reduce(0, +)
+            self.totalPortfolioValue.text = total.changeToDollarCurrencyString()
         }
     }
     
