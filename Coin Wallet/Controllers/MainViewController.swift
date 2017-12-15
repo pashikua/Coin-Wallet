@@ -114,7 +114,7 @@ class MainViewController: UIViewController {
             for coin in retrievedCoins.sorted(by: {$0.rank! < $1.rank!}) {
                 dataService.coinManager?.addCoinToLibrary(coin: coin)
             }
-            print(retrievedCoins)
+//            print(retrievedCoins)
             updateTotalPortfolioLabel(coinsArray: retrievedCoins)
         } catch {
             print("Couldnt retrieve coin")
