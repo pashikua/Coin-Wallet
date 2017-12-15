@@ -8,8 +8,9 @@
 
 import UIKit
 import Kingfisher
+import SwipeCellKit
 
-class CoinTableViewCell: UITableViewCell {
+class CoinTableViewCell: SwipeTableViewCell {
     
     @IBOutlet weak var coinImageView: UIImageView!
     @IBOutlet weak var symbolLabel: UILabel!
@@ -29,9 +30,5 @@ class CoinTableViewCell: UITableViewCell {
             self.holdingCoinLabel?.text = withCoin.holding?.description
             self.priceLabel?.text = withCoin.price_usd!.changeToDollarCurrencyString()
         }
-        
-        
     }
-    
-    
 }
