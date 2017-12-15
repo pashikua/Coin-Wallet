@@ -30,8 +30,10 @@ class AddCoinViewController: UIViewController, UITextFieldDelegate {
         self.coinsPickerView.delegate = self
         
         self.holdingTextField.delegate = self
-        
-        coin = pickerData[0]
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        retrieveCoinData()
     }
     
     @IBAction func addToWalletBtnPressed(_ sender: Any) {
@@ -59,6 +61,22 @@ class AddCoinViewController: UIViewController, UITextFieldDelegate {
             print("Coudlnt save to disk")
         }
     }
+    
+    func retrieveCoinData() {
+        pickerData.removeAll()
+        
+        do {
+            let retrievedCoinsData = try Disk.retrieve("coinsData.json", from: .caches, as: [Coin].self)
+            
+            for coin in retrievedCoinsData.sorted(by: {$0.rank! < $1.rank!}) {
+                pickerData.append(coin)
+            }
+            
+            coin = pickerData[0]
+        } catch {
+            print("Couldnt retrieve coin")
+        }
+    }
 }
 
 extension AddCoinViewController: UIPickerViewDelegate, UIPickerViewDataSource {
@@ -79,7 +97,6 @@ extension AddCoinViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         print(pickerData[row].name)
         coin = pickerData[row]
-        
     }
 }
 
