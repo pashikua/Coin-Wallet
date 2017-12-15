@@ -1,13 +1,9 @@
-//
-//  ViewController.swift
-//  Coin Wallet
-//
 //  Created by Özgür Celebi on 11.12.2017.
 //  Copyright © 2017 Özgür Celebi. All rights reserved.
-//
 
 import UIKit
 import Disk
+import SwiftyJSON
 
 class MainViewController: UIViewController {
     
@@ -29,9 +25,13 @@ class MainViewController: UIViewController {
         dataService.coinManager = coinManager
         
         // Configure Refresh Control
-        refreshControl.addTarget(self, action: #selector(refreshCoinData(_:)), for: .valueChanged)
+        self.refreshControl.addTarget(self, action: #selector(refreshCoinData(_:)), for: .valueChanged)
         
 //        clearDiskDataFromCaches()
+        self.view.layoutIfNeeded()
+        refreshCoinData(refreshControl)
+        
+        fetchCoinsData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,20 +39,29 @@ class MainViewController: UIViewController {
         
         updateTableViewFromDisk()
     }
+
     
     @IBAction func addCoinBtnPressed(_ sender: Any) {
-        _ = CoinHandler.getCoinsData(completion: { (coins) in
-            if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddCoinVC") as? AddCoinViewController {
-                vc.pickerData = coins
-                
-                DispatchQueue.main.async {
-                    self.navigationController?.pushViewController(vc, animated: true)
-                }
+//        _ = CoinHandler.getCoinsData(completion: { (coins) in
+//            if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddCoinVC") as? AddCoinViewController {
+//                vc.pickerData = coins
+//
+//                DispatchQueue.main.async {
+//                    self.navigationController?.pushViewController(vc, animated: true)
+//                }
+//            }
+//        })
+        
+        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddCoinVC") as? AddCoinViewController {
+            DispatchQueue.main.async {
+                self.navigationController?.pushViewController(vc, animated: true)
             }
-        })
+        }
     }
     
-    @objc func refreshCoinData(_ sender: Any) {
+    @objc func refreshCoinData(_ sender: UIRefreshControl) {
+        sender.beginRefreshing()
+        print("refreshCoinDataTriggered")
         if dataService.coinManager?.coinsCount != nil {
             _ = CoinHandler.getCoinsData(completion: { (coins) in
                 do {
@@ -95,9 +104,27 @@ class MainViewController: UIViewController {
         }
     }
     
-    
+    func fetchCoinsData() {
+        print("2")
+        _ = CoinHandler.getCoinsData(completion: { (coins) in
+            do {
+
+                if Disk.exists("coinsData.json", in: .caches) {
+                    print("coins data exits in cache")
+                    try Disk.remove("coinsData.json", from: .caches)
+                }
+                
+                for coin in coins {
+                    try Disk.append(coin, to: "coinsData.json", in: .caches)
+                }
+            } catch {
+                print("Coudlnt save to disk")
+            }
+        })
+    }
     
     func updateTableViewFromDisk() {
+        print("1")
         dataService.coinManager?.clearArray()
         
         do {
@@ -138,18 +165,12 @@ class MainViewController: UIViewController {
         }
     }
     
-    func clearDiskDataFromCaches() {
-        // Clear Disk
-        do {
-            try Disk.clear(.caches)
-        } catch {
-            print("Couldnt clear disk")
-        }
-    }
-    
     func clearAndUpdateCoinDiskData(coins: [Coin]) {
         do {
-            try Disk.clear(.caches)
+            if Disk.exists("coins.json", in: .caches) {
+                print("coins exits in cache")
+                try Disk.remove("coins.json", from: .caches)
+            }
             
             for coin in coins {
                 do {
