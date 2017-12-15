@@ -37,10 +37,10 @@
                                     <constraint firstAttribute="height" constant="32" id="B9T-Og-C0H"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <color key="textColor" red="0.22352941179999999" green="0.25490196079999999" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.25098039215686274" green="0.25098039215686274" blue="0.25098039215686274" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6PX-4U-CJu">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6PX-4U-CJu">
                                 <rect key="frame" x="16" y="123.5" width="343" height="479.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="LZo-rN-bxp">
@@ -57,7 +57,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WEN-AT-jpa" customClass="CustomView" customModule="Coin_Wallet" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="74"/>
+                                                    <rect key="frame" x="0.0" y="3" width="343" height="74"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ar4-Gg-bsa">
                                                             <rect key="frame" x="0.0" y="0.0" width="343" height="74"/>
@@ -162,9 +162,9 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="WEN-AT-jpa" firstAttribute="top" secondItem="bDo-VT-Ou1" secondAttribute="top" id="W3l-Mw-U1f"/>
+                                                <constraint firstItem="WEN-AT-jpa" firstAttribute="top" secondItem="bDo-VT-Ou1" secondAttribute="top" constant="3" id="W3l-Mw-U1f"/>
                                                 <constraint firstAttribute="trailing" secondItem="WEN-AT-jpa" secondAttribute="trailing" id="eeu-Rb-vA2"/>
-                                                <constraint firstAttribute="bottom" secondItem="WEN-AT-jpa" secondAttribute="bottom" constant="6" id="pOc-yV-A2n"/>
+                                                <constraint firstAttribute="bottom" secondItem="WEN-AT-jpa" secondAttribute="bottom" constant="3" id="pOc-yV-A2n"/>
                                                 <constraint firstItem="WEN-AT-jpa" firstAttribute="leading" secondItem="bDo-VT-Ou1" secondAttribute="leading" id="s21-75-jE9"/>
                                             </constraints>
                                         </tableViewCellContentView>
