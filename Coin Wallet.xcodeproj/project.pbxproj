@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		77135FF81FE359A9000B1122 /* FloatExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77135FF71FE359A9000B1122 /* FloatExtensions.swift */; };
 		773F23801FDE81E600D1F7FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773F237F1FDE81E600D1F7FA /* AppDelegate.swift */; };
 		773F23821FDE81E600D1F7FA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773F23811FDE81E600D1F7FA /* MainViewController.swift */; };
 		773F23851FDE81E600D1F7FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 773F23831FDE81E600D1F7FA /* Main.storyboard */; };
@@ -66,6 +67,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		77135FF71FE359A9000B1122 /* FloatExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatExtensions.swift; sourceTree = "<group>"; };
 		773F237C1FDE81E600D1F7FA /* Coin Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Coin Wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		773F237F1FDE81E600D1F7FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		773F23811FDE81E600D1F7FA /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				778E3BEF1FDEE6D600731CE4 /* StringExtensions.swift */,
+				77135FF71FE359A9000B1122 /* FloatExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 			files = (
 				778E3BE01FDEB8C100731CE4 /* CoinManager.swift in Sources */,
 				778E3BD91FDE969200731CE4 /* CoinTableViewCell.swift in Sources */,
+				77135FF81FE359A9000B1122 /* FloatExtensions.swift in Sources */,
 				778E3BF01FDEE6D600731CE4 /* StringExtensions.swift in Sources */,
 				778E3BF21FDF110300731CE4 /* AddCoinViewController.swift in Sources */,
 				778E3BD21FDE8D8D00731CE4 /* CustomView.swift in Sources */,
