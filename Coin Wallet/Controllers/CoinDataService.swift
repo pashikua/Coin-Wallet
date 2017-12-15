@@ -32,7 +32,4 @@ class CoinDataService: NSObject, UITableViewDataSource, UITableViewDelegate {
         // TODO: show detailed view
         print("Did select row at:", indexPath.row)
     }
-    
-
-    
 }
