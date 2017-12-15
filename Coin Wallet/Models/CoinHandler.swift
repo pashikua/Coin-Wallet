@@ -9,6 +9,7 @@
 import Foundation
 import SwiftyJSON
 import SwiftHTTP
+import Disk
 
 class CoinHandler {
     static func getCoinsData(completion: @escaping (_ result: [Coin]) -> Void) {
@@ -38,6 +39,21 @@ class CoinHandler {
             } catch {
                 print(error.localizedDescription)
             }
+        }
+    }
+    
+    static func updateCoinsDataOnDisk(coins: [Coin]) {
+        do {
+            if Disk.exists("coins.json", in: .caches) {
+                print("coins exits in cache")
+                try Disk.remove("coins.json", from: .caches)
+            }
+            
+            for coin in coins {
+                try Disk.append(coin, to: "coins.json", in: .caches)
+            }
+        } catch {
+            print("Coudlnt save to disk")
         }
     }
 }
