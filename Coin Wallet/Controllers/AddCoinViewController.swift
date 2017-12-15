@@ -11,25 +11,30 @@ import SwiftHTTP
 import SwiftyJSON
 import Disk
 
-class AddCoinViewController: UIViewController, UITextFieldDelegate {
+class AddCoinViewController: UIViewController, UITableViewDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var coinsPickerView: UIPickerView!
     
     @IBOutlet weak var holdingTextField: UITextField!
     
-    var pickerData: [Coin] = [Coin]()
+    @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    var coinData: [Coin] = [Coin]()
+    
+    var filteredCoinData: [Coin]!
     
     var holding: Float!
     
-    var coin: Coin!
+    var coin: Coin?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Connect data
-        self.coinsPickerView.dataSource = self
-        self.coinsPickerView.delegate = self
         
         self.holdingTextField.delegate = self
+        self.searchBar.delegate = self
+        filteredCoinData = coinData
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,13 +42,8 @@ class AddCoinViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func addToWalletBtnPressed(_ sender: Any) {
-        print(coin)
-        print(holding)
-        
-        coin.holding = holding
-        print(coin)
-        
-        if holdingTextField.text != "" && holdingTextField.text != "0" {
+        if holdingTextField.text != "" && holdingTextField.text != "0" && coin != nil {
+            coin?.holding = holding
             saveCoinToDisk()
             
             self.navigationController?.popToRootViewController(animated: true)
@@ -63,40 +63,53 @@ class AddCoinViewController: UIViewController, UITextFieldDelegate {
     }
     
     func retrieveCoinData() {
-        pickerData.removeAll()
+        coinData.removeAll()
         
         do {
             let retrievedCoinsData = try Disk.retrieve("coinsData.json", from: .caches, as: [Coin].self)
             
             for coin in retrievedCoinsData.sorted(by: {$0.rank! < $1.rank!}) {
-                pickerData.append(coin)
+                coinData.append(coin)
             }
-            
-            coin = pickerData[0]
         } catch {
             print("Couldnt retrieve coin")
         }
     }
 }
 
-extension AddCoinViewController: UIPickerViewDelegate, UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+extension AddCoinViewController: UISearchBarDelegate {
+    func searchBarIsEmpty() -> Bool {
+        // Returns true if the text is empty or nil
+        return searchBar.text?.isEmpty ?? true
     }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerData.count
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filteredCoinData = searchText.isEmpty ? [] : coinData.filter({ (coin) -> Bool in
+            // If dataItem matches the searchText, return true to include it
+            return coin.name?.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+        })
+        
+        tableView.reloadData()
     }
     
-    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        let titleData = pickerData[row].name
-        let title = NSAttributedString(string: titleData!, attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 17), NSAttributedStringKey.foregroundColor: UIColor(red:0.22, green:0.25, blue:0.29, alpha:1.0)])
-        return title
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.searchBar.resignFirstResponder()
+    }
+}
+
+extension AddCoinViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as UITableViewCell
+        cell.textLabel?.text = filteredCoinData[indexPath.row].name
+        return cell
     }
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print(pickerData[row].name)
-        coin = pickerData[row]
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return filteredCoinData.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        coin = filteredCoinData[indexPath.row]
     }
 }
 
