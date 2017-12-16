@@ -82,10 +82,4 @@ class CoinDataService: NSObject, UITableViewDataSource, UITableViewDelegate, Swi
         
         return [editAction, deleteAction]
     }
-    
-    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
-        var options = SwipeTableOptions()
-        options.transitionStyle = .border
-        return options
-    }
 }
