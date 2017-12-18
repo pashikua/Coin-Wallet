@@ -22,7 +22,9 @@ class MainViewController: UIViewController {
         self.coinTableView.refreshControl = refreshControl
         self.coinTableView.dataSource = dataService
         self.coinTableView.delegate = dataService
-        dataService.coinManager = coinManager
+        
+        self.dataService.coinManager = coinManager
+        self.dataService.coinManager?.delegate = self
         
         // Configure Refresh Control
         self.refreshControl.addTarget(self, action: #selector(refreshCoinData(_:)), for: .valueChanged)
@@ -166,5 +168,23 @@ class MainViewController: UIViewController {
         }
     }
     
+}
+
+extension MainViewController: CoinManagerDelegate {
+    func updatePortfolioValue(_ coinsLibrary: [Coin]) {
+        var coinValues: [Float] = []
+        
+        for coin in coinsLibrary {
+            // Multiply coin holding with current price of coin
+            let value = Float(coin.holding!) * Float(coin.price_usd!)
+            
+            coinValues.append(value)
+        }
+        
+        DispatchQueue.main.async {
+            let total = coinValues.reduce(0, +)
+            self.totalPortfolioValue.text = total.changeToDollarCurrencyString()
+        }
+    }
 }
 
