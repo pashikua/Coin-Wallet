@@ -31,8 +31,8 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SWI-Y0-ehT">
-                                <rect key="frame" x="163.5" y="39.5" width="49" height="32"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SWI-Y0-ehT">
+                                <rect key="frame" x="156.5" y="39.5" width="63" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="B9T-Og-C0H"/>
                                 </constraints>
@@ -249,7 +249,7 @@
                     <connections>
                         <outlet property="coinTableView" destination="6PX-4U-CJu" id="cGd-3e-tol"/>
                         <outlet property="dataService" destination="X5e-VC-Ee3" id="cVv-ob-hjC"/>
-                        <outlet property="totalPortfolioValue" destination="SWI-Y0-ehT" id="qKy-uk-0sE"/>
+                        <outlet property="totalPortfolioValueLabel" destination="SWI-Y0-ehT" id="FCw-r7-plD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
