@@ -11,7 +11,6 @@
 		773F23801FDE81E600D1F7FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773F237F1FDE81E600D1F7FA /* AppDelegate.swift */; };
 		773F23821FDE81E600D1F7FA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773F23811FDE81E600D1F7FA /* MainViewController.swift */; };
 		773F23851FDE81E600D1F7FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 773F23831FDE81E600D1F7FA /* Main.storyboard */; };
-		773F23871FDE81E600D1F7FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 773F23861FDE81E600D1F7FA /* Assets.xcassets */; };
 		773F238A1FDE81E600D1F7FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 773F23881FDE81E600D1F7FA /* LaunchScreen.storyboard */; };
 		773F23951FDE81E600D1F7FA /* Coin_WalletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773F23941FDE81E600D1F7FA /* Coin_WalletTests.swift */; };
 		7755FD291FE3DAE700624F23 /* C.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7755FD281FE3DAE700624F23 /* C.swift */; };
@@ -20,6 +19,7 @@
 		7755FD301FE40C8200624F23 /* SwipeCellKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7755FD2E1FE40C8200624F23 /* SwipeCellKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7755FD321FE4193500624F23 /* SCLAlertView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7755FD311FE4193500624F23 /* SCLAlertView.framework */; };
 		7755FD331FE4193500624F23 /* SCLAlertView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7755FD311FE4193500624F23 /* SCLAlertView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7776CD671FE7DC4E000CBF65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7776CD661FE7DC4D000CBF65 /* Assets.xcassets */; };
 		7776D5921FDF6158006C42FD /* Disk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7776D5911FDF6158006C42FD /* Disk.framework */; };
 		7776D5931FDF6158006C42FD /* Disk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7776D5911FDF6158006C42FD /* Disk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7776D5951FDF6B76006C42FD /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7776D5941FDF6B75006C42FD /* Kingfisher.framework */; };
@@ -80,7 +80,6 @@
 		773F237F1FDE81E600D1F7FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		773F23811FDE81E600D1F7FA /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		773F23841FDE81E600D1F7FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		773F23861FDE81E600D1F7FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		773F23891FDE81E600D1F7FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		773F238B1FDE81E600D1F7FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		773F23901FDE81E600D1F7FA /* Coin WalletTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Coin WalletTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +89,7 @@
 		7755FD2A1FE3DB4C00624F23 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		7755FD2E1FE40C8200624F23 /* SwipeCellKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwipeCellKit.framework; path = Carthage/Build/iOS/SwipeCellKit.framework; sourceTree = "<group>"; };
 		7755FD311FE4193500624F23 /* SCLAlertView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SCLAlertView.framework; path = Carthage/Build/iOS/SCLAlertView.framework; sourceTree = "<group>"; };
+		7776CD661FE7DC4D000CBF65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7776D5911FDF6158006C42FD /* Disk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Disk.framework; path = Carthage/Build/iOS/Disk.framework; sourceTree = "<group>"; };
 		7776D5941FDF6B75006C42FD /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		778E3BC71FDE835C00731CE4 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
@@ -168,9 +168,9 @@
 				778E3BCD1FDE841C00731CE4 /* Models */,
 				773F237F1FDE81E600D1F7FA /* AppDelegate.swift */,
 				773F23831FDE81E600D1F7FA /* Main.storyboard */,
-				773F23861FDE81E600D1F7FA /* Assets.xcassets */,
 				773F23881FDE81E600D1F7FA /* LaunchScreen.storyboard */,
 				773F238B1FDE81E600D1F7FA /* Info.plist */,
+				7776CD661FE7DC4D000CBF65 /* Assets.xcassets */,
 			);
 			path = "Coin Wallet";
 			sourceTree = "<group>";
@@ -349,7 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				773F238A1FDE81E600D1F7FA /* LaunchScreen.storyboard in Resources */,
-				773F23871FDE81E600D1F7FA /* Assets.xcassets in Resources */,
+				7776CD671FE7DC4E000CBF65 /* Assets.xcassets in Resources */,
 				773F23851FDE81E600D1F7FA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
