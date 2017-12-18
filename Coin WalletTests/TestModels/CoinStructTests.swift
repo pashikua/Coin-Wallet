@@ -26,19 +26,19 @@ class CoinStructTests: XCTestCase {
     }
     
     func testInit_SetCoin() {
-        let coin = Coin(id: "bitcoin", name: "Bitcoin", symbol: "BTC", rank: "1", price_usd: 16753.2, last_updated: "1512995653")
+        let coin = Coin(id: "bitcoin", name: "Bitcoin", symbol: "BTC", rank: 1, price_usd: 16753.2, last_updated: "1512995653")
         
         XCTAssertEqual(coin.id, "bitcoin")
         XCTAssertEqual(coin.name, "Bitcoin")
         XCTAssertEqual(coin.symbol, "BTC")
-        XCTAssertEqual(coin.rank, "1")
+        XCTAssertEqual(coin.rank, 1)
         XCTAssertEqual(coin.price_usd, 16753.2)
         XCTAssertEqual(coin.last_updated, "1512995653")
     }
     
     func testCoinsAreEqual_ShouldReturnTrue() {
-        let coin1 = Coin(id: "bitcoin", name: "Bitcoin", symbol: "BTC", rank: "1", price_usd: 16753.2, last_updated: "1512995653")
-        let coin2 = Coin(id: "bitcoin", name: "Bitcoin", symbol: "BTC", rank: "1", price_usd: 16753.2, last_updated: "1512995653")
+        let coin1 = Coin(id: "bitcoin", name: "Bitcoin", symbol: "BTC", rank: 1, price_usd: 16753.2, last_updated: "1512995653")
+        let coin2 = Coin(id: "bitcoin", name: "Bitcoin", symbol: "BTC", rank: 1, price_usd: 16753.2, last_updated: "1512995653")
         
         XCTAssertEqual(coin1, coin2)
     }
