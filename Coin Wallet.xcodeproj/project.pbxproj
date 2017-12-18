@@ -370,6 +370,12 @@
 			files = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Disk.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftHTTP.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwipeCellKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SCLAlertView.framework",
 			);
 			outputPaths = (
 			);
