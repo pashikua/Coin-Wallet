@@ -53,16 +53,22 @@ class CoinDataService: NSObject, UITableViewDataSource, UITableViewDelegate, Swi
             let valueTextField = alert.addTextField(valueInString)
             valueTextField.keyboardType = .decimalPad
             alert.addButton("Done") {
-                // Todo: check if value is correct and save to current index coin
-                // plus update the coin disk values, then reload current tableview data
+                // Check for correct string value
+                if valueTextField.text != "" && valueTextField.text != "0" && valueTextField.text != "," && valueTextField.text != "." {
+                    // If so update current coins data and save it to disk
+                    let holding = Float(valueTextField.text!.replacingOccurrences(of: ",", with: "."))
+                    self.coinManager?.updateCoinAtIndexAndSaveToDisk(index: indexPath.row, holding: holding!)
+                    tableView.reloadData()
+                }
+                
                 print("Finished updating value: ", valueTextField.text!)
             }
             
             alert.showCustom("Edit", subTitle: "Update your holding value", color: .primaryColor, icon: UIImage(named: "editFilled")!)
             
-            
             tableView.reloadData()
         }
+        
         // customize the action appearance
         editAction.image = UIImage(named: "editRoundFilled")
         editAction.backgroundColor = .white
