@@ -34,7 +34,6 @@ class AddCoinViewController: UIViewController, UITableViewDelegate, UITextFieldD
         
         self.holdingTextField.delegate = self
         self.searchBar.delegate = self
-        filteredCoinData = coinData
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -71,6 +70,8 @@ class AddCoinViewController: UIViewController, UITableViewDelegate, UITextFieldD
             for coin in retrievedCoinsData.sorted(by: {$0.rank! < $1.rank!}) {
                 coinData.append(coin)
             }
+            
+            filteredCoinData = coinData
         } catch {
             print("Couldnt retrieve coin")
         }
@@ -84,7 +85,7 @@ extension AddCoinViewController: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filteredCoinData = searchText.isEmpty ? [] : coinData.filter({ (coin) -> Bool in
+        filteredCoinData = searchText.isEmpty ? coinData : coinData.filter({ (coin) -> Bool in
             // If dataItem matches the searchText, return true to include it
             return coin.name?.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
         })
