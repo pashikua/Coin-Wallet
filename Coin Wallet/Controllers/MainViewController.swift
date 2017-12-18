@@ -10,7 +10,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var coinTableView: UITableView!
     @IBOutlet var dataService: CoinDataService!
 
-    @IBOutlet weak var totalPortfolioValue: UILabel!
+    @IBOutlet weak var totalPortfolioValueLabel: UILabel!
     
     var coinManager: CoinManager = CoinManager()
     
@@ -136,10 +136,7 @@ class MainViewController: UIViewController {
             coinValues.append(value)
         }
         
-        DispatchQueue.main.async {
-            let total = coinValues.reduce(0, +)
-            self.totalPortfolioValue.text = total.changeToDollarCurrencyString()
-        }
+        totalPortfolioValueAsDollar(coinValues: coinValues)
     }
     
     func endRefresh() {
@@ -168,6 +165,13 @@ class MainViewController: UIViewController {
         }
     }
     
+    func totalPortfolioValueAsDollar(coinValues: [Float]) {
+        DispatchQueue.main.async {
+            let total = coinValues.reduce(0, +)
+            self.totalPortfolioValueLabel.text = total.changeToDollarCurrencyString()
+        }
+    }
+    
 }
 
 extension MainViewController: CoinManagerDelegate {
@@ -181,10 +185,7 @@ extension MainViewController: CoinManagerDelegate {
             coinValues.append(value)
         }
         
-        DispatchQueue.main.async {
-            let total = coinValues.reduce(0, +)
-            self.totalPortfolioValue.text = total.changeToDollarCurrencyString()
-        }
+        totalPortfolioValueAsDollar(coinValues: coinValues)
     }
 }
 
