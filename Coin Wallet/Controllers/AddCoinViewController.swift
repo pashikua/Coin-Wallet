@@ -106,6 +106,8 @@ extension AddCoinViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         coin = filteredCoinData[indexPath.row]
+        
+        holdingTextField.becomeFirstResponder()
     }
 }
 
