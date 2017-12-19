@@ -91,7 +91,6 @@ class MainViewController: UIViewController {
         print("2")
         _ = CoinHandler.getCoinsData(completion: { (coins) in
             do {
-
                 if Disk.exists("coinsData.json", in: .caches) {
                     print("coins data exits in cache")
                     try Disk.remove("coinsData.json", from: .caches)
@@ -100,6 +99,7 @@ class MainViewController: UIViewController {
                 for coin in coins {
                     try Disk.append(coin, to: "coinsData.json", in: .caches)
                 }
+                print("coinsData")
             } catch {
                 print("Coudlnt save to disk")
             }
