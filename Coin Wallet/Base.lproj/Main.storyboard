@@ -17,7 +17,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Coin Tracker-->
+        <!--Coin Portfolio-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="MainVC" id="BYZ-38-t0r" customClass="MainViewController" customModule="Coin_Wallet" customModuleProvider="target" sceneMemberID="viewController">
@@ -237,7 +237,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Coin Tracker" id="Hu0-5i-ucq">
+                    <navigationItem key="navigationItem" title="Coin Portfolio" id="Hu0-5i-ucq">
                         <barButtonItem key="backBarButtonItem" title="Back" id="dWq-8s-eMP"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="xOG-6Y-Eat">
                             <color key="tintColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -398,6 +398,7 @@
                         <color key="tintColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="0.22352941176470587" green="0.25490196078431371" blue="0.28627450980392155" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
