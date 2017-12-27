@@ -24,7 +24,6 @@
 		7776D5931FDF6158006C42FD /* Disk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7776D5911FDF6158006C42FD /* Disk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7776D5951FDF6B76006C42FD /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7776D5941FDF6B75006C42FD /* Kingfisher.framework */; };
 		7776D5961FDF6B76006C42FD /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7776D5941FDF6B75006C42FD /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		777F30511FF3B43700B44918 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 777F304E1FF3AA3700B44918 /* Keys.plist */; };
 		777F30591FF3F8DC00B44918 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777F30581FF3F8DC00B44918 /* NotificationCenter.framework */; };
 		777F305C1FF3F8DC00B44918 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F305B1FF3F8DC00B44918 /* TodayViewController.swift */; };
 		777F305F1FF3F8DC00B44918 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 777F305D1FF3F8DC00B44918 /* MainInterface.storyboard */; };
@@ -119,7 +118,6 @@
 		7776CD661FE7DC4D000CBF65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7776D5911FDF6158006C42FD /* Disk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Disk.framework; path = Carthage/Build/iOS/Disk.framework; sourceTree = "<group>"; };
 		7776D5941FDF6B75006C42FD /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
-		777F304E1FF3AA3700B44918 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		777F30561FF3F8DB00B44918 /* Today Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Today Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		777F30581FF3F8DC00B44918 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		777F305B1FF3F8DC00B44918 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -243,7 +241,6 @@
 			children = (
 				7776CD661FE7DC4D000CBF65 /* Assets.xcassets */,
 				773F23881FDE81E600D1F7FA /* LaunchScreen.storyboard */,
-				777F304E1FF3AA3700B44918 /* Keys.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -461,7 +458,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				777F30511FF3B43700B44918 /* Keys.plist in Resources */,
 				773F238A1FDE81E600D1F7FA /* LaunchScreen.storyboard in Resources */,
 				7776CD671FE7DC4E000CBF65 /* Assets.xcassets in Resources */,
 				773F23851FDE81E600D1F7FA /* Main.storyboard in Resources */,
