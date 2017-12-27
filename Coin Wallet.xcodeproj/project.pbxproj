@@ -25,6 +25,10 @@
 		7776D5951FDF6B76006C42FD /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7776D5941FDF6B75006C42FD /* Kingfisher.framework */; };
 		7776D5961FDF6B76006C42FD /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7776D5941FDF6B75006C42FD /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		777F30511FF3B43700B44918 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 777F304E1FF3AA3700B44918 /* Keys.plist */; };
+		777F30591FF3F8DC00B44918 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777F30581FF3F8DC00B44918 /* NotificationCenter.framework */; };
+		777F305C1FF3F8DC00B44918 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F305B1FF3F8DC00B44918 /* TodayViewController.swift */; };
+		777F305F1FF3F8DC00B44918 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 777F305D1FF3F8DC00B44918 /* MainInterface.storyboard */; };
+		777F30631FF3F8DC00B44918 /* Today Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 777F30561FF3F8DB00B44918 /* Today Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		778E3BC81FDE835C00731CE4 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 778E3BC71FDE835C00731CE4 /* SwiftyJSON.framework */; };
 		778E3BC91FDE835C00731CE4 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 778E3BC71FDE835C00731CE4 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		778E3BCF1FDE842600731CE4 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778E3BCE1FDE842600731CE4 /* Coin.swift */; };
@@ -56,9 +60,27 @@
 			remoteGlobalIDString = 773F237B1FDE81E600D1F7FA;
 			remoteInfo = "Coin Wallet";
 		};
+		777F30611FF3F8DC00B44918 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 773F23741FDE81E600D1F7FA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 777F30551FF3F8DB00B44918;
+			remoteInfo = "Today Extension";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		777F30671FF3F8DC00B44918 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				777F30631FF3F8DC00B44918 /* Today Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		778E3BCA1FDE835C00731CE4 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -88,6 +110,8 @@
 		773F23901FDE81E600D1F7FA /* Coin WalletTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Coin WalletTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		773F23941FDE81E600D1F7FA /* Coin_WalletTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin_WalletTests.swift; sourceTree = "<group>"; };
 		773F23961FDE81E600D1F7FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		774517B51FF4065B00715AC5 /* Today Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Today Extension.entitlements"; sourceTree = "<group>"; };
+		774517B61FF4086500715AC5 /* Coin Wallet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Coin Wallet.entitlements"; sourceTree = "<group>"; };
 		7755FD281FE3DAE700624F23 /* C.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C.swift; sourceTree = "<group>"; };
 		7755FD2A1FE3DB4C00624F23 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		7755FD2E1FE40C8200624F23 /* SwipeCellKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwipeCellKit.framework; path = Carthage/Build/iOS/SwipeCellKit.framework; sourceTree = "<group>"; };
@@ -96,6 +120,11 @@
 		7776D5911FDF6158006C42FD /* Disk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Disk.framework; path = Carthage/Build/iOS/Disk.framework; sourceTree = "<group>"; };
 		7776D5941FDF6B75006C42FD /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		777F304E1FF3AA3700B44918 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
+		777F30561FF3F8DB00B44918 /* Today Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Today Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		777F30581FF3F8DC00B44918 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		777F305B1FF3F8DC00B44918 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		777F305E1FF3F8DC00B44918 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		777F30601FF3F8DC00B44918 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		778E3BC71FDE835C00731CE4 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		778E3BCE1FDE842600731CE4 /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		778E3BD11FDE8D8D00731CE4 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
@@ -140,6 +169,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		777F30531FF3F8DB00B44918 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				777F30591FF3F8DC00B44918 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -156,6 +193,8 @@
 				778E3BC71FDE835C00731CE4 /* SwiftyJSON.framework */,
 				773F237E1FDE81E600D1F7FA /* Coin Wallet */,
 				773F23931FDE81E600D1F7FA /* Coin WalletTests */,
+				777F305A1FF3F8DC00B44918 /* Today Extension */,
+				777F30571FF3F8DC00B44918 /* Frameworks */,
 				773F237D1FDE81E600D1F7FA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -165,6 +204,7 @@
 			children = (
 				773F237C1FDE81E600D1F7FA /* Coin Wallet.app */,
 				773F23901FDE81E600D1F7FA /* Coin WalletTests.xctest */,
+				777F30561FF3F8DB00B44918 /* Today Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -172,6 +212,7 @@
 		773F237E1FDE81E600D1F7FA /* Coin Wallet */ = {
 			isa = PBXGroup;
 			children = (
+				774517B61FF4086500715AC5 /* Coin Wallet.entitlements */,
 				773F237F1FDE81E600D1F7FA /* AppDelegate.swift */,
 				778E3BD51FDE933400731CE4 /* Controllers */,
 				778E3BEA1FDEE56300731CE4 /* Extensions */,
@@ -205,6 +246,25 @@
 				777F304E1FF3AA3700B44918 /* Keys.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		777F30571FF3F8DC00B44918 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				777F30581FF3F8DC00B44918 /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		777F305A1FF3F8DC00B44918 /* Today Extension */ = {
+			isa = PBXGroup;
+			children = (
+				774517B51FF4065B00715AC5 /* Today Extension.entitlements */,
+				777F305B1FF3F8DC00B44918 /* TodayViewController.swift */,
+				777F305D1FF3F8DC00B44918 /* MainInterface.storyboard */,
+				777F30601FF3F8DC00B44918 /* Info.plist */,
+			);
+			path = "Today Extension";
 			sourceTree = "<group>";
 		};
 		778E3BCC1FDE83F200731CE4 /* TestControllers */ = {
@@ -294,10 +354,12 @@
 				773F237A1FDE81E600D1F7FA /* Resources */,
 				778E3BCA1FDE835C00731CE4 /* Embed Frameworks */,
 				778E3BCB1FDE836F00731CE4 /* ShellScript */,
+				777F30671FF3F8DC00B44918 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				777F30621FF3F8DC00B44918 /* PBXTargetDependency */,
 			);
 			name = "Coin Wallet";
 			productName = "Coin Wallet";
@@ -322,6 +384,23 @@
 			productReference = 773F23901FDE81E600D1F7FA /* Coin WalletTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		777F30551FF3F8DB00B44918 /* Today Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 777F30641FF3F8DC00B44918 /* Build configuration list for PBXNativeTarget "Today Extension" */;
+			buildPhases = (
+				777F30521FF3F8DB00B44918 /* Sources */,
+				777F30531FF3F8DB00B44918 /* Frameworks */,
+				777F30541FF3F8DB00B44918 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Today Extension";
+			productName = "Today Extension";
+			productReference = 777F30561FF3F8DB00B44918 /* Today Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -335,11 +414,25 @@
 					773F237B1FDE81E600D1F7FA = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					773F238F1FDE81E600D1F7FA = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 773F237B1FDE81E600D1F7FA;
+					};
+					777F30551FF3F8DB00B44918 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -358,6 +451,7 @@
 			targets = (
 				773F237B1FDE81E600D1F7FA /* Coin Wallet */,
 				773F238F1FDE81E600D1F7FA /* Coin WalletTests */,
+				777F30551FF3F8DB00B44918 /* Today Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -378,6 +472,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		777F30541FF3F8DB00B44918 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				777F305F1FF3F8DC00B44918 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +543,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		777F30521FF3F8DB00B44918 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				777F305C1FF3F8DC00B44918 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -448,6 +558,11 @@
 			isa = PBXTargetDependency;
 			target = 773F237B1FDE81E600D1F7FA /* Coin Wallet */;
 			targetProxy = 773F23911FDE81E600D1F7FA /* PBXContainerItemProxy */;
+		};
+		777F30621FF3F8DC00B44918 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 777F30551FF3F8DB00B44918 /* Today Extension */;
+			targetProxy = 777F30611FF3F8DC00B44918 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -466,6 +581,14 @@
 				773F23891FDE81E600D1F7FA /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		777F305D1FF3F8DC00B44918 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				777F305E1FF3F8DC00B44918 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -581,7 +704,9 @@
 		773F239A1FDE81E600D1F7FA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Coin Wallet/Coin Wallet.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 34MP7UPC72;
@@ -603,7 +728,9 @@
 		773F239B1FDE81E600D1F7FA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Coin Wallet/Coin Wallet.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 34MP7UPC72;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -655,6 +782,38 @@
 			};
 			name = Release;
 		};
+		777F30651FF3F8DC00B44918 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Today Extension/Today Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 34MP7UPC72;
+				INFOPLIST_FILE = "Today Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.oezguercelebi.Coin-Wallet.Today-Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		777F30661FF3F8DC00B44918 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Today Extension/Today Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 34MP7UPC72;
+				INFOPLIST_FILE = "Today Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.oezguercelebi.Coin-Wallet.Today-Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -681,6 +840,15 @@
 			buildConfigurations = (
 				773F239D1FDE81E600D1F7FA /* Debug */,
 				773F239E1FDE81E600D1F7FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		777F30641FF3F8DC00B44918 /* Build configuration list for PBXNativeTarget "Today Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				777F30651FF3F8DC00B44918 /* Debug */,
+				777F30661FF3F8DC00B44918 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
