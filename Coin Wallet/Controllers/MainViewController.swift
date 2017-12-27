@@ -168,6 +168,7 @@ class MainViewController: UIViewController {
     func totalPortfolioValueAsDollar(coinValues: [Float]) {
         DispatchQueue.main.async {
             let total = coinValues.reduce(0, +)
+            UserDefaults.init(suiteName: "group.com.oezguercelebi.Coin-Wallet")?.setValue(total, forKey: "totalPortfolioValue")
             self.totalPortfolioValueLabel.text = total.changeToDollarCurrencyString()
         }
     }
