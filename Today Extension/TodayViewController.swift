@@ -26,14 +26,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
-        // Perform any setup necessary in order to update the view.
-        
         // If an error is encountered, use NCUpdateResult.Failed
         // If there's no update required, use NCUpdateResult.NoData
         // If there's an update, use NCUpdateResult.NewData
@@ -43,12 +36,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             totalPortfolioValueLabel.text = total.changeToDollarCurrencyString()
             completionHandler(NCUpdateResult.newData)
         }
-        
-//
-//        print("\(UserDefaults.standard.value(forKey: "totalPortfolioValue")!)")
-        
     }
-    
 }
 
 extension Float {
