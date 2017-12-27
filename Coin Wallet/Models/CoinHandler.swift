@@ -29,6 +29,7 @@ class CoinHandler {
                     
                     coinsDataArray.append(Coin(id: id!, name: name!, symbol: symbol!, rank: rank, price_usd: price_usd, last_updated: last_updated!))
                 }
+                print("Count total coins: ",coinsDataArray.count)
                 
                 completion(coinsDataArray)
             } catch {
