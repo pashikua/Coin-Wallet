@@ -24,6 +24,7 @@
 		7776D5931FDF6158006C42FD /* Disk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7776D5911FDF6158006C42FD /* Disk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7776D5951FDF6B76006C42FD /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7776D5941FDF6B75006C42FD /* Kingfisher.framework */; };
 		7776D5961FDF6B76006C42FD /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7776D5941FDF6B75006C42FD /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		777F30511FF3B43700B44918 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 777F304E1FF3AA3700B44918 /* Keys.plist */; };
 		778E3BC81FDE835C00731CE4 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 778E3BC71FDE835C00731CE4 /* SwiftyJSON.framework */; };
 		778E3BC91FDE835C00731CE4 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 778E3BC71FDE835C00731CE4 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		778E3BCF1FDE842600731CE4 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778E3BCE1FDE842600731CE4 /* Coin.swift */; };
@@ -43,6 +44,8 @@
 		778E3BF61FDF1FEB00731CE4 /* SwiftHTTP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 778E3BF51FDF1FEB00731CE4 /* SwiftHTTP.framework */; };
 		778E3BF71FDF1FEB00731CE4 /* SwiftHTTP.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 778E3BF51FDF1FEB00731CE4 /* SwiftHTTP.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		778E3BF91FDF2C0900731CE4 /* CoinHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778E3BF81FDF2C0900731CE4 /* CoinHandler.swift */; };
+		779A73E11FF3A496000CD423 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 779A73DF1FF3A496000CD423 /* Crashlytics.framework */; };
+		779A73E21FF3A496000CD423 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 779A73E01FF3A496000CD423 /* Fabric.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +95,7 @@
 		7776CD661FE7DC4D000CBF65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7776D5911FDF6158006C42FD /* Disk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Disk.framework; path = Carthage/Build/iOS/Disk.framework; sourceTree = "<group>"; };
 		7776D5941FDF6B75006C42FD /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
+		777F304E1FF3AA3700B44918 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		778E3BC71FDE835C00731CE4 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		778E3BCE1FDE842600731CE4 /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		778E3BD11FDE8D8D00731CE4 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
@@ -109,6 +113,8 @@
 		778E3BF31FDF1CFE00731CE4 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		778E3BF51FDF1FEB00731CE4 /* SwiftHTTP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftHTTP.framework; path = Carthage/Build/iOS/SwiftHTTP.framework; sourceTree = "<group>"; };
 		778E3BF81FDF2C0900731CE4 /* CoinHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinHandler.swift; sourceTree = "<group>"; };
+		779A73DF1FF3A496000CD423 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		779A73E01FF3A496000CD423 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,9 +125,11 @@
 				7776D5921FDF6158006C42FD /* Disk.framework in Frameworks */,
 				7755FD2F1FE40C8200624F23 /* SwipeCellKit.framework in Frameworks */,
 				778E3BF61FDF1FEB00731CE4 /* SwiftHTTP.framework in Frameworks */,
+				779A73E21FF3A496000CD423 /* Fabric.framework in Frameworks */,
 				7776D5951FDF6B76006C42FD /* Kingfisher.framework in Frameworks */,
 				778E3BC81FDE835C00731CE4 /* SwiftyJSON.framework in Frameworks */,
 				7755FD321FE4193500624F23 /* SCLAlertView.framework in Frameworks */,
+				779A73E11FF3A496000CD423 /* Crashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,6 +146,8 @@
 		773F23731FDE81E600D1F7FA = {
 			isa = PBXGroup;
 			children = (
+				779A73DF1FF3A496000CD423 /* Crashlytics.framework */,
+				779A73E01FF3A496000CD423 /* Fabric.framework */,
 				7755FD311FE4193500624F23 /* SCLAlertView.framework */,
 				7755FD2E1FE40C8200624F23 /* SwipeCellKit.framework */,
 				7776D5941FDF6B75006C42FD /* Kingfisher.framework */,
@@ -162,15 +172,14 @@
 		773F237E1FDE81E600D1F7FA /* Coin Wallet */ = {
 			isa = PBXGroup;
 			children = (
-				778E3BEA1FDEE56300731CE4 /* Extensions */,
-				778E3BD51FDE933400731CE4 /* Controllers */,
-				778E3BD01FDE8D6700731CE4 /* Views */,
-				778E3BCD1FDE841C00731CE4 /* Models */,
 				773F237F1FDE81E600D1F7FA /* AppDelegate.swift */,
+				778E3BD51FDE933400731CE4 /* Controllers */,
+				778E3BEA1FDEE56300731CE4 /* Extensions */,
 				773F23831FDE81E600D1F7FA /* Main.storyboard */,
-				773F23881FDE81E600D1F7FA /* LaunchScreen.storyboard */,
+				778E3BCD1FDE841C00731CE4 /* Models */,
 				773F238B1FDE81E600D1F7FA /* Info.plist */,
-				7776CD661FE7DC4D000CBF65 /* Assets.xcassets */,
+				777F304D1FF3A9EF00B44918 /* Supporting Files */,
+				778E3BD01FDE8D6700731CE4 /* Views */,
 			);
 			path = "Coin Wallet";
 			sourceTree = "<group>";
@@ -186,6 +195,16 @@
 				773F23961FDE81E600D1F7FA /* Info.plist */,
 			);
 			path = "Coin WalletTests";
+			sourceTree = "<group>";
+		};
+		777F304D1FF3A9EF00B44918 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7776CD661FE7DC4D000CBF65 /* Assets.xcassets */,
+				773F23881FDE81E600D1F7FA /* LaunchScreen.storyboard */,
+				777F304E1FF3AA3700B44918 /* Keys.plist */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		778E3BCC1FDE83F200731CE4 /* TestControllers */ = {
@@ -348,6 +367,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				777F30511FF3B43700B44918 /* Keys.plist in Resources */,
 				773F238A1FDE81E600D1F7FA /* LaunchScreen.storyboard in Resources */,
 				7776CD671FE7DC4E000CBF65 /* Assets.xcassets in Resources */,
 				773F23851FDE81E600D1F7FA /* Main.storyboard in Resources */,
@@ -567,6 +587,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Coin Wallet/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -587,6 +608,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Coin Wallet/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
