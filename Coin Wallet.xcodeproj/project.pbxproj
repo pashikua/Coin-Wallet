@@ -16,6 +16,9 @@
 		774517B81FF5118500715AC5 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774517B71FF5118500715AC5 /* SettingsTableViewController.swift */; };
 		774517BB1FF52A0000715AC5 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 774517B91FF52A0000715AC5 /* Settings.storyboard */; };
 		774517BF1FF5339300715AC5 /* SupportDeveloperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774517BE1FF5339300715AC5 /* SupportDeveloperViewController.swift */; };
+		774517C11FF5444800715AC5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 774517C01FF5444800715AC5 /* StoreKit.framework */; };
+		774517C31FF54A9C00715AC5 /* SwiftyStoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 774517C21FF54A9C00715AC5 /* SwiftyStoreKit.framework */; };
+		774517C41FF54A9C00715AC5 /* SwiftyStoreKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 774517C21FF54A9C00715AC5 /* SwiftyStoreKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7755FD291FE3DAE700624F23 /* C.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7755FD281FE3DAE700624F23 /* C.swift */; };
 		7755FD2B1FE3DB4C00624F23 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7755FD2A1FE3DB4C00624F23 /* UIColorExtensions.swift */; };
 		7755FD2F1FE40C8200624F23 /* SwipeCellKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7755FD2E1FE40C8200624F23 /* SwipeCellKit.framework */; };
@@ -91,6 +94,7 @@
 			files = (
 				7776D5931FDF6158006C42FD /* Disk.framework in Embed Frameworks */,
 				7755FD301FE40C8200624F23 /* SwipeCellKit.framework in Embed Frameworks */,
+				774517C41FF54A9C00715AC5 /* SwiftyStoreKit.framework in Embed Frameworks */,
 				778E3BF71FDF1FEB00731CE4 /* SwiftHTTP.framework in Embed Frameworks */,
 				7776D5961FDF6B76006C42FD /* Kingfisher.framework in Embed Frameworks */,
 				778E3BC91FDE835C00731CE4 /* SwiftyJSON.framework in Embed Frameworks */,
@@ -117,6 +121,8 @@
 		774517B71FF5118500715AC5 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		774517BA1FF52A0000715AC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Coin Wallet/Base.lproj/Settings.storyboard"; sourceTree = "<group>"; };
 		774517BE1FF5339300715AC5 /* SupportDeveloperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportDeveloperViewController.swift; sourceTree = "<group>"; };
+		774517C01FF5444800715AC5 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		774517C21FF54A9C00715AC5 /* SwiftyStoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyStoreKit.framework; path = Carthage/Build/iOS/SwiftyStoreKit.framework; sourceTree = "<group>"; };
 		7755FD281FE3DAE700624F23 /* C.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C.swift; sourceTree = "<group>"; };
 		7755FD2A1FE3DB4C00624F23 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		7755FD2E1FE40C8200624F23 /* SwipeCellKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwipeCellKit.framework; path = Carthage/Build/iOS/SwipeCellKit.framework; sourceTree = "<group>"; };
@@ -155,12 +161,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				774517C11FF5444800715AC5 /* StoreKit.framework in Frameworks */,
 				7776D5921FDF6158006C42FD /* Disk.framework in Frameworks */,
 				7755FD2F1FE40C8200624F23 /* SwipeCellKit.framework in Frameworks */,
 				778E3BF61FDF1FEB00731CE4 /* SwiftHTTP.framework in Frameworks */,
 				779A73E21FF3A496000CD423 /* Fabric.framework in Frameworks */,
 				7776D5951FDF6B76006C42FD /* Kingfisher.framework in Frameworks */,
 				778E3BC81FDE835C00731CE4 /* SwiftyJSON.framework in Frameworks */,
+				774517C31FF54A9C00715AC5 /* SwiftyStoreKit.framework in Frameworks */,
 				7755FD321FE4193500624F23 /* SCLAlertView.framework in Frameworks */,
 				779A73E11FF3A496000CD423 /* Crashlytics.framework in Frameworks */,
 			);
@@ -187,6 +195,7 @@
 		773F23731FDE81E600D1F7FA = {
 			isa = PBXGroup;
 			children = (
+				774517C21FF54A9C00715AC5 /* SwiftyStoreKit.framework */,
 				779A73DF1FF3A496000CD423 /* Crashlytics.framework */,
 				779A73E01FF3A496000CD423 /* Fabric.framework */,
 				7755FD311FE4193500624F23 /* SCLAlertView.framework */,
@@ -255,6 +264,7 @@
 		777F30571FF3F8DC00B44918 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				774517C01FF5444800715AC5 /* StoreKit.framework */,
 				777F30581FF3F8DC00B44918 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
@@ -422,6 +432,9 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.InAppPurchase = {
 								enabled = 1;
 							};
 						};

@@ -2,35 +2,56 @@
   "warnings": [
     {
       "file": "/Users/JP20028/Dropbox/github/Kingfisher/Sources/AnimatedImageView.swift",
-      "line": 94,
+      "line": 78,
+      "symbol": "AnimatedImageView.RepeatCount.once",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/JP20028/Dropbox/github/Kingfisher/Sources/AnimatedImageView.swift",
+      "line": 79,
+      "symbol": "AnimatedImageView.RepeatCount.finite",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/JP20028/Dropbox/github/Kingfisher/Sources/AnimatedImageView.swift",
+      "line": 80,
+      "symbol": "AnimatedImageView.RepeatCount.infinite",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/JP20028/Dropbox/github/Kingfisher/Sources/AnimatedImageView.swift",
+      "line": 152,
       "symbol": "AnimatedImageView.image",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/JP20028/Dropbox/github/Kingfisher/Sources/AnimatedImageView.swift",
-      "line": 110,
+      "line": 168,
       "symbol": "AnimatedImageView.isAnimating",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/JP20028/Dropbox/github/Kingfisher/Sources/AnimatedImageView.swift",
-      "line": 135,
+      "line": 197,
       "symbol": "AnimatedImageView.display(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/JP20028/Dropbox/github/Kingfisher/Sources/AnimatedImageView.swift",
-      "line": 143,
+      "line": 205,
       "symbol": "AnimatedImageView.didMoveToWindow()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/JP20028/Dropbox/github/Kingfisher/Sources/AnimatedImageView.swift",
-      "line": 148,
+      "line": 210,
       "symbol": "AnimatedImageView.didMoveToSuperview()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -170,28 +191,28 @@
     },
     {
       "file": "/Users/JP20028/Dropbox/github/Kingfisher/Sources/ImageCache.swift",
-      "line": 627,
+      "line": 632,
       "symbol": "ImageCache.cachePath(forComputedKey:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/JP20028/Dropbox/github/Kingfisher/Sources/ImageCache.swift",
-      "line": 665,
+      "line": 670,
       "symbol": "ImageCache.CacheCheckResult.cached",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/JP20028/Dropbox/github/Kingfisher/Sources/ImageCache.swift",
-      "line": 666,
+      "line": 671,
       "symbol": "ImageCache.CacheCheckResult.cacheType",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/JP20028/Dropbox/github/Kingfisher/Sources/ImageCache.swift",
-      "line": 708,
+      "line": 713,
       "symbol": "Kingfisher.shared",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"

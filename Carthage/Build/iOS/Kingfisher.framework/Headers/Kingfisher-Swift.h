@@ -210,6 +210,8 @@ SWIFT_CLASS("_TtC10Kingfisher17AnimatedImageView")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+
+
 @class NSURLSession;
 @class NSURLSessionDataTask;
 @class NSURLResponse;
