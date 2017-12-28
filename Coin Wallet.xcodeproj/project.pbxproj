@@ -13,6 +13,9 @@
 		773F23851FDE81E600D1F7FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 773F23831FDE81E600D1F7FA /* Main.storyboard */; };
 		773F238A1FDE81E600D1F7FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 773F23881FDE81E600D1F7FA /* LaunchScreen.storyboard */; };
 		773F23951FDE81E600D1F7FA /* Coin_WalletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773F23941FDE81E600D1F7FA /* Coin_WalletTests.swift */; };
+		774517B81FF5118500715AC5 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774517B71FF5118500715AC5 /* SettingsTableViewController.swift */; };
+		774517BB1FF52A0000715AC5 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 774517B91FF52A0000715AC5 /* Settings.storyboard */; };
+		774517BF1FF5339300715AC5 /* SupportDeveloperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774517BE1FF5339300715AC5 /* SupportDeveloperViewController.swift */; };
 		7755FD291FE3DAE700624F23 /* C.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7755FD281FE3DAE700624F23 /* C.swift */; };
 		7755FD2B1FE3DB4C00624F23 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7755FD2A1FE3DB4C00624F23 /* UIColorExtensions.swift */; };
 		7755FD2F1FE40C8200624F23 /* SwipeCellKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7755FD2E1FE40C8200624F23 /* SwipeCellKit.framework */; };
@@ -111,6 +114,9 @@
 		773F23961FDE81E600D1F7FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		774517B51FF4065B00715AC5 /* Today Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Today Extension.entitlements"; sourceTree = "<group>"; };
 		774517B61FF4086500715AC5 /* Coin Wallet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Coin Wallet.entitlements"; sourceTree = "<group>"; };
+		774517B71FF5118500715AC5 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		774517BA1FF52A0000715AC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Coin Wallet/Base.lproj/Settings.storyboard"; sourceTree = "<group>"; };
+		774517BE1FF5339300715AC5 /* SupportDeveloperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportDeveloperViewController.swift; sourceTree = "<group>"; };
 		7755FD281FE3DAE700624F23 /* C.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C.swift; sourceTree = "<group>"; };
 		7755FD2A1FE3DB4C00624F23 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		7755FD2E1FE40C8200624F23 /* SwipeCellKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwipeCellKit.framework; path = Carthage/Build/iOS/SwipeCellKit.framework; sourceTree = "<group>"; };
@@ -215,6 +221,7 @@
 				778E3BD51FDE933400731CE4 /* Controllers */,
 				778E3BEA1FDEE56300731CE4 /* Extensions */,
 				773F23831FDE81E600D1F7FA /* Main.storyboard */,
+				774517B91FF52A0000715AC5 /* Settings.storyboard */,
 				778E3BCD1FDE841C00731CE4 /* Models */,
 				773F238B1FDE81E600D1F7FA /* Info.plist */,
 				777F304D1FF3A9EF00B44918 /* Supporting Files */,
@@ -300,6 +307,8 @@
 				773F23811FDE81E600D1F7FA /* MainViewController.swift */,
 				778E3BD61FDE935100731CE4 /* CoinDataService.swift */,
 				778E3BF11FDF110300731CE4 /* AddCoinViewController.swift */,
+				774517B71FF5118500715AC5 /* SettingsTableViewController.swift */,
+				774517BE1FF5339300715AC5 /* SupportDeveloperViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -461,6 +470,7 @@
 				773F238A1FDE81E600D1F7FA /* LaunchScreen.storyboard in Resources */,
 				7776CD671FE7DC4E000CBF65 /* Assets.xcassets in Resources */,
 				773F23851FDE81E600D1F7FA /* Main.storyboard in Resources */,
+				774517BB1FF52A0000715AC5 /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,6 +519,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				778E3BE01FDEB8C100731CE4 /* CoinManager.swift in Sources */,
+				774517BF1FF5339300715AC5 /* SupportDeveloperViewController.swift in Sources */,
 				7755FD2B1FE3DB4C00624F23 /* UIColorExtensions.swift in Sources */,
 				778E3BD91FDE969200731CE4 /* CoinTableViewCell.swift in Sources */,
 				77135FF81FE359A9000B1122 /* FloatExtensions.swift in Sources */,
@@ -519,6 +530,7 @@
 				778E3BF41FDF1CFE00731CE4 /* CustomButton.swift in Sources */,
 				7755FD291FE3DAE700624F23 /* C.swift in Sources */,
 				773F23821FDE81E600D1F7FA /* MainViewController.swift in Sources */,
+				774517B81FF5118500715AC5 /* SettingsTableViewController.swift in Sources */,
 				778E3BF91FDF2C0900731CE4 /* CoinHandler.swift in Sources */,
 				778E3BD71FDE935100731CE4 /* CoinDataService.swift in Sources */,
 				773F23801FDE81E600D1F7FA /* AppDelegate.swift in Sources */,
@@ -577,6 +589,14 @@
 				773F23891FDE81E600D1F7FA /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		774517B91FF52A0000715AC5 /* Settings.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				774517BA1FF52A0000715AC5 /* Base */,
+			);
+			name = Settings.storyboard;
 			sourceTree = "<group>";
 		};
 		777F305D1FF3F8DC00B44918 /* MainInterface.storyboard */ = {
