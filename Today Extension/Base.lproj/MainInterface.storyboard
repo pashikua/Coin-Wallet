@@ -37,7 +37,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="auQ-KW-Ovf"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="29"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="29"/>
                                         <color key="textColor" red="0.1215686275" green="0.1215686275" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
