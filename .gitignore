@@ -68,3 +68,5 @@ fastlane/test_output
 
 # Hide private keys
 Coin Wallet/Supporting Files/Keys.plist
+fabric.apikey
+fabric.buildsecret
