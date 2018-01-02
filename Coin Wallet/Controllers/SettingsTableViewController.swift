@@ -8,9 +8,10 @@ import StoreKit
 
 class SettingsTableViewController: UITableViewController, SFSafariViewControllerDelegate {
 
+    @IBOutlet weak var touchIDSwitch: UISwitch!
     @IBOutlet weak var versionLabel: UILabel!
     
-    let securityItems = ["Enable Passcode"]
+    let securityItems = ["Enable Biometric Lock"]
     let aboutItems = ["Support Developer", "View Source Code", "Rate and give Feedback"]
     
     override func viewDidLoad() {
@@ -25,12 +26,30 @@ class SettingsTableViewController: UITableViewController, SFSafariViewController
         self.versionLabel.text = "Version: " + getAppVersion()
     }
     
-    @IBAction func passcodeSwitch(_ sender: UISwitch) {
+    override func viewWillAppear(_ animated: Bool) {
+        setSwitch()
+    }
+    
+    @IBAction func touchIDSwitch(_ sender: UISwitch) {
         if sender.isOn {
             print("true")
             authenticateUsingTouchID()
         } else {
             print("false")
+            UserDefaults.standard.set(false, forKey: "isTouchIDEnabled")
+        }
+    }
+    
+    func setSwitch() {
+        // Set switch accordingly
+        if UserDefaults.standard.bool(forKey: "isTouchIDEnabled") {
+            DispatchQueue.main.async {
+                self.touchIDSwitch.isOn = true
+            }
+        } else {
+            DispatchQueue.main.async {
+                self.touchIDSwitch.isOn = false
+            }
         }
     }
     
@@ -47,24 +66,33 @@ class SettingsTableViewController: UITableViewController, SFSafariViewController
             authContext.evaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, localizedReason: authReason, reply: { (success, error) in
                 if success {
                     print("authenticate successfully")
-                    DispatchQueue.main.async {
-                        print("main queue accepted")
-                    }
+                    UserDefaults.standard.set(true, forKey: "isTouchIDEnabled")
                 } else {
                     DispatchQueue.main.async {
                         // Authentication failed. Show alert indicating what error occurred.
+                        print("Display Error Message")
+                        self.touchIDSwitch.isOn = false
                         self.displayErrorMessage(error: error as! LAError )
+                        let err = error as! LAError
                     }
                 }
             })
         } else {
             print("Error")
-            //Touch ID is not available on Device, use password.
-            self.showAlertWith(title: "Error", message: (authErrorPointer?.localizedDescription)!)
+            self.touchIDSwitch.isOn = false
+            // Touch ID is not available on Device, use password.
+            if authErrorPointer?.code == -7 {
+                self.showAlertWith(title: "Error", message: "Biometric Authentication is not enabled on this Device. Enable it and try again")
+            } else {
+                self.showAlertWith(title: "Error", message: (authErrorPointer?.localizedDescription)!)
+            }
         }
     }
     
-    func displayErrorMessage(error:LAError) {
+    func displayErrorMessage(error: LAError) {
+        print(error.code)
+        print(error._nsError)
+        
         var message = ""
         switch error.code {
         case LAError.authenticationFailed:
@@ -77,13 +105,17 @@ class SettingsTableViewController: UITableViewController, SFSafariViewController
             message = "Authentication was canceled because the user tapped the fallback button"
             break
         case LAError.passcodeNotSet:
-            message = "Passcode is not set on the device."
+            message = "Passcode is not set on the device"
             break
         case LAError.systemCancel:
             message = "Authentication was canceled by system"
             break
+        case LAError.biometryNotEnrolled:
+            message = "Enable FaceID or TouchID to use the feature"
         default:
             message = error.localizedDescription
+            print(error.code)
+            print(error._nsError)
         }
         
         self.showAlertWith(title: "Authentication Failed", message: message)
@@ -130,51 +162,6 @@ class SettingsTableViewController: UITableViewController, SFSafariViewController
             break
         }
     }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
     
     /*
     // MARK: - Navigation
@@ -192,6 +179,7 @@ class SettingsTableViewController: UITableViewController, SFSafariViewController
  
 
     // MARK: - Safari
+    
     func presentOpenSourceProject() {
         guard let url = URL(string: "https://github.com/oezguercelebi/Coin-Wallet") else {
             return //be safe
