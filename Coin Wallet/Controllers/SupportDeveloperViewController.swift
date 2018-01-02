@@ -151,7 +151,7 @@ class SupportDeveloperViewController: UIViewController {
                 switch purchase {
                 case .basicSupporter:
                     let purchaseResult = SwiftyStoreKit.verifySubscription(
-                        type: .autoRenewable,
+                        ofType: .autoRenewable,
                         productId: productId,
                         inReceipt: receipt,
                         validUntil: Date()
@@ -159,7 +159,7 @@ class SupportDeveloperViewController: UIViewController {
                     self.showAlert(self.alertForVerifySubscription(purchaseResult))
                 case .plusSupporter:
                     let purchaseResult = SwiftyStoreKit.verifySubscription(
-                        type: .autoRenewable,
+                        ofType: .autoRenewable,
                         productId: productId,
                         inReceipt: receipt,
                         validUntil: Date()
@@ -167,7 +167,7 @@ class SupportDeveloperViewController: UIViewController {
                     self.showAlert(self.alertForVerifySubscription(purchaseResult))
                 case .premiumSupporter:
                     let purchaseResult = SwiftyStoreKit.verifySubscription(
-                        type: .autoRenewable,
+                        ofType: .autoRenewable,
                         productId: productId,
                         inReceipt: receipt,
                         validUntil: Date()
@@ -175,7 +175,7 @@ class SupportDeveloperViewController: UIViewController {
                     self.showAlert(self.alertForVerifySubscription(purchaseResult))
                 case .maxSupporter:
                     let purchaseResult = SwiftyStoreKit.verifySubscription(
-                        type: .autoRenewable,
+                        ofType: .autoRenewable,
                         productId: productId,
                         inReceipt: receipt,
                         validUntil: Date()
