@@ -13,7 +13,7 @@ Coin Wallet is a small iOS app that makes checking crypto currency prices and ma
 
 ## Why
 
-- Making it Free and without Ads
+- Making it Free and without Ads in the App Store
 - Exploring Open Source
 - Improve my coding skills
 
