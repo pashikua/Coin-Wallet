@@ -7,8 +7,6 @@ import SwiftyJSON
 import Disk
 
 class AddCoinViewController: UIViewController, UITableViewDelegate, UITextFieldDelegate {
-
-    @IBOutlet weak var coinsPickerView: UIPickerView!
     
     @IBOutlet weak var holdingTextField: UITextField!
     
@@ -29,6 +27,7 @@ class AddCoinViewController: UIViewController, UITableViewDelegate, UITextFieldD
         
         self.holdingTextField.delegate = self
         self.searchBar.delegate = self
+        self.holdingTextField.addDoneButtonOnKeyboard()
     }
     
     override func viewWillAppear(_ animated: Bool) {
