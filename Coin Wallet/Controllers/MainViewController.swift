@@ -16,6 +16,8 @@ class MainViewController: UIViewController {
     
     private let refreshControl = UIRefreshControl()
     
+    var blurEffectView: UIVisualEffectView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,7 +36,17 @@ class MainViewController: UIViewController {
         refreshCoinData(refreshControl)
         
         fetchCoinsData()
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: Notification.Name.UIApplicationWillResignActive, object: nil)
+        
+        let nc = NotificationCenter.default
+        nc.addObserver(self, selector: #selector(appMovedToForeground), name: Notification.Name.UIApplicationDidBecomeActive, object: nil)
+        
+        addBlurEffectView()
     }
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         print("viewWillAppear")
@@ -173,6 +185,43 @@ class MainViewController: UIViewController {
         }
     }
     
+    
+}
+
+extension MainViewController {
+    // Mark: - BlurEffect
+
+    // Blur main view while app is in background
+    func addBlurEffectView() {
+        // Add Blur Effect to view
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        blurEffectView.alpha = 0.0
+        self.view.addSubview(blurEffectView)
+    }
+    
+    func hideVisualEffectView(_ visualEffectView: UIVisualEffectView, isHidden: Bool) {
+        UIView.animate(withDuration: 0.15, animations: {
+            visualEffectView.alpha = isHidden ? 0.0 : 1.0
+        }, completion: nil)
+    }
+    
+    @objc func appMovedToBackground() {
+        print("App moved to background!")
+        if UserDefaults.standard.bool(forKey: "isTouchIDEnabled") {
+            // Show blur
+            hideVisualEffectView(blurEffectView, isHidden: false)
+        }
+    }
+    
+    @objc func appMovedToForeground() {
+        print("App moved to foreground!")
+        if UserDefaults.standard.bool(forKey: "isTouchIDEnabled") {
+            // Hide blur
+            hideVisualEffectView(blurEffectView, isHidden: true)
+        }
+    }
 }
 
 extension MainViewController: CoinManagerDelegate {
