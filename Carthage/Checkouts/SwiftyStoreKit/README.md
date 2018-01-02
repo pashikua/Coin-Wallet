@@ -13,12 +13,13 @@ SwiftyStoreKit is a lightweight In App Purchases framework for iOS 8.0+, tvOS 9.
 
 ### Preview
 
-<img src="https://github.com/bizz84/SwiftyStoreKit/raw/master/Screenshots/Preview.png" width="320">
-<img src="https://github.com/bizz84/SwiftyStoreKit/raw/master/Screenshots/Preview2.png" width="320">
+<img src="https://github.com/bizz84/SwiftyStoreKit/raw/master/Screenshots/Preview.jpg" width="320">
 
 ### Note from the Author
 
 I started [**Sustainable Earth**](https://github.com/bizz84/Sustainable-Earth), a curated list of all things sustainable. Interested? [It's on GitHub](https://github.com/bizz84/Sustainable-Earth).
+
+### Like SwiftyStoreKit? Please consider [becoming a Patron](https://www.patreon.com/biz84).
 
 ## Contributing
 
@@ -70,10 +71,10 @@ SwiftyStoreKit.retrieveProductsInfo(["com.musevisions.SwiftyStoreKit.Purchase1"]
         print("Product: \(product.localizedDescription), price: \(priceString)")
     }
     else if let invalidProductId = result.invalidProductIDs.first {
-        return alertWithTitle("Could not retrieve product info", message: "Invalid product identifier: \(invalidProductId)")
+        print("Invalid product identifier: \(invalidProductId)")
     }
     else {
-	     print("Error: \(result.error)")
+        print("Error: \(result.error)")
     }
 }
 ```
@@ -164,8 +165,8 @@ SwiftyStoreKit supports this with a new handler, called like this:
 
 ```swift
 SwiftyStoreKit.shouldAddStorePaymentHandler = { payment, product in
-	// return true if the content can be delivered by your app
-	// return false otherwise
+    // return true if the content can be delivered by your app
+    // return false otherwise
 }
 ```
 
@@ -355,16 +356,17 @@ let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: "
 SwiftyStoreKit.verifyReceipt(using: appleValidator) { result in
     switch result {
     case .success(let receipt):
+        let productId = "com.musevisions.SwiftyStoreKit.Purchase1"
         // Verify the purchase of Consumable or NonConsumable
         let purchaseResult = SwiftyStoreKit.verifyPurchase(
-            productId: "com.musevisions.SwiftyStoreKit.Purchase1",
+            productId: productId,
             inReceipt: receipt)
             
         switch purchaseResult {
         case .purchased(let receiptItem):
-            print("Product is purchased: \(receiptItem)")
+            print("\(productId) is purchased: \(receiptItem)")
         case .notPurchased:
-            print("The user has never purchased this product")
+            print("The user has never purchased \(productId)")
         }
     case .error(let error):
         print("Receipt verification failed: \(error)")
@@ -389,19 +391,20 @@ let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: "
 SwiftyStoreKit.verifyReceipt(using: appleValidator) { result in
     switch result {
     case .success(let receipt):
+        let productId = "com.musevisions.SwiftyStoreKit.Subscription"
         // Verify the purchase of a Subscription
         let purchaseResult = SwiftyStoreKit.verifySubscription(
-            type: .autoRenewable, // or .nonRenewing (see below)
-            productId: "com.musevisions.SwiftyStoreKit.Subscription",
+            ofType: .autoRenewable, // or .nonRenewing (see below)
+            productId: productId,
             inReceipt: receipt)
             
         switch purchaseResult {
-        case .purchased(let expiryDate, let receiptItems):
-            print("Product is valid until \(expiryDate)")
-        case .expired(let expiryDate, let receiptItems):
-            print("Product is expired since \(expiryDate)")
+        case .purchased(let expiryDate, let items):
+            print("\(productId) is valid until \(expiryDate)\n\(items)\n")
+        case .expired(let expiryDate, let items):
+            print("\(productId) is expired since \(expiryDate)\n\(items)\n")
         case .notPurchased:
-            print("The user has never purchased this product")
+            print("The user has never purchased \(productId)")
         }
 
     case .error(let error):
@@ -413,7 +416,7 @@ SwiftyStoreKit.verifyReceipt(using: appleValidator) { result in
 #### Auto-Renewable
 ```swift
 let purchaseResult = SwiftyStoreKit.verifySubscription(
-            type: .autoRenewable,
+            ofType: .autoRenewable,
             productId: "com.musevisions.SwiftyStoreKit.Subscription",
             inReceipt: receipt)
 ```
@@ -422,7 +425,7 @@ let purchaseResult = SwiftyStoreKit.verifySubscription(
 ```swift
 // validDuration: time interval in seconds
 let purchaseResult = SwiftyStoreKit.verifySubscription(
-            type: .nonRenewing(validDuration: 3600 * 24 * 30),
+            ofType: .nonRenewing(validDuration: 3600 * 24 * 30),
             productId: "com.musevisions.SwiftyStoreKit.Subscription",
             inReceipt: receipt)
 ```
@@ -451,7 +454,7 @@ SwiftyStoreKit.purchaseProduct(productId, atomically: true) { result in
             
             if case .success(let receipt) = result {
                 let purchaseResult = SwiftyStoreKit.verifySubscription(
-                    type: .autoRenewable,
+                    ofType: .autoRenewable,
                     productId: productId,
                     inReceipt: receipt)
                 
@@ -474,6 +477,36 @@ SwiftyStoreKit.purchaseProduct(productId, atomically: true) { result in
 }
 ```
 
+### Subscription Groups
+
+From [Apple Docs - Offering Subscriptions](https://developer.apple.com/app-store/subscriptions/):
+
+> A subscription group is a set of in-app purchases that you can create to provide users with a range of content offerings, service levels, or durations to best meet their needs. Users can only buy one subscription within a subscription group at a time. If users would want to buy more that one type of subscription — for example, to subscribe to more than one channel in a streaming app — you can put these in-app purchases in different subscription groups.
+
+You can verify all subscriptions within the same group with the `verifySubscriptions` method:
+
+```swift
+let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: "your-shared-secret")
+SwiftyStoreKit.verifyReceipt(using: appleValidator) { result in
+    switch result {
+    case .success(let receipt):
+        let productIds = Set([ "com.musevisions.SwiftyStoreKit.Weekly",
+                               "com.musevisions.SwiftyStoreKit.Monthly",
+                               "com.musevisions.SwiftyStoreKit.Yearly" ])
+        let purchaseResult = SwiftyStoreKit.verifySubscriptions(productIds: productIds, inReceipt: receipt)
+        switch purchaseResult {
+        case .purchased(let expiryDate, let items):
+            print("\(productIds) are valid until \(expiryDate)\n\(items)\n")
+        case .expired(let expiryDate, let items):
+            print("\(productIds) are expired since \(expiryDate)\n\(items)\n")
+        case .notPurchased:
+            print("The user has never purchased \(productIds)")
+        }
+    case .error(let error):
+        print("Receipt verification failed: \(error)")
+    }
+}
+```
 
 ## Notes
 The framework provides a simple block based API with robust error handling on top of the existing StoreKit framework. It does **NOT** persist in app purchases data locally. It is up to clients to do this with a storage solution of choice (i.e. NSUserDefaults, CoreData, Keychain).
@@ -525,6 +558,18 @@ Note that the pre-registered in app purchases in the demo apps are for illustrat
 - Support for free, auto renewable and non renewing subscriptions
 - Receipt verification
 - iOS, tvOS and macOS compatible
+
+
+## Video Tutorials
+
+#### Jared Davidson: In App Purchases! (Swift 3 in Xcode : Swifty Store Kit)
+
+<a href="https://www.youtube.com/watch?v=dwPFtwDJ7tcb"><img src="https://raw.githubusercontent.com/bizz84/SwiftyStoreKit/master/Screenshots/VideoTutorial-JaredDavidson.jpg" width="854" /></a>
+
+#### [@rebeloper](https://github.com/rebeloper): Ultimate In-app Purchases Guide
+
+<a href="https://www.youtube.com/watch?v=bIyj6BZ1-Qw&list=PL_csAAO9PQ8b9kqrltk2_SpYslTwyrwjb"><img src="https://raw.githubusercontent.com/bizz84/SwiftyStoreKit/master/Screenshots/VideoTutorial-Rebeloper.jpg" width="854" /></a>
+
 
 ## Essential Reading
 * [Apple - WWDC16, Session 702: Using Store Kit for In-app Purchases with Swift 3](https://developer.apple.com/videos/play/wwdc2016/702/)
