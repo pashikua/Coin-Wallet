@@ -67,7 +67,7 @@ class CoinDataService: NSObject, UITableViewDataSource, UITableViewDelegate, Swi
         // customize the action appearance
         editAction.image = UIImage(named: "editRoundFilled")
         editAction.backgroundColor = .white
-        editAction.textColor = .lightDarkColor
+        editAction.textColor = .midDarkColor
         
         
         let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
@@ -79,7 +79,7 @@ class CoinDataService: NSObject, UITableViewDataSource, UITableViewDelegate, Swi
         // customize the action appearance
         deleteAction.image = UIImage(named: "deleteRoundFilled")
         deleteAction.backgroundColor = .white
-        deleteAction.textColor = .lightDarkColor
+        deleteAction.textColor = .midDarkColor
         
         return [editAction, deleteAction]
     }
