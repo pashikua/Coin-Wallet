@@ -45,7 +45,6 @@
 		778E3BD91FDE969200731CE4 /* CoinTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778E3BD81FDE969200731CE4 /* CoinTableViewCell.swift */; };
 		778E3BDC1FDEB32400731CE4 /* CoinStructTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778E3BDB1FDEB32400731CE4 /* CoinStructTests.swift */; };
 		778E3BDE1FDEB87200731CE4 /* CoinManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778E3BDD1FDEB87200731CE4 /* CoinManagerTests.swift */; };
-		778E3BE01FDEB8C100731CE4 /* CoinManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778E3BDF1FDEB8C100731CE4 /* CoinManager.swift */; };
 		778E3BE21FDEC11A00731CE4 /* CoinDataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778E3BE11FDEC11A00731CE4 /* CoinDataServiceTests.swift */; };
 		778E3BE71FDED2B600731CE4 /* CoinTableViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778E3BE61FDED2B600731CE4 /* CoinTableViewCellTests.swift */; };
 		778E3BE91FDED2C500731CE4 /* MockExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778E3BE81FDED2C500731CE4 /* MockExtensions.swift */; };
@@ -55,6 +54,13 @@
 		778E3BF61FDF1FEB00731CE4 /* SwiftHTTP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 778E3BF51FDF1FEB00731CE4 /* SwiftHTTP.framework */; };
 		778E3BF71FDF1FEB00731CE4 /* SwiftHTTP.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 778E3BF51FDF1FEB00731CE4 /* SwiftHTTP.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		778E3BF91FDF2C0900731CE4 /* CoinHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778E3BF81FDF2C0900731CE4 /* CoinHandler.swift */; };
+		778FF42F1FFBD55D003A8A47 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778FF42E1FFBD55D003A8A47 /* RealmManager.swift */; };
+		778FF4331FFBD6A2003A8A47 /* RLMCoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778FF4321FFBD6A2003A8A47 /* RLMCoin.swift */; };
+		778FF4351FFBDFC8003A8A47 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 778FF4341FFBDFC8003A8A47 /* RealmSwift.framework */; };
+		778FF4361FFBDFC8003A8A47 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 778FF4341FFBDFC8003A8A47 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		778FF4381FFBDFF5003A8A47 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 778FF4371FFBDFF5003A8A47 /* Realm.framework */; };
+		778FF4391FFBDFF5003A8A47 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 778FF4371FFBDFF5003A8A47 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		778FF43B1FFBE62C003A8A47 /* RLMPortfolio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778FF43A1FFBE62C003A8A47 /* RLMPortfolio.swift */; };
 		77A2FE761FFB99CE00A7D41A /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A2FE751FFB99CE00A7D41A /* Fabric.framework */; };
 		77A2FE771FFB99CF00A7D41A /* Fabric.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77A2FE751FFB99CE00A7D41A /* Fabric.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		77A2FE791FFB99DD00A7D41A /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A2FE781FFB99DD00A7D41A /* Crashlytics.framework */; };
@@ -103,12 +109,14 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				778FF4391FFBDFF5003A8A47 /* Realm.framework in Embed Frameworks */,
 				7776D5931FDF6158006C42FD /* Disk.framework in Embed Frameworks */,
 				7755FD301FE40C8200624F23 /* SwipeCellKit.framework in Embed Frameworks */,
 				774517C41FF54A9C00715AC5 /* SwiftyStoreKit.framework in Embed Frameworks */,
 				778E3BF71FDF1FEB00731CE4 /* SwiftHTTP.framework in Embed Frameworks */,
 				7776D5961FDF6B76006C42FD /* Kingfisher.framework in Embed Frameworks */,
 				77A2FE771FFB99CF00A7D41A /* Fabric.framework in Embed Frameworks */,
+				778FF4361FFBDFC8003A8A47 /* RealmSwift.framework in Embed Frameworks */,
 				77A2FE7A1FFB99DD00A7D41A /* Crashlytics.framework in Embed Frameworks */,
 				778E3BC91FDE835C00731CE4 /* SwiftyJSON.framework in Embed Frameworks */,
 				7755FD331FE4193500624F23 /* SCLAlertView.framework in Embed Frameworks */,
@@ -159,7 +167,6 @@
 		778E3BD81FDE969200731CE4 /* CoinTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTableViewCell.swift; sourceTree = "<group>"; };
 		778E3BDB1FDEB32400731CE4 /* CoinStructTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinStructTests.swift; sourceTree = "<group>"; };
 		778E3BDD1FDEB87200731CE4 /* CoinManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinManagerTests.swift; sourceTree = "<group>"; };
-		778E3BDF1FDEB8C100731CE4 /* CoinManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinManager.swift; sourceTree = "<group>"; };
 		778E3BE11FDEC11A00731CE4 /* CoinDataServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDataServiceTests.swift; sourceTree = "<group>"; };
 		778E3BE61FDED2B600731CE4 /* CoinTableViewCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTableViewCellTests.swift; sourceTree = "<group>"; };
 		778E3BE81FDED2C500731CE4 /* MockExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockExtensions.swift; sourceTree = "<group>"; };
@@ -168,6 +175,11 @@
 		778E3BF31FDF1CFE00731CE4 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		778E3BF51FDF1FEB00731CE4 /* SwiftHTTP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftHTTP.framework; path = Carthage/Build/iOS/SwiftHTTP.framework; sourceTree = "<group>"; };
 		778E3BF81FDF2C0900731CE4 /* CoinHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinHandler.swift; sourceTree = "<group>"; };
+		778FF42E1FFBD55D003A8A47 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		778FF4321FFBD6A2003A8A47 /* RLMCoin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLMCoin.swift; sourceTree = "<group>"; };
+		778FF4341FFBDFC8003A8A47 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		778FF4371FFBDFF5003A8A47 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		778FF43A1FFBE62C003A8A47 /* RLMPortfolio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLMPortfolio.swift; sourceTree = "<group>"; };
 		77A2FE751FFB99CE00A7D41A /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		77A2FE781FFB99DD00A7D41A /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		77F8AC801FF6622900150298 /* PKHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PKHUD.framework; path = Carthage/Build/iOS/PKHUD.framework; sourceTree = "<group>"; };
@@ -185,11 +197,13 @@
 			files = (
 				774517C11FF5444800715AC5 /* StoreKit.framework in Frameworks */,
 				7776D5921FDF6158006C42FD /* Disk.framework in Frameworks */,
+				778FF4351FFBDFC8003A8A47 /* RealmSwift.framework in Frameworks */,
 				7755FD2F1FE40C8200624F23 /* SwipeCellKit.framework in Frameworks */,
 				778E3BF61FDF1FEB00731CE4 /* SwiftHTTP.framework in Frameworks */,
 				7776D5951FDF6B76006C42FD /* Kingfisher.framework in Frameworks */,
 				778E3BC81FDE835C00731CE4 /* SwiftyJSON.framework in Frameworks */,
 				774517C31FF54A9C00715AC5 /* SwiftyStoreKit.framework in Frameworks */,
+				778FF4381FFBDFF5003A8A47 /* Realm.framework in Frameworks */,
 				7755FD321FE4193500624F23 /* SCLAlertView.framework in Frameworks */,
 				77F8AC811FF6622A00150298 /* PKHUD.framework in Frameworks */,
 				77A2FE761FFB99CE00A7D41A /* Fabric.framework in Frameworks */,
@@ -218,6 +232,8 @@
 		773F23731FDE81E600D1F7FA = {
 			isa = PBXGroup;
 			children = (
+				778FF4371FFBDFF5003A8A47 /* Realm.framework */,
+				778FF4341FFBDFC8003A8A47 /* RealmSwift.framework */,
 				77A2FE781FFB99DD00A7D41A /* Crashlytics.framework */,
 				77A2FE751FFB99CE00A7D41A /* Fabric.framework */,
 				77F8AC801FF6622900150298 /* PKHUD.framework */,
@@ -328,10 +344,12 @@
 			isa = PBXGroup;
 			children = (
 				778E3BCE1FDE842600731CE4 /* Coin.swift */,
-				778E3BDF1FDEB8C100731CE4 /* CoinManager.swift */,
 				778E3BF81FDF2C0900731CE4 /* CoinHandler.swift */,
 				7755FD281FE3DAE700624F23 /* C.swift */,
 				774517C81FF6565A00715AC5 /* NetworkActivityIndicatorManager.swift */,
+				778FF42E1FFBD55D003A8A47 /* RealmManager.swift */,
+				778FF4321FFBD6A2003A8A47 /* RLMCoin.swift */,
+				778FF43A1FFBE62C003A8A47 /* RLMPortfolio.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -560,6 +578,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/SCLAlertView.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/PKHUD.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyStoreKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
 			);
 			outputPaths = (
 			);
@@ -574,7 +594,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				778E3BE01FDEB8C100731CE4 /* CoinManager.swift in Sources */,
+				778FF43B1FFBE62C003A8A47 /* RLMPortfolio.swift in Sources */,
 				774517BF1FF5339300715AC5 /* SupportDeveloperViewController.swift in Sources */,
 				7755FD2B1FE3DB4C00624F23 /* UIColorExtensions.swift in Sources */,
 				778E3BD91FDE969200731CE4 /* CoinTableViewCell.swift in Sources */,
@@ -587,12 +607,14 @@
 				778E3BD21FDE8D8D00731CE4 /* CustomView.swift in Sources */,
 				778E3BCF1FDE842600731CE4 /* Coin.swift in Sources */,
 				77F8AC8C1FF6A74700150298 /* EmptyViewController.swift in Sources */,
+				778FF42F1FFBD55D003A8A47 /* RealmManager.swift in Sources */,
 				778E3BF41FDF1CFE00731CE4 /* CustomButton.swift in Sources */,
 				7755FD291FE3DAE700624F23 /* C.swift in Sources */,
 				773F23821FDE81E600D1F7FA /* MainViewController.swift in Sources */,
 				774517B81FF5118500715AC5 /* SettingsTableViewController.swift in Sources */,
 				778E3BF91FDF2C0900731CE4 /* CoinHandler.swift in Sources */,
 				778E3BD71FDE935100731CE4 /* CoinDataService.swift in Sources */,
+				778FF4331FFBD6A2003A8A47 /* RLMCoin.swift in Sources */,
 				774517C61FF639DA00715AC5 /* CustomImageView.swift in Sources */,
 				773F23801FDE81E600D1F7FA /* AppDelegate.swift in Sources */,
 			);
