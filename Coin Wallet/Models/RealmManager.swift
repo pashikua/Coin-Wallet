@@ -85,6 +85,32 @@ class RealmManager {
         updatePortfolioCoinArray()
         delegate?.updatePortfolioValue(portfolioCoins)
     }
+    
+    func refreshPortfolioData() {
+        print("refresh portfolio data")
+
+        // TODO: Update current portfolio values
+        for portfolioCoin in realm.objects(RLMPortfolio.self).toArray(ofType: RLMPortfolio.self) {
+            for coin in realm.objects(RLMCoin.self).toArray(ofType: RLMCoin.self) {
+                if portfolioCoin.id == coin.id {
+                    let updatedCoin = RLMPortfolio()
+                    updatedCoin.id = coin.id
+                    updatedCoin.priceUSD = coin.priceUSD
+                    updatedCoin.symbol = coin.symbol
+                    updatedCoin.rank = coin.rank
+                    updatedCoin.holding = portfolioCoin.holding
+
+//                    realm.add(updatedCoin, update: true)
+                    try! realm.write {
+                        realm.add(updatedCoin, update: true)
+                        
+                        print("updated object from database")
+                    }
+                }
+
+            }
+        }
+    }
 }
 
 extension Results {

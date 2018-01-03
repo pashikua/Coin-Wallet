@@ -4,7 +4,6 @@
 import Foundation
 import SwiftyJSON
 import SwiftHTTP
-import Disk
 import RealmSwift
 
 // TODO: Impelement later local currency that was choosen by user
@@ -51,7 +50,9 @@ class CoinHandler {
 //                        allCoins.marketCapLocalCurrency = item.1[""].floatValue
                         
                     }
-                    
+                }
+                DispatchQueue.main.async {
+                    RealmManager.sharedInstance.refreshPortfolioData()
                 }
                 // TODO: Completion maybe here
                 completion(true)
