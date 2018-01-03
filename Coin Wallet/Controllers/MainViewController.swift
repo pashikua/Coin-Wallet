@@ -93,7 +93,6 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         print("viewWillAppear")
         
-//        fillTableViewFromRealm()
         refreshCoinData(refreshControl)
     }
     
@@ -101,7 +100,8 @@ class MainViewController: UIViewController {
         sender.beginRefreshing()
         print("refreshCoinDataTriggered")
         if RealmManager.sharedInstance.coinsCount != nil {
-            _ = CoinHandler.fetchCoinsData(completion: { (coins) in
+            _ = CoinHandler.fetchCoinsData(completion: { (success) in
+                print("fetch coins data success: ", success)
 //                do {
 //                    self.dataService.coinManager?.clearArray()
                     
@@ -126,13 +126,13 @@ class MainViewController: UIViewController {
 ////                        self.dataService.realmManager?.addToPortfolioCoinArray(coin: coin)
 //                }
 //                    print(retrievedCoins)
-                
-                    
-                DispatchQueue.main.async {
-                    RealmManager.sharedInstance.updatePortfolioCoinArray()
-                    self.coinTableView.reloadData()
-                    self.updateTotalPortfolioLabel(coinsArray: RealmManager.sharedInstance.getPortfolioCoinsArray())
-                    self.refreshControl.endRefreshing()
+                if success {
+                    DispatchQueue.main.async {
+                        RealmManager.sharedInstance.updatePortfolioCoinArray()
+                        self.coinTableView.reloadData()
+                        self.updateTotalPortfolioLabel(coinsArray: RealmManager.sharedInstance.getPortfolioCoinsArray())
+                        self.refreshControl.endRefreshing()
+                    }
                 }
 //                } catch {
 //                    print("Couldnt retrieve coin")
@@ -142,37 +142,6 @@ class MainViewController: UIViewController {
         } else {
             print("coinscount == nil")
             self.endRefresh()
-        }
-    }
-    
-    func fetchCoinsData() {
-        print("2")
-        _ = CoinHandler.fetchCoinsData(completion: { (success) in
-            print("fetch coins data success: ", success)
-//            self.fillTableViewFromRealm()
-        })
-    }
-    
-    func fillTableViewFromRealm() {
-        print("1")
-//        dataService.coinManager?.clearArray()
-        
-//        do {
-//            let retrievedCoins = try Disk.retrieve("coins.json", from: .caches, as: [Coin].self)
-//
-//            for coin in retrievedCoins.sorted(by: {$0.rank! < $1.rank!}) {
-//                dataService.coinManager?.addCoinToLibrary(coin: coin)
-//            }
-////            print(retrievedCoins)
-//            updateTotalPortfolioLabel(coinsArray: retrievedCoins)
-//        } catch {
-//            print("Couldnt retrieve coin")
-//            endRefresh()
-//        }
-        print("try to fill tableview from realm")
-        
-        DispatchQueue.main.async {
-            self.coinTableView.reloadData()
         }
     }
     
