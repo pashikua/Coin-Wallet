@@ -5,12 +5,14 @@ import Foundation
 import SwiftyJSON
 import SwiftHTTP
 import Disk
+import RealmSwift
 
+// TODO: Impelement later local currency that was choosen by user
 class CoinHandler {
-    static func getCoinsData(completion: @escaping (_ result: [Coin]) -> Void) {
-        var coinsDataArray:[Coin] = [Coin]()
-        
-        HTTP.GET("https://api.coinmarketcap.com/v1/ticker") { response in
+    typealias CompletionHandler = (_ success: Bool) -> Void
+    
+    static func fetchCoinsData(completion: @escaping CompletionHandler) {
+        HTTP.GET("https://api.coinmarketcap.com/v1/ticker/?limit=100") { response in
             if let err = response.error {
                 print("error: \(err.localizedDescription)")
                 return //also notify app of failure as needed
@@ -19,37 +21,44 @@ class CoinHandler {
             do {
                 let json = try JSON(data: response.data)
                 
-                for item in json {
-                    let id = item.1["id"].string
-                    let name = item.1["name"].string
-                    let symbol = item.1["symbol"].string
-                    let rank = item.1["rank"].intValue
-                    let price_usd = item.1["price_usd"].floatValue
-                    let last_updated = item.1["last_updated"].string
-                    
-                    coinsDataArray.append(Coin(id: id!, name: name!, symbol: symbol!, rank: rank, price_usd: price_usd, last_updated: last_updated!))
-                }
-                print("Count total coins: ",coinsDataArray.count)
                 
-                completion(coinsDataArray)
+                // Mark: - REALM
+                
+                let realm = try! Realm()
+                
+                try realm.write {
+                    for item in json {
+                        let allCoins = RLMCoin()
+                        allCoins.id = item.1["id"].stringValue
+                        allCoins.name = item.1["name"].stringValue
+                        allCoins.symbol = item.1["symbol"].stringValue
+                        allCoins.rank = item.1["rank"].intValue
+                        allCoins.priceUSD = item.1["price_usd"].floatValue
+                        allCoins.priceBTC = item.1["price_btc"].floatValue
+                        allCoins.twentyFourHourVolumeUSD = item.1["24h_volume_usd"].floatValue
+                        allCoins.marketCapUSD = item.1["market_cap_usd"].floatValue
+                        allCoins.availableSupply = item.1["available_supply"].floatValue
+                        allCoins.totalSupply = item.1["total_supply"].floatValue
+                        allCoins.percentChangeLastOneHour = item.1["percent_change_1h"].floatValue
+                        allCoins.percentChangeLastTwentyFourHours = item.1["percent_change_24h"].floatValue
+                        allCoins.percentChangeLastSevenDays = item.1["percent_change_7d"].floatValue
+                        allCoins.lastUpdated = item.1["last_updated"].stringValue
+                        
+                        realm.add(allCoins, update: true)
+                        // Upcomming feature
+//                        allCoins.priceLocalCurrency = item.1[""].floatValue
+//                        allCoins.twentyFourHourVolumeLocalCurrency = item.1["24h_volume_eur"].floatValue
+//                        allCoins.marketCapLocalCurrency = item.1[""].floatValue
+                        
+                    }
+                    
+                }
+                // TODO: Completion maybe here
+                completion(true)
+                
             } catch {
                 print(error.localizedDescription)
             }
-        }
-    }
-    
-    static func updateCoinsDataOnDisk(coins: [Coin]) {
-        do {
-            if Disk.exists("coins.json", in: .caches) {
-                print("coins exits in cache")
-                try Disk.remove("coins.json", from: .caches)
-            }
-            
-            for coin in coins {
-                try Disk.append(coin, to: "coins.json", in: .caches)
-            }
-        } catch {
-            print("Coudlnt save to disk")
         }
     }
 }

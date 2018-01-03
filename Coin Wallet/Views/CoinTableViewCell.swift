@@ -13,22 +13,22 @@ class CoinTableViewCell: SwipeTableViewCell {
     @IBOutlet weak var holdingCoinLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     
-    func configCoinCell(withCoin: Coin) {
+    func configCoinCell(with coin: RLMPortfolio) {
         // Parse image from url
 //        let url = URL(string: "http://files.coinmarketcap.com.s3-website-us-east-1.amazonaws.com/static/img/coins/200x200/" + withCoin.id + ".png")!
 //        self.coinImageView?.kf.setImage(with: url)
         
-        if let img = UIImage(named: withCoin.id) {
+        if let img = UIImage(named: coin.id) {
            self.coinImageView.image = img
         }
         
-        self.symbolLabel?.text = withCoin.symbol
+        self.symbolLabel?.text = coin.symbol
         
-        if let priceUSD = withCoin.price_usd, let holding = withCoin.holding {
-            let value = priceUSD * holding
+//        if let priceUSD = coin.priceUSD, let holding = coin.holding {
+            let value = coin.priceUSD * coin.holding
             self.holdingValueLabel?.text = value.changeToDollarCurrencyString()
-            self.holdingCoinLabel?.text = withCoin.holding?.description
-            self.priceLabel?.text = withCoin.price_usd!.changeToDollarCurrencyString()
-        }
+            self.holdingCoinLabel?.text = coin.holding.description
+            self.priceLabel?.text = coin.priceUSD.changeToDollarCurrencyString()
+//        }
     }
 }

@@ -14,13 +14,15 @@ class AddCoinViewController: UIViewController, UITableViewDelegate, UITextFieldD
     
     @IBOutlet weak var searchBar: UISearchBar!
     
-    var coinData: [Coin] = [Coin]()
+    var coinData: [RLMCoin] = [RLMCoin]()
     
-    var filteredCoinData: [Coin]!
+    var filteredCoinData: [RLMCoin] = [RLMCoin]()
     
     var holding: Float!
     
-    var coin: Coin?
+    var coin: RLMCoin!
+    
+    var realmManager: RealmManager?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,8 +38,9 @@ class AddCoinViewController: UIViewController, UITableViewDelegate, UITextFieldD
     
     @IBAction func addToWalletBtnPressed(_ sender: Any) {
         if holdingTextField.text != "" && holdingTextField.text != "0" && coin != nil {
-            coin?.holding = holding
-            saveCoinToDisk()
+//            coin?.holding = holding
+//            saveCoinToDisk()
+            saveCoinToRealm(holding: holding)
             
             self.navigationController?.popToRootViewController(animated: true)
         }
@@ -45,30 +48,35 @@ class AddCoinViewController: UIViewController, UITableViewDelegate, UITextFieldD
     
     @IBAction func textfieldEditingChanged(_ sender: Any) {
         holding = Float(holdingTextField.text!.replacingOccurrences(of: ",", with: "."))
+        print(holding)
     }
     
-    func saveCoinToDisk() {
-        do {
-            try Disk.append(coin, to: "coins.json", in: .caches)
-        } catch {
-            print("Coudlnt save to disk")
-        }
+    func saveCoinToRealm(holding: Float) {
+//        do {
+//            try Disk.append(portfolioCoin, to: "coins.json", in: .caches)
+//        } catch {
+//            print("Coudlnt save to disk")
+//        }
+        let portfolioCoin = RLMPortfolio()
+        portfolioCoin.holding = holding
+        portfolioCoin.id = (coin?.id)!
+        portfolioCoin.priceUSD = (coin?.priceUSD)!
+        portfolioCoin.symbol = (coin?.symbol)!
+        portfolioCoin.rank = (coin?.rank)!
+        
+        print(portfolioCoin.holding)
+        print(portfolioCoin.id)
+        
+        RealmManager.sharedInstance.addPortfolioObject(object: portfolioCoin)
     }
     
     func retrieveCoinData() {
         coinData.removeAll()
         
-        do {
-            let retrievedCoinsData = try Disk.retrieve("coinsData.json", from: .caches, as: [Coin].self)
-            
-            for coin in retrievedCoinsData.sorted(by: {$0.rank! < $1.rank!}) {
-                coinData.append(coin)
-            }
-            
-            filteredCoinData = coinData
-        } catch {
-            print("Couldnt retrieve coin")
-        }
+        let sortedCoins = RealmManager.sharedInstance.getCoinsDataFromRealm().sorted(byKeyPath: "rank").toArray(ofType: RLMCoin.self)
+        
+        coinData = sortedCoins
+        filteredCoinData = sortedCoins
     }
 }
 
@@ -81,7 +89,7 @@ extension AddCoinViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filteredCoinData = searchText.isEmpty ? coinData : coinData.filter({ (coin) -> Bool in
             // If dataItem matches the searchText, return true to include it
-            return coin.name?.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+            return coin.name.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
         })
         
         tableView.reloadData()
@@ -96,6 +104,7 @@ extension AddCoinViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as UITableViewCell
         cell.textLabel?.text = filteredCoinData[indexPath.row].name
+//            + " - Rank: " + String(filteredCoinData[indexPath.row].rank)
         return cell
     }
     

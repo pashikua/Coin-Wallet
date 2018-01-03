@@ -4,6 +4,8 @@
 import UIKit
 import Disk
 import SwiftyJSON
+import RealmSwift
+import PKHUD
 
 class MainViewController: UIViewController {
     
@@ -12,30 +14,36 @@ class MainViewController: UIViewController {
 
     @IBOutlet weak var totalPortfolioValueLabel: UILabel!
     
-    var coinManager: CoinManager = CoinManager()
-    
     private let refreshControl = UIRefreshControl()
     
     var blurEffectView: UIVisualEffectView!
     
+    var realm: Realm!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if Disk.exists("coins.json", in: .caches) {
+            print("found coins.json")
+            switchToRealmDatabase()
+        }
         
         self.coinTableView.refreshControl = refreshControl
         self.coinTableView.dataSource = dataService
         self.coinTableView.delegate = dataService
         
-        self.dataService.coinManager = coinManager
-        self.dataService.coinManager?.delegate = self
+//        self.dataService.realmManager = RealmManager.sharedInstance
+        // TODO: DELEGATE
+        RealmManager.sharedInstance.delegate = self
         
         // Configure Refresh Control
         self.refreshControl.addTarget(self, action: #selector(refreshCoinData(_:)), for: .valueChanged)
         
 //        clearDiskDataFromCaches()
         self.view.layoutIfNeeded()
-        refreshCoinData(refreshControl)
         
-        fetchCoinsData()
+        
+        
         
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: Notification.Name.UIApplicationWillResignActive, object: nil)
@@ -44,54 +52,92 @@ class MainViewController: UIViewController {
         nc.addObserver(self, selector: #selector(appMovedToForeground), name: Notification.Name.UIApplicationDidBecomeActive, object: nil)
         
         addBlurEffectView()
+        
+        
     }
     
-    
+    func switchToRealmDatabase() {
+        do {
+            DispatchQueue.main.async {
+                HUD.show(.label("Switching to Realm Database..."))
+            }
+            
+            print("coins exits in cache")
+            let retrievedCoins = try Disk.retrieve("coins.json", from: .caches, as: [Coin].self)
+            
+//            for coin in retrievedCoins.sorted(by: {$0.rank! < $1.rank!}) {
+//                dataService.coinManager?.addCoinToLibrary(coin: coin)
+//            }
+            
+            realm = try! Realm()
+            try realm.write {
+                for coin in retrievedCoins {
+                    let portfolio = RLMPortfolio()
+                    portfolio.id = coin.id
+                    portfolio.holding = coin.holding!
+                    realm.add(portfolio, update: true)
+                    RealmManager.sharedInstance.addPortfolioObject(object: portfolio)
+                }
+            }
+            
+            DispatchQueue.main.async {
+                HUD.hide()
+            }
+            // TODO: Remove old disk json files
+        } catch {
+            print("Couldnt retrieve coin")
+            endRefresh()
+        }
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         print("viewWillAppear")
         
-        updateTableViewFromDisk()
+//        fillTableViewFromRealm()
+        refreshCoinData(refreshControl)
     }
     
     @objc func refreshCoinData(_ sender: UIRefreshControl) {
         sender.beginRefreshing()
         print("refreshCoinDataTriggered")
-        if dataService.coinManager?.coinsCount != nil {
-            _ = CoinHandler.getCoinsData(completion: { (coins) in
-                do {
-                    self.dataService.coinManager?.clearArray()
+        if RealmManager.sharedInstance.coinsCount != nil {
+            _ = CoinHandler.fetchCoinsData(completion: { (coins) in
+//                do {
+//                    self.dataService.coinManager?.clearArray()
                     
-                    var retrievedCoins = try Disk.retrieve("coins.json", from: .caches, as: [Coin].self)
+//                    var retrievedCoins = try Disk.retrieve("coins.json", from: .caches, as: [Coin].self)
+//
+//                    for (index, oldCoin) in retrievedCoins.enumerated() {
+//                        for newCoin in coins {
+//                            if oldCoin.id == newCoin.id {
+//                                retrievedCoins[index].price_usd = newCoin.price_usd
+//                                retrievedCoins[index].rank = newCoin.rank
+//                                retrievedCoins[index].last_updated = newCoin.last_updated
+//                            }
+//                        }
+//                    }
                     
+//                    self.updateTotalPortfolioLabel(coinsArray: retrievedCoins)
+//
+//                let realm = try! Realm()
+//
+//                for coin in realm.objects(RLMPortfolio.self).sorted(byKeyPath: "rank").toArray(ofType: RLMPortfolio.self) {
+//                    print(coin)
+////                        self.dataService.realmManager?.addToPortfolioCoinArray(coin: coin)
+//                }
+//                    print(retrievedCoins)
+                
                     
-                    for (index, oldCoin) in retrievedCoins.enumerated() {
-                        for newCoin in coins {
-                            if oldCoin.id == newCoin.id {
-                                retrievedCoins[index].price_usd = newCoin.price_usd
-                                retrievedCoins[index].rank = newCoin.rank
-                                retrievedCoins[index].last_updated = newCoin.last_updated
-                            }
-                        }
-                    }
-                    
-                    self.updateTotalPortfolioLabel(coinsArray: retrievedCoins)
-                    
-                    for coin in retrievedCoins.sorted(by: {$0.rank! < $1.rank!}) {
-                        self.dataService.coinManager?.addCoinToLibrary(coin: coin)
-                    }
-                    print(retrievedCoins)
-                    
-                    DispatchQueue.main.async {
-                        self.coinTableView.reloadData()
-                        self.refreshControl.endRefreshing()
-                    }
-                    
-                    self.clearAndUpdateCoinDiskData(coins: retrievedCoins)
-                } catch {
-                    print("Couldnt retrieve coin")
-                    self.endRefresh()
+                DispatchQueue.main.async {
+                    RealmManager.sharedInstance.updatePortfolioCoinArray()
+                    self.coinTableView.reloadData()
+                    self.updateTotalPortfolioLabel(coinsArray: RealmManager.sharedInstance.getPortfolioCoinsArray())
+                    self.refreshControl.endRefreshing()
                 }
+//                } catch {
+//                    print("Couldnt retrieve coin")
+//                    self.endRefresh()
+//                }
             })
         } else {
             print("coinscount == nil")
@@ -101,49 +147,41 @@ class MainViewController: UIViewController {
     
     func fetchCoinsData() {
         print("2")
-        _ = CoinHandler.getCoinsData(completion: { (coins) in
-            do {
-                if Disk.exists("coinsData.json", in: .caches) {
-                    print("coins data exits in cache")
-                    try Disk.remove("coinsData.json", from: .caches)
-                }
-                
-                for coin in coins {
-                    try Disk.append(coin, to: "coinsData.json", in: .caches)
-                }
-                print("coinsData")
-            } catch {
-                print("Coudlnt save to disk")
-            }
+        _ = CoinHandler.fetchCoinsData(completion: { (success) in
+            print("fetch coins data success: ", success)
+//            self.fillTableViewFromRealm()
         })
     }
     
-    func updateTableViewFromDisk() {
+    func fillTableViewFromRealm() {
         print("1")
-        dataService.coinManager?.clearArray()
+//        dataService.coinManager?.clearArray()
         
-        do {
-            let retrievedCoins = try Disk.retrieve("coins.json", from: .caches, as: [Coin].self)
-            
-            for coin in retrievedCoins.sorted(by: {$0.rank! < $1.rank!}) {
-                dataService.coinManager?.addCoinToLibrary(coin: coin)
-            }
-//            print(retrievedCoins)
-            updateTotalPortfolioLabel(coinsArray: retrievedCoins)
-        } catch {
-            print("Couldnt retrieve coin")
-            endRefresh()
+//        do {
+//            let retrievedCoins = try Disk.retrieve("coins.json", from: .caches, as: [Coin].self)
+//
+//            for coin in retrievedCoins.sorted(by: {$0.rank! < $1.rank!}) {
+//                dataService.coinManager?.addCoinToLibrary(coin: coin)
+//            }
+////            print(retrievedCoins)
+//            updateTotalPortfolioLabel(coinsArray: retrievedCoins)
+//        } catch {
+//            print("Couldnt retrieve coin")
+//            endRefresh()
+//        }
+        print("try to fill tableview from realm")
+        
+        DispatchQueue.main.async {
+            self.coinTableView.reloadData()
         }
-        
-        self.coinTableView.reloadData()
     }
     
-    func updateTotalPortfolioLabel(coinsArray: [Coin]) {
+    func updateTotalPortfolioLabel(coinsArray: [RLMPortfolio]) {
         var coinValues: [Float] = []
         
         for coin in coinsArray {
             // Multiply coin holding with current price of coin
-            let value = Float(coin.holding!) * Float(coin.price_usd!)
+            let value = Float(coin.holding) * Float(coin.priceUSD)
             
             coinValues.append(value)
         }
@@ -153,7 +191,7 @@ class MainViewController: UIViewController {
     
     func endRefresh() {
         DispatchQueue.main.async {
-            self.coinTableView.reloadData()
+//            self.coinTableView.reloadData()
             self.refreshControl.endRefreshing()
         }
     }
@@ -224,13 +262,13 @@ extension MainViewController {
     }
 }
 
-extension MainViewController: CoinManagerDelegate {
-    func updatePortfolioValue(_ coinsLibrary: [Coin]) {
+extension MainViewController: RealmManagerDelegate {
+    func updatePortfolioValue(_ coinsPortfolio: [RLMPortfolio]) {
         var coinValues: [Float] = []
         
-        for coin in coinsLibrary {
+        for coin in coinsPortfolio {
             // Multiply coin holding with current price of coin
-            let value = Float(coin.holding!) * Float(coin.price_usd!)
+            let value = Float(coin.holding) * Float(coin.priceUSD)
             
             coinValues.append(value)
         }

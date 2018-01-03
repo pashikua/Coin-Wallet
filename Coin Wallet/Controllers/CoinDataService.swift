@@ -7,21 +7,19 @@ import SCLAlertView
 
 class CoinDataService: NSObject, UITableViewDataSource, UITableViewDelegate, SwipeTableViewCellDelegate {
     
-    var coinManager: CoinManager?
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (coinManager?.coinsCount)!
+        return RealmManager.sharedInstance.coinsCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "coinCell") as! CoinTableViewCell
         
-        guard let coinManager = coinManager else { fatalError() }
+//        guard let realmManager = realmManager else { fatalError() }
         
-        let coin = coinManager.coinAtIndex(index: indexPath.row)
+        let coin = RealmManager.sharedInstance.coinAtIndex(index: indexPath.row)
         
         cell.delegate = self
-        cell.configCoinCell(withCoin: coin)
+        cell.configCoinCell(with: coin)
         
         return cell
     }
@@ -44,16 +42,29 @@ class CoinDataService: NSObject, UITableViewDataSource, UITableViewDelegate, Swi
                 showCloseButton: false
             )
             let alert = SCLAlertView(appearance: appearance)
-            let valueInString = String(describing: self.coinManager!.coinAtIndex(index: indexPath.row).holding!)
+            let valueInString = String(describing: RealmManager.sharedInstance.coinAtIndex(index: indexPath.row).holding)
             let valueTextField = alert.addTextField(valueInString)
             valueTextField.keyboardType = .decimalPad
+            valueTextField.becomeFirstResponder()
             alert.addButton("Done") {
                 // Check for correct string value
                 if valueTextField.text != "" && valueTextField.text != "0" && valueTextField.text != "," && valueTextField.text != "." {
                     // If so update current coins data and save it to disk
                     let holding = Float(valueTextField.text!.replacingOccurrences(of: ",", with: "."))
-                    self.coinManager?.updateCoinAtIndexAndSaveToDisk(index: indexPath.row, holding: holding!)
-                    tableView.reloadData()
+                    
+                    // TODO: Shitty solution needs to be fixed
+                    let oldCoin = RealmManager.sharedInstance.coinAtIndex(index: indexPath.row)
+                    let coin = RLMPortfolio()
+                    coin.id = oldCoin.id
+                    coin.holding = holding!
+                    coin.priceUSD = oldCoin.priceUSD
+                    coin.symbol = oldCoin.symbol
+                    coin.rank = oldCoin.rank
+                    
+                    DispatchQueue.main.async {
+                        RealmManager.sharedInstance.updatePortfolioObject(coin: coin)
+                        tableView.reloadData()
+                    }
                 }
                 
                 print("Finished updating value: ", valueTextField.text!)
@@ -61,7 +72,7 @@ class CoinDataService: NSObject, UITableViewDataSource, UITableViewDelegate, Swi
             
             alert.showCustom("Edit", subTitle: "Update your holding value", color: .primaryColor, icon: UIImage(named: "editFilled")!)
             
-            tableView.reloadData()
+//            tableView.reloadData()
         }
         
         // customize the action appearance
@@ -72,7 +83,8 @@ class CoinDataService: NSObject, UITableViewDataSource, UITableViewDelegate, Swi
         
         let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
             // handle action by updating model with deletion
-            self.coinManager?.removeCoinFromLibrary(index: indexPath.row)
+//            self.coinManager?.removeObjectCoinFromLibrary(index: indexPath.row)
+            RealmManager.sharedInstance.deletePortfolioObject(index: indexPath.row)
             
             tableView.reloadData()
         }
