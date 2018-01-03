@@ -6,6 +6,7 @@ import Fabric
 import Crashlytics
 import SwiftyStoreKit
 import LocalAuthentication
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         completeIAPTransactions()
         
         checkForTouchID()
+        
+    print(Realm.Configuration.defaultConfiguration.fileURL!)
         
         return true
     }
