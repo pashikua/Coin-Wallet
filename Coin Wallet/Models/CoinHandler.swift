@@ -49,6 +49,7 @@ class CoinHandler {
 //                        allCoins.twentyFourHourVolumeLocalCurrency = item.1["24h_volume_eur"].floatValue
 //                        allCoins.marketCapLocalCurrency = item.1[""].floatValue
                         
+                        
                     }
                 }
                 DispatchQueue.main.async {

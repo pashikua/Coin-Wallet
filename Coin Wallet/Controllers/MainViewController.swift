@@ -31,69 +31,24 @@ class MainViewController: UIViewController {
         self.coinTableView.refreshControl = refreshControl
         self.coinTableView.dataSource = dataService
         self.coinTableView.delegate = dataService
-        
-//        self.dataService.realmManager = RealmManager.sharedInstance
-        // TODO: DELEGATE
         RealmManager.sharedInstance.delegate = self
         
         // Configure Refresh Control
         self.refreshControl.addTarget(self, action: #selector(refreshCoinData(_:)), for: .valueChanged)
-        
-//        clearDiskDataFromCaches()
         self.view.layoutIfNeeded()
-        
-        
-        
-        
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: Notification.Name.UIApplicationWillResignActive, object: nil)
-        
-        let nc = NotificationCenter.default
-        nc.addObserver(self, selector: #selector(appMovedToForeground), name: Notification.Name.UIApplicationDidBecomeActive, object: nil)
-        
+
+        observeNotification()
         addBlurEffectView()
         
-        
+        refreshCoinData(refreshControl)
     }
     
-    func switchToRealmDatabase() {
-        do {
-            DispatchQueue.main.async {
-                HUD.show(.label("Switching to Realm Database..."))
-            }
-            
-            print("coins exits in cache")
-            let retrievedCoins = try Disk.retrieve("coins.json", from: .caches, as: [Coin].self)
-            
-//            for coin in retrievedCoins.sorted(by: {$0.rank! < $1.rank!}) {
-//                dataService.coinManager?.addCoinToLibrary(coin: coin)
-//            }
-            
-            realm = try! Realm()
-            try realm.write {
-                for coin in retrievedCoins {
-                    let portfolio = RLMPortfolio()
-                    portfolio.id = coin.id
-                    portfolio.holding = coin.holding!
-                    realm.add(portfolio, update: true)
-                    RealmManager.sharedInstance.addPortfolioObject(object: portfolio)
-                }
-            }
-            
-            DispatchQueue.main.async {
-                HUD.hide()
-            }
-            // TODO: Remove old disk json files
-        } catch {
-            print("Couldnt retrieve coin")
-            endRefresh()
-        }
-    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         print("viewWillAppear")
         
-        refreshCoinData(refreshControl)
+        updateTableViewData()
     }
     
     @objc func refreshCoinData(_ sender: UIRefreshControl) {
@@ -101,43 +56,15 @@ class MainViewController: UIViewController {
         print("refreshCoinDataTriggered")
         if RealmManager.sharedInstance.coinsCount != nil {
             _ = CoinHandler.fetchCoinsData(completion: { (success) in
-                print("fetch coins data success: ", success)
-//                do {
-//                    self.dataService.coinManager?.clearArray()
-                    
-//                    var retrievedCoins = try Disk.retrieve("coins.json", from: .caches, as: [Coin].self)
-//
-//                    for (index, oldCoin) in retrievedCoins.enumerated() {
-//                        for newCoin in coins {
-//                            if oldCoin.id == newCoin.id {
-//                                retrievedCoins[index].price_usd = newCoin.price_usd
-//                                retrievedCoins[index].rank = newCoin.rank
-//                                retrievedCoins[index].last_updated = newCoin.last_updated
-//                            }
-//                        }
-//                    }
-                    
-//                    self.updateTotalPortfolioLabel(coinsArray: retrievedCoins)
-//
-//                let realm = try! Realm()
-//
-//                for coin in realm.objects(RLMPortfolio.self).sorted(byKeyPath: "rank").toArray(ofType: RLMPortfolio.self) {
-//                    print(coin)
-////                        self.dataService.realmManager?.addToPortfolioCoinArray(coin: coin)
-//                }
-//                    print(retrievedCoins)
+
                 if success {
                     DispatchQueue.main.async {
                         RealmManager.sharedInstance.updatePortfolioCoinArray()
                         self.coinTableView.reloadData()
                         self.updateTotalPortfolioLabel(coinsArray: RealmManager.sharedInstance.getPortfolioCoinsArray())
-                        self.refreshControl.endRefreshing()
+                        self.endRefresh()
                     }
                 }
-//                } catch {
-//                    print("Couldnt retrieve coin")
-//                    self.endRefresh()
-//                }
             })
         } else {
             print("coinscount == nil")
@@ -160,27 +87,7 @@ class MainViewController: UIViewController {
     
     func endRefresh() {
         DispatchQueue.main.async {
-//            self.coinTableView.reloadData()
             self.refreshControl.endRefreshing()
-        }
-    }
-    
-    func clearAndUpdateCoinDiskData(coins: [Coin]) {
-        do {
-            if Disk.exists("coins.json", in: .caches) {
-                print("coins exits in cache")
-                try Disk.remove("coins.json", from: .caches)
-            }
-            
-            for coin in coins {
-                do {
-                    try Disk.append(coin, to: "coins.json", in: .caches)
-                } catch {
-                    print("Coudlnt save to disk")
-                }
-            }
-        } catch {
-            print("Couldnt clear disk")
         }
     }
     
@@ -192,15 +99,48 @@ class MainViewController: UIViewController {
         }
     }
     
+    func updateTableViewData() {
+        RealmManager.sharedInstance.updatePortfolioCoinArray()
+        coinTableView.reloadData()
+    }
     
+    // First version used Disk and I switched to Realm
+    func switchToRealmDatabase() {
+        do {
+            DispatchQueue.main.async {
+                HUD.show(.label("Switching to Realm Database..."))
+            }
+            
+            let retrievedCoins = try Disk.retrieve("coins.json", from: .caches, as: [Coin].self)
+            
+            realm = try! Realm()
+            try realm.write {
+                for coin in retrievedCoins {
+                    let portfolio = RLMPortfolio()
+                    portfolio.id = coin.id
+                    portfolio.holding = coin.holding!
+                    realm.add(portfolio, update: true)
+                    RealmManager.sharedInstance.addPortfolioObject(object: portfolio)
+                }
+            }
+            
+            DispatchQueue.main.async {
+                HUD.hide()
+            }
+            // TODO: Remove old disk json files
+            //        clearDiskDataFromCaches()
+        } catch {
+            print("Couldnt retrieve coin")
+            endRefresh()
+        }
+    }
 }
 
 extension MainViewController {
-    // Mark: - BlurEffect
+    // Mark: - BlurEffect related
 
     // Blur main view while app is in background
     func addBlurEffectView() {
-        // Add Blur Effect to view
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
         blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = view.bounds
@@ -212,6 +152,14 @@ extension MainViewController {
         UIView.animate(withDuration: 0.15, animations: {
             visualEffectView.alpha = isHidden ? 0.0 : 1.0
         }, completion: nil)
+    }
+    
+    func observeNotification() {
+        let ncResignActive = NotificationCenter.default
+        ncResignActive.addObserver(self, selector: #selector(appMovedToBackground), name: Notification.Name.UIApplicationWillResignActive, object: nil)
+        
+        let ncBecomeActive = NotificationCenter.default
+        ncBecomeActive.addObserver(self, selector: #selector(appMovedToForeground), name: Notification.Name.UIApplicationDidBecomeActive, object: nil)
     }
     
     @objc func appMovedToBackground() {
