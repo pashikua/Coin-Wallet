@@ -4,7 +4,6 @@
 import UIKit
 import SwiftHTTP
 import SwiftyJSON
-import Disk
 
 class AddCoinViewController: UIViewController, UITableViewDelegate, UITextFieldDelegate {
     
@@ -52,11 +51,7 @@ class AddCoinViewController: UIViewController, UITableViewDelegate, UITextFieldD
     }
     
     func saveCoinToRealm(holding: Float) {
-//        do {
-//            try Disk.append(portfolioCoin, to: "coins.json", in: .caches)
-//        } catch {
-//            print("Coudlnt save to disk")
-//        }
+        
         let portfolioCoin = RLMPortfolio()
         portfolioCoin.holding = holding
         portfolioCoin.id = (coin?.id)!
@@ -121,8 +116,8 @@ extension AddCoinViewController: UITableViewDataSource {
 
 extension AddCoinViewController {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let countDots = (holdingTextField.text?.components(separatedBy: ".").count)! - 1
-        let countCommas = (holdingTextField.text?.components(separatedBy: ",").count)! - 1
+        let countDots = (textField.text?.components(separatedBy: ".").count)! - 1
+        let countCommas = (textField.text?.components(separatedBy: ",").count)! - 1
         
         if countDots > 0 && string == "." || countCommas > 0 && string == "," {
             return false
