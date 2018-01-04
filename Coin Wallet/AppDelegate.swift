@@ -7,6 +7,7 @@ import Crashlytics
 import SwiftyStoreKit
 import LocalAuthentication
 import RealmSwift
+import Disk
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,9 +24,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         checkForTouchID()
         
-    print(Realm.Configuration.defaultConfiguration.fileURL!)
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        
+//        saveDiskSampleDataForDatabaseSwitchTest()
         
         return true
+    }
+    
+    func saveDiskSampleDataForDatabaseSwitchTest() {
+        // Old way of saving coin
+        do {
+            let coins = [
+                Coin(id: "bitcoin", name: "Bitcoin", symbol: "AMK", rank: 2, price_usd: 100.0, last_updated: "123141241", holding: 1.0),
+                Coin(id: "ethereum", name: "Ethereum", symbol: "ETA", rank: 1, price_usd: 1000.0, last_updated: "123141241", holding: 0.30),
+                Coin(id: "litecoin", name: "Litecoin", symbol: "LITA", rank: 1, price_usd: 10.0, last_updated: "123141241", holding: 44.00)]
+            for coin in coins {
+                try Disk.append(coin, to: "coins.json", in: .caches)
+            }
+        } catch {
+            print("Coudlnt save to disk")
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
