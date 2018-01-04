@@ -48,13 +48,13 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         print("viewWillAppear")
         
-        updateTableViewData()
+        updateTableViewAndTotalPortfolioLabel()
     }
     
     @objc func refreshCoinData(_ sender: UIRefreshControl) {
         sender.beginRefreshing()
         print("refreshCoinDataTriggered")
-        if RealmManager.sharedInstance.coinsCount != nil {
+        if RealmManager.sharedInstance.coinsCount != 0 {
             _ = CoinHandler.fetchCoinsData(completion: { (success) in
 
                 if success {
@@ -62,13 +62,13 @@ class MainViewController: UIViewController {
                         RealmManager.sharedInstance.updatePortfolioCoinArray()
                         self.coinTableView.reloadData()
                         self.updateTotalPortfolioLabel(coinsArray: RealmManager.sharedInstance.getPortfolioCoinsArray())
-                        self.endRefresh()
+                        sender.endRefreshing()
                     }
                 }
             })
         } else {
-            print("coinscount == nil")
-            self.endRefresh()
+            print("coinscount: ", RealmManager.sharedInstance.coinsCount)
+            sender.endRefreshing()
         }
     }
     
@@ -99,9 +99,10 @@ class MainViewController: UIViewController {
         }
     }
     
-    func updateTableViewData() {
+    func updateTableViewAndTotalPortfolioLabel() {
         RealmManager.sharedInstance.updatePortfolioCoinArray()
         coinTableView.reloadData()
+        self.updateTotalPortfolioLabel(coinsArray: RealmManager.sharedInstance.getPortfolioCoinsArray())
     }
     
     // First version used Disk and I switched to Realm
