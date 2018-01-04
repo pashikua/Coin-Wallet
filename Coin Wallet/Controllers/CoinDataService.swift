@@ -5,7 +5,7 @@ import UIKit
 import SwipeCellKit
 import SCLAlertView
 
-class CoinDataService: NSObject, UITableViewDataSource, UITableViewDelegate, SwipeTableViewCellDelegate {
+class CoinDataService: NSObject, UITableViewDataSource, UITableViewDelegate, SwipeTableViewCellDelegate, UITextFieldDelegate{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return RealmManager.sharedInstance.coinsCount
@@ -39,9 +39,11 @@ class CoinDataService: NSObject, UITableViewDataSource, UITableViewDelegate, Swi
             let alert = SCLAlertView(appearance: appearance)
             let valueInString = String(describing: RealmManager.sharedInstance.coinAtIndex(index: indexPath.row).holding)
             let valueTextField = alert.addTextField(valueInString)
+            valueTextField.delegate = self
             valueTextField.keyboardType = .decimalPad
             valueTextField.becomeFirstResponder()
             alert.addButton("Done") {
+                
                 // Check for correct string value
                 if valueTextField.text != "" && valueTextField.text != "0" && valueTextField.text != "," && valueTextField.text != "." {
                     let holding = Float(valueTextField.text!.replacingOccurrences(of: ",", with: "."))
@@ -81,5 +83,19 @@ class CoinDataService: NSObject, UITableViewDataSource, UITableViewDelegate, Swi
         deleteAction.textColor = .midDarkColor
         
         return [editAction, deleteAction]
+    }
+}
+
+extension CoinDataService {
+    // Dont allow more then one comma or point
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let countDots = (textField.text?.components(separatedBy: ".").count)! - 1
+        let countCommas = (textField.text?.components(separatedBy: ",").count)! - 1
+        
+        if countDots > 0 && string == "." || countCommas > 0 && string == "," {
+            return false
+        }
+        
+        return true
     }
 }
