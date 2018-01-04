@@ -109,30 +109,42 @@ class MainViewController: UIViewController {
     func switchToRealmDatabase() {
         do {
             DispatchQueue.main.async {
-                HUD.show(.label("Switching to Realm Database..."))
+                HUD.show(.label("Upgrading Database..."))
             }
             
             let retrievedCoins = try Disk.retrieve("coins.json", from: .caches, as: [Coin].self)
-            
-            realm = try! Realm()
-            try realm.write {
-                for coin in retrievedCoins {
-                    let portfolio = RLMPortfolio()
-                    portfolio.id = coin.id
-                    portfolio.holding = coin.holding!
-                    realm.add(portfolio, update: true)
-                    RealmManager.sharedInstance.addPortfolioObject(object: portfolio)
-                }
+
+            for coin in retrievedCoins {
+                let portfolio = RLMPortfolio()
+                portfolio.id = coin.id
+                portfolio.holding = coin.holding!
+                RealmManager.sharedInstance.addPortfolioObject(object: portfolio)
             }
             
             DispatchQueue.main.async {
-                HUD.hide()
+                HUD.hide(afterDelay: 1.7)
             }
-            // TODO: Remove old disk json files
-            //        clearDiskDataFromCaches()
+            // After updating its time to clean old data on disk
+            clearOldDiskDataFromCaches()
         } catch {
             print("Couldnt retrieve coin")
             endRefresh()
+        }
+    }
+    
+    func clearOldDiskDataFromCaches() {
+        do {
+            if Disk.exists("coins.json", in: .caches) {
+                print("coins exits in cache")
+                try Disk.remove("coins.json", from: .caches)
+            }
+            
+            if Disk.exists("coinsData.json", in: .caches) {
+                print("coins data exits in cache")
+                try Disk.remove("coinsData.json", from: .caches)
+            }
+        } catch {
+            print("Couldnt clear disk")
         }
     }
 }
