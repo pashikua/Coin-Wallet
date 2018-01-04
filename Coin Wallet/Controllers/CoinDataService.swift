@@ -14,8 +14,6 @@ class CoinDataService: NSObject, UITableViewDataSource, UITableViewDelegate, Swi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "coinCell") as! CoinTableViewCell
         
-//        guard let realmManager = realmManager else { fatalError() }
-        
         let coin = RealmManager.sharedInstance.coinAtIndex(index: indexPath.row)
         
         cell.delegate = self
@@ -30,11 +28,8 @@ class CoinDataService: NSObject, UITableViewDataSource, UITableViewDelegate, Swi
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
-        
         let editAction = SwipeAction(style: .default, title: "Edit") { action, indexPath in
-            // handle action by updating model with edit
-            
-            // Customize
+            // Customize SCLAlertView appearance
             let appearance = SCLAlertView.SCLAppearance(
                 kTitleFont: UIFont(name: "HelveticaNeue", size: 19)!,
                 kTextFont: UIFont(name: "HelveticaNeue", size: 14)!,
@@ -49,7 +44,6 @@ class CoinDataService: NSObject, UITableViewDataSource, UITableViewDelegate, Swi
             alert.addButton("Done") {
                 // Check for correct string value
                 if valueTextField.text != "" && valueTextField.text != "0" && valueTextField.text != "," && valueTextField.text != "." {
-                    // If so update current coins data and save it to disk
                     let holding = Float(valueTextField.text!.replacingOccurrences(of: ",", with: "."))
                     
                     // TODO: Shitty solution needs to be fixed
@@ -66,29 +60,22 @@ class CoinDataService: NSObject, UITableViewDataSource, UITableViewDelegate, Swi
                         tableView.reloadData()
                     }
                 }
-                
-                print("Finished updating value: ", valueTextField.text!)
             }
             
             alert.showCustom("Edit", subTitle: "Update your holding value", color: .primaryColor, icon: UIImage(named: "editFilled")!)
-            
-//            tableView.reloadData()
         }
-        
-        // customize the action appearance
+        // Customize appearance
         editAction.image = UIImage(named: "editRoundFilled")
         editAction.backgroundColor = .white
         editAction.textColor = .midDarkColor
         
         
         let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
-            // handle action by updating model with deletion
-//            self.coinManager?.removeObjectCoinFromLibrary(index: indexPath.row)
             RealmManager.sharedInstance.deletePortfolioObject(index: indexPath.row)
             
             tableView.reloadData()
         }
-        // customize the action appearance
+        // Customize appearance
         deleteAction.image = UIImage(named: "deleteRoundFilled")
         deleteAction.backgroundColor = .white
         deleteAction.textColor = .midDarkColor
