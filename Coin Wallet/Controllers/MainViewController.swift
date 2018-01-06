@@ -124,7 +124,8 @@ class MainViewController: UIViewController {
             DispatchQueue.main.async {
                 HUD.hide(afterDelay: 1.7)
             }
-            // After updating its time to clean old data on disk
+            
+            // Finish up switching database
             clearOldDiskDataFromCaches()
         } catch {
             print("Couldnt retrieve coin")
