@@ -28,7 +28,10 @@ class AddCoinViewController: UIViewController, UITableViewDelegate, UITextFieldD
         
         self.holdingTextField.delegate = self
         self.searchBar.delegate = self
-        self.holdingTextField.addDoneButtonOnKeyboard()
+        
+        if UIDevice.current.isIphoneWith4InchScreen {
+            self.holdingTextField.addDoneButtonOnKeyboard()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
