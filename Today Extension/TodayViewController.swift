@@ -31,6 +31,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // If there's no update required, use NCUpdateResult.NoData
         // If there's an update, use NCUpdateResult.NewData
         
+        // TODO: update from the widget
         if let total = UserDefaults.init(suiteName: "group.com.oezguercelebi.Coin-Wallet")?.float(forKey: "totalPortfolioValue") {
             print(total)
             totalPortfolioValueLabel.text = total.changeToDollarCurrencyString()
