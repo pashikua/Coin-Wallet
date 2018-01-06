@@ -26,8 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         
-//        saveDiskSampleDataForDatabaseSwitchTest()
-        
         return true
     }
     
