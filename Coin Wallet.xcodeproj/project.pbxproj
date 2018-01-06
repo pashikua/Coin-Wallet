@@ -27,6 +27,7 @@
 		7755FD301FE40C8200624F23 /* SwipeCellKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7755FD2E1FE40C8200624F23 /* SwipeCellKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7755FD321FE4193500624F23 /* SCLAlertView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7755FD311FE4193500624F23 /* SCLAlertView.framework */; };
 		7755FD331FE4193500624F23 /* SCLAlertView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7755FD311FE4193500624F23 /* SCLAlertView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		776672772001040A0062A548 /* UIDeviceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776672762001040A0062A548 /* UIDeviceExtensions.swift */; };
 		7776CD671FE7DC4E000CBF65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7776CD661FE7DC4D000CBF65 /* Assets.xcassets */; };
 		7776D5921FDF6158006C42FD /* Disk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7776D5911FDF6158006C42FD /* Disk.framework */; };
 		7776D5931FDF6158006C42FD /* Disk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7776D5911FDF6158006C42FD /* Disk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -151,6 +152,7 @@
 		7755FD2A1FE3DB4C00624F23 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		7755FD2E1FE40C8200624F23 /* SwipeCellKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwipeCellKit.framework; path = Carthage/Build/iOS/SwipeCellKit.framework; sourceTree = "<group>"; };
 		7755FD311FE4193500624F23 /* SCLAlertView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SCLAlertView.framework; path = Carthage/Build/iOS/SCLAlertView.framework; sourceTree = "<group>"; };
+		776672762001040A0062A548 /* UIDeviceExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceExtensions.swift; sourceTree = "<group>"; };
 		7776CD661FE7DC4D000CBF65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7776D5911FDF6158006C42FD /* Disk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Disk.framework; path = Carthage/Build/iOS/Disk.framework; sourceTree = "<group>"; };
 		7776D5941FDF6B75006C42FD /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
@@ -411,6 +413,7 @@
 				77135FF71FE359A9000B1122 /* FloatExtensions.swift */,
 				7755FD2A1FE3DB4C00624F23 /* UIColorExtensions.swift */,
 				77F8AC851FF6966900150298 /* UITextFieldExtensions.swift */,
+				776672762001040A0062A548 /* UIDeviceExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -595,6 +598,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				778FF43B1FFBE62C003A8A47 /* RLMPortfolio.swift in Sources */,
+				776672772001040A0062A548 /* UIDeviceExtensions.swift in Sources */,
 				774517BF1FF5339300715AC5 /* SupportDeveloperViewController.swift in Sources */,
 				7755FD2B1FE3DB4C00624F23 /* UIColorExtensions.swift in Sources */,
 				778E3BD91FDE969200731CE4 /* CoinTableViewCell.swift in Sources */,
