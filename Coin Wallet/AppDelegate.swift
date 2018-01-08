@@ -116,15 +116,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             })
         } else {
-            print("Touch ID is not enabled")
             // Let user through since TouchID is not enabled
-            DispatchQueue.main.async {
-                let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-                let viewController = storyboard.instantiateViewController(withIdentifier: "NavigationVC") as! NavigationViewController
-                
-                self.window?.rootViewController = viewController
-                self.window?.makeKeyAndVisible()
-            }
+            // Go to Main storyboard
         }
     }
     
