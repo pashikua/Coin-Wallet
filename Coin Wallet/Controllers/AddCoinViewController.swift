@@ -54,7 +54,6 @@ class AddCoinViewController: UIViewController, UITableViewDelegate, UITextFieldD
     }
     
     func saveCoinToRealm(holding: Float) {
-        
         let portfolioCoin = RLMPortfolio()
         portfolioCoin.holding = holding
         portfolioCoin.id = (coin?.id)!
@@ -65,7 +64,7 @@ class AddCoinViewController: UIViewController, UITableViewDelegate, UITextFieldD
         print(portfolioCoin.holding)
         print(portfolioCoin.id)
         
-        RealmManager.sharedInstance.addPortfolioObject(portfolio: portfolioCoin)
+        RealmManager.sharedInstance.addRLMObject(object: portfolioCoin, update: true)
     }
     
     func retrieveCoinData() {
