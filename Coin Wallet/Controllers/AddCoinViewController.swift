@@ -65,7 +65,7 @@ class AddCoinViewController: UIViewController, UITableViewDelegate, UITextFieldD
         print(portfolioCoin.holding)
         print(portfolioCoin.id)
         
-        RealmManager.sharedInstance.addPortfolioObject(object: portfolioCoin)
+        RealmManager.sharedInstance.addPortfolioObject(portfolio: portfolioCoin)
     }
     
     func retrieveCoinData() {
