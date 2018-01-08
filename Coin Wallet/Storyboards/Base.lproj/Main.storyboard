@@ -26,22 +26,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TOTAL PORTFOLIO VALUE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PyL-d8-gmq">
-                                <rect key="frame" x="109" y="16" width="158.5" height="16"/>
+                                <rect key="frame" x="109" y="12" width="158.5" height="16"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SWI-Y0-ehT">
-                                <rect key="frame" x="152.5" y="38" width="71.5" height="32"/>
+                                <rect key="frame" x="154.5" y="34" width="66" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="B9T-Og-C0H"/>
+                                    <constraint firstAttribute="height" constant="30" id="B9T-Og-C0H"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" red="0.25098039215686274" green="0.25098039215686274" blue="0.25098039215686274" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6PX-4U-CJu">
-                                <rect key="frame" x="16" y="122" width="343" height="429"/>
+                                <rect key="frame" x="16" y="112" width="343" height="439"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="LZo-rN-bxp">
                                     <rect key="frame" x="0.0" y="108" width="343" height="6"/>
@@ -180,7 +180,7 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9fb-hT-mFi" customClass="CustomView" customModule="Coin_Wallet" customModuleProvider="target">
-                                <rect key="frame" x="16" y="86" width="343" height="30"/>
+                                <rect key="frame" x="16" y="76" width="343" height="30"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="c7W-sm-njO">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
@@ -229,25 +229,25 @@
                             <constraint firstItem="SWI-Y0-ehT" firstAttribute="top" secondItem="PyL-d8-gmq" secondAttribute="bottom" constant="6" id="ELn-Hm-wLk"/>
                             <constraint firstItem="PyL-d8-gmq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KVX-Az-Km2"/>
                             <constraint firstItem="6PX-4U-CJu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="NxA-AK-WGa"/>
-                            <constraint firstItem="9fb-hT-mFi" firstAttribute="top" secondItem="SWI-Y0-ehT" secondAttribute="bottom" constant="16" id="Paj-wE-4DO"/>
+                            <constraint firstItem="9fb-hT-mFi" firstAttribute="top" secondItem="SWI-Y0-ehT" secondAttribute="bottom" constant="12" id="Paj-wE-4DO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6PX-4U-CJu" secondAttribute="trailing" constant="16" id="g4Z-Qt-TFn"/>
-                            <constraint firstItem="PyL-d8-gmq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="jth-ZG-yJs"/>
+                            <constraint firstItem="PyL-d8-gmq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="jth-ZG-yJs"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="6PX-4U-CJu" secondAttribute="bottom" id="mBF-Bl-AxO"/>
                             <constraint firstItem="SWI-Y0-ehT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zD1-4c-mMy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Coin Portfolio" id="Hu0-5i-ucq">
-                        <barButtonItem key="leftBarButtonItem" image="hamburgerFilled" id="zsR-E3-jiG">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <segue destination="aEb-jv-Iy6" kind="show" id="RQ6-F3-i18"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xOG-6Y-Eat">
+                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="xOG-6Y-Eat">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="ndK-wv-Ubj" kind="show" id="7uh-XK-Qrg"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="hamburgerFilled" id="zsR-E3-jiG">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="aEb-jv-Iy6" kind="show" id="RQ6-F3-i18"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -296,7 +296,7 @@
                                     <constraint firstAttribute="height" constant="40" id="HuO-Yc-TVr"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="qP0-HI-VHo"/>
                                 </constraints>
-                                <state key="normal" title="Save">
+                                <state key="normal" title="Add">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -389,7 +389,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1232.8" y="-304.4977511244378"/>
+            <point key="canvasLocation" x="1246" y="116"/>
         </scene>
         <!--Navigation View Controller-->
         <scene sceneID="UiL-Gd-hMO">
@@ -425,7 +425,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="SettingsTVC" storyboardName="Settings" referencedIdentifier="SettingsTVC" id="aEb-jv-Iy6" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="saR-Xw-IBC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1232" y="148"/>
+            <point key="canvasLocation" x="456" y="568"/>
         </scene>
     </scenes>
     <resources>
