@@ -15,7 +15,11 @@ class RealmManager {
     static let sharedInstance = RealmManager()
     
     private init() {
-        realm = try! Realm()
+        
+//        Realm.Configuration.defaultConfiguration = config
+//        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        
+        realm = try! Realm(configuration: Constants.AppGroupConfiguration())
     }
     
     var coinsCount: Int { return portfolioCoins.count }
@@ -50,22 +54,15 @@ class RealmManager {
         portfolioCoins.removeAll()
         
         for coin in realm.objects(RLMPortfolio.self).sorted(byKeyPath: "rank").toArray(ofType: RLMPortfolio.self) {
-            
+            print(coin)
             portfolioCoins.append(coin)
         }
     }
     
-    func addPortfolioObject(portfolio: RLMPortfolio) {
+    func addRLMObject(object: Object, update: Bool) {
         try! realm.write {
-            realm.add(portfolio, update: true)
-            print("add new object to portfolio")
-        }
-    }
-    
-    func addDailyTotalValueObject(dailyTotalValue: RLMDailyTotalValue)   {
-        try! realm.write {
-            realm.add(dailyTotalValue, update: true)
-            print("add new object to dailyTotalValue")
+            realm.add(object, update: update)
+            print("add realm object")
         }
     }
     
@@ -94,8 +91,6 @@ class RealmManager {
     }
     
     func refreshPortfolioData() {
-        print("refresh portfolio data")
-        
         let portfolio = realm.objects(RLMPortfolio.self).toArray(ofType: RLMPortfolio.self)
         let coins = realm.objects(RLMCoin.self).toArray(ofType: RLMCoin.self)
         
