@@ -61,9 +61,6 @@ class AddCoinViewController: UIViewController, UITableViewDelegate, UITextFieldD
         portfolioCoin.symbol = (coin?.symbol)!
         portfolioCoin.rank = (coin?.rank)!
         
-        print(portfolioCoin.holding)
-        print(portfolioCoin.id)
-        
         RealmManager.sharedInstance.addRLMObject(object: portfolioCoin, update: true)
     }
     

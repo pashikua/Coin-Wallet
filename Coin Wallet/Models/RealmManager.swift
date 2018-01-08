@@ -54,7 +54,6 @@ class RealmManager {
         portfolioCoins.removeAll()
         
         for coin in realm.objects(RLMPortfolio.self).sorted(byKeyPath: "rank").toArray(ofType: RLMPortfolio.self) {
-            print(coin)
             portfolioCoins.append(coin)
         }
     }
