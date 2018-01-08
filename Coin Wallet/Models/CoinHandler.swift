@@ -54,9 +54,8 @@ class CoinHandler {
                 DispatchQueue.main.async {
                     RealmManager.sharedInstance.refreshPortfolioData()
                 }
-                // TODO: Completion maybe here
-                completion(true)
                 
+                completion(true)
             } catch {
                 print(error.localizedDescription)
             }
