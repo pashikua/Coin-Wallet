@@ -7,6 +7,7 @@ import Crashlytics
 import SwiftyStoreKit
 import LocalAuthentication
 import RealmSwift
+import Realm
 import Disk
 
 @UIApplicationMain
@@ -15,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        setupRealm()
     
 //        Fabric.sharedSDK().debug = true
         Fabric.with([Crashlytics.self])
@@ -22,12 +24,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         completeIAPTransactions()
         
-        checkForTouchID()
-        
-        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        checkForBiometricID()
         
         return true
     }
+    
+    
     
     func saveDiskSampleDataForDatabaseSwitchTest() {
         // Old way of saving coin
@@ -66,13 +68,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
+    // Mark: - Realm
     
-    // Mark: - TouchID
+    func setupRealm() {
+        let directory: URL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.oezguercelebi.Coin-Wallet")!
+        let realmPath = directory.appendingPathComponent("db.realm")
+        var config = Realm.Configuration()
+        config.fileURL = realmPath
+        Realm.Configuration.defaultConfiguration = config
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
+    }
     
-    func checkForTouchID() {
+    // Mark: - BiometricID
+    
+    func checkForBiometricID() {
         if UserDefaults.standard.bool(forKey: "isTouchIDEnabled") {
             // Check for fingerprint
-            print("check for fingerprint")
+            print("check for biometric")
             // Send user to Empty View Controlller while checking for TouchID
             
             let storyboard = UIStoryboard.init(name: "Empty", bundle: nil)
