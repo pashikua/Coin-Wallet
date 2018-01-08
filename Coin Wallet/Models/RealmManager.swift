@@ -55,15 +55,22 @@ class RealmManager {
         }
     }
     
-    func addPortfolioObject(object: RLMPortfolio)   {
+    func addPortfolioObject(portfolio: RLMPortfolio) {
         try! realm.write {
-            realm.add(object, update: true)
+            realm.add(portfolio, update: true)
             print("add new object to portfolio")
         }
     }
     
+    func addDailyTotalValueObject(dailyTotalValue: RLMDailyTotalValue)   {
+        try! realm.write {
+            realm.add(dailyTotalValue, update: true)
+            print("add new object to dailyTotalValue")
+        }
+    }
+    
     func updatePortfolioObject(coin: RLMPortfolio) {
-        // TODO: Change holding value before updating
+        // Change holding value before updating
         print("should update from database and array index")
         try! realm.write {
             realm.add(coin, update: true)
@@ -93,7 +100,7 @@ class RealmManager {
         let coins = realm.objects(RLMCoin.self).toArray(ofType: RLMCoin.self)
         
         try! realm.write {
-            // TODO: Update current portfolio values
+            // Update current portfolio values
             for portfolioCoin in portfolio {
                 for coin in coins {
                     if portfolioCoin.id == coin.id {
