@@ -8,6 +8,9 @@
 
 import UIKit
 import NotificationCenter
+import RealmSwift
+import SwiftHTTP
+import SwiftyJSON
 
 class TodayViewController: UIViewController, NCWidgetProviding {
     
@@ -16,14 +19,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        infoTextLabel.text = "TOTAL PORTFOLIO VALUE"
         
-        if let total = UserDefaults.init(suiteName: "group.com.oezguercelebi.Coin-Wallet")?.float(forKey: "totalPortfolioValue") {
-            print(total)
-            totalPortfolioValueLabel.text = total.changeToDollarCurrencyString()
-        } else {
-            totalPortfolioValueLabel.text = "$0.00"
-        }
+        infoTextLabel.text = "TOTAL PORTFOLIO VALUE"
+        totalPortfolioValueLabel.text = UserDefaults.init(suiteName: "group.com.oezguercelebi.Coin-Wallet")?.float(forKey: "totalPortfolioValue").changeToDollarCurrencyString() ?? "$0.00"
     }
     
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
@@ -31,29 +29,31 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // If there's no update required, use NCUpdateResult.NoData
         // If there's an update, use NCUpdateResult.NewData
         
-        // TODO: update from the widget
-        if let total = UserDefaults.init(suiteName: "group.com.oezguercelebi.Coin-Wallet")?.float(forKey: "totalPortfolioValue") {
-            print(total)
-            totalPortfolioValueLabel.text = total.changeToDollarCurrencyString()
-            completionHandler(NCUpdateResult.newData)
-        }
-
-//        if RealmManager.sharedInstance.coinsCount != 0 {
-//            _ = CoinHandler.fetchCoinsData(completion: { (success) in
-//
-//                if success {
-//                    DispatchQueue.main.async {
-//                        RealmManager.sharedInstance.updatePortfolioCoinArray()
-//                        self.coinTableView.reloadData()
-//                        self.updateTotalPortfolioLabel(coinsArray: RealmManager.sharedInstance.getPortfolioCoinsArray())
-//                        sender.endRefreshing()
-//                    }
-//                }
-//            })
-//        } else {
-//            print("coinscount: ", RealmManager.sharedInstance.coinsCount)
-//            sender.endRefreshing()
-//        }
+        _ = CoinHandler.fetchCoinsData(completion: { (success) in
+            if success {
+                DispatchQueue.main.async {
+                    RealmManager.sharedInstance.updatePortfolioCoinArray()
+                    
+                    var coinValues: [Float] = []
+                    let coinsArray = RealmManager.sharedInstance.getPortfolioCoinsArray()
+                    
+                    for coin in coinsArray {
+                        // Multiply coin holding with current price of coin
+                        let value = Float(coin.holding) * Float(coin.priceUSD)
+                        
+                        coinValues.append(value)
+                    }
+                    let total = coinValues.reduce(0, +)
+                    
+                    self.totalPortfolioValueLabel.text = total.changeToDollarCurrencyString()
+                    
+                    // Save to default groups
+                    UserDefaults.init(suiteName: "group.com.oezguercelebi.Coin-Wallet")?.setValue(total, forKey: "totalPortfolioValue")
+                    
+                    completionHandler(NCUpdateResult.newData)
+                }
+            }
+        })
     }
 }
 
