@@ -115,9 +115,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     }
                 }
             })
-        } else {
-            // Let user through since TouchID is not enabled
-            // Go to Main storyboard
         }
     }
     
