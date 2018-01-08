@@ -23,6 +23,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Switch database if old database exists
         if Disk.exists("coins.json", in: .caches) {
             print("found coins.json")
             switchToRealmDatabase()
@@ -41,9 +42,10 @@ class MainViewController: UIViewController {
         addBlurEffectView()
         
         refreshCoinData(refreshControl)
+        
+        // Start of with last total
+        totalPortfolioValueLabel.text = UserDefaults.init(suiteName: "group.com.oezguercelebi.Coin-Wallet")?.float(forKey: "totalPortfolioValue").changeToDollarCurrencyString() ?? "$0.00"
     }
-    
-    
     
     override func viewWillAppear(_ animated: Bool) {
         print("viewWillAppear")
@@ -54,22 +56,19 @@ class MainViewController: UIViewController {
     @objc func refreshCoinData(_ sender: UIRefreshControl) {
         sender.beginRefreshing()
         print("refreshCoinDataTriggered")
-        if RealmManager.sharedInstance.coinsCount != 0 {
-            _ = CoinHandler.fetchCoinsData(completion: { (success) in
-
-                if success {
-                    DispatchQueue.main.async {
-                        RealmManager.sharedInstance.updatePortfolioCoinArray()
-                        self.coinTableView.reloadData()
-                        self.updateTotalPortfolioLabel(coinsArray: RealmManager.sharedInstance.getPortfolioCoinsArray())
-                        sender.endRefreshing()
-                    }
+        
+        _ = CoinHandler.fetchCoinsData(completion: { (success) in
+            print("inside refresh coin data")
+            if success {
+                DispatchQueue.main.async {
+                    RealmManager.sharedInstance.updatePortfolioCoinArray()
+                    self.coinTableView.reloadData()
+                    self.updateTotalPortfolioLabel(coinsArray: RealmManager.sharedInstance.getPortfolioCoinsArray())
+                    sender.endRefreshing()
                 }
-            })
-        } else {
-            print("coinscount: ", RealmManager.sharedInstance.coinsCount)
-            sender.endRefreshing()
-        }
+            }
+            print("is fetch successful: ",success)
+        })
     }
     
     func updateTotalPortfolioLabel(coinsArray: [RLMPortfolio]) {
@@ -81,8 +80,9 @@ class MainViewController: UIViewController {
             
             coinValues.append(value)
         }
-        
-        totalPortfolioValueAsDollar(coinValues: coinValues)
+        let total = coinValues.reduce(0, +)
+        totalPortfolioValueAsDollar(total: total)
+        addDailyTotalValue(total: total)
     }
     
     func endRefresh() {
@@ -91,10 +91,11 @@ class MainViewController: UIViewController {
         }
     }
     
-    func totalPortfolioValueAsDollar(coinValues: [Float]) {
+    func totalPortfolioValueAsDollar(total: Float) {
+        // Save to default groups
+        UserDefaults.init(suiteName: "group.com.oezguercelebi.Coin-Wallet")?.setValue(total, forKey: "totalPortfolioValue")
+        
         DispatchQueue.main.async {
-            let total = coinValues.reduce(0, +)
-            UserDefaults.init(suiteName: "group.com.oezguercelebi.Coin-Wallet")?.setValue(total, forKey: "totalPortfolioValue")
             self.totalPortfolioValueLabel.text = total.changeToDollarCurrencyString()
         }
     }
@@ -105,7 +106,7 @@ class MainViewController: UIViewController {
         self.updateTotalPortfolioLabel(coinsArray: RealmManager.sharedInstance.getPortfolioCoinsArray())
     }
     
-    // First version used Disk and I switched to Realm
+    // First version used to have Disk and I switched to Realm
     func switchToRealmDatabase() {
         do {
             DispatchQueue.main.async {
@@ -118,7 +119,7 @@ class MainViewController: UIViewController {
                 let portfolio = RLMPortfolio()
                 portfolio.id = coin.id
                 portfolio.holding = coin.holding!
-                RealmManager.sharedInstance.addPortfolioObject(object: portfolio)
+                RealmManager.sharedInstance.addRLMObject(object: portfolio, update: true)
             }
             
             DispatchQueue.main.async {
@@ -146,6 +147,22 @@ class MainViewController: UIViewController {
             }
         } catch {
             print("Couldnt clear disk")
+        }
+    }
+    
+    func addDailyTotalValue(total: Float) {
+        // Add and update daily total value
+        let dailyTotalValue = RLMDailyTotalValue()
+        dailyTotalValue.id = Date().currentUTCTimeZoneDateAsString
+        dailyTotalValue.totalValue = total
+        
+        // Check if there is a entry for todays total value store it
+        let realm = try! Realm(configuration: Constants.AppGroupConfiguration())
+        let predicate = NSPredicate(format: "id = %@", dailyTotalValue.id)
+        let object = realm.objects(RLMDailyTotalValue.self).filter(predicate).first
+        if object?.id != dailyTotalValue.id {
+            print("is not equal")
+            RealmManager.sharedInstance.addRLMObject(object: dailyTotalValue, update: true)
         }
     }
 }
@@ -204,7 +221,8 @@ extension MainViewController: RealmManagerDelegate {
             coinValues.append(value)
         }
         
-        totalPortfolioValueAsDollar(coinValues: coinValues)
+        let total = coinValues.reduce(0, +)
+        totalPortfolioValueAsDollar(total: total)
     }
 }
 
