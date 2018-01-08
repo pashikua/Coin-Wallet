@@ -30,7 +30,7 @@ extension CoinDataServiceTests {
     class CoinCellMock: CoinTableViewCell {
         var coin: Coin?
         
-        override func configCoinCell(withCoin: Coin) {
+        func configCoinCell(withCoin: Coin) {
             coin = withCoin
         }
     }
