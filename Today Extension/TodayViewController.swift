@@ -16,7 +16,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        infoTextLabel.text = "Total Portfolio Value"
+        infoTextLabel.text = "TOTAL PORTFOLIO VALUE"
         
         if let total = UserDefaults.init(suiteName: "group.com.oezguercelebi.Coin-Wallet")?.float(forKey: "totalPortfolioValue") {
             print(total)
@@ -37,6 +37,23 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             totalPortfolioValueLabel.text = total.changeToDollarCurrencyString()
             completionHandler(NCUpdateResult.newData)
         }
+
+//        if RealmManager.sharedInstance.coinsCount != 0 {
+//            _ = CoinHandler.fetchCoinsData(completion: { (success) in
+//
+//                if success {
+//                    DispatchQueue.main.async {
+//                        RealmManager.sharedInstance.updatePortfolioCoinArray()
+//                        self.coinTableView.reloadData()
+//                        self.updateTotalPortfolioLabel(coinsArray: RealmManager.sharedInstance.getPortfolioCoinsArray())
+//                        sender.endRefreshing()
+//                    }
+//                }
+//            })
+//        } else {
+//            print("coinscount: ", RealmManager.sharedInstance.coinsCount)
+//            sender.endRefreshing()
+//        }
     }
 }
 
