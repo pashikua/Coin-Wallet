@@ -36,7 +36,6 @@ class MainViewController: UIViewController {
         
         // Configure Refresh Control
         self.refreshControl.addTarget(self, action: #selector(refreshCoinData(_:)), for: .valueChanged)
-        self.view.layoutIfNeeded()
 
         observeNotification()
         addBlurEffectView()
