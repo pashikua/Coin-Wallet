@@ -22,7 +22,7 @@ class CoinHandler {
                 
                 // Mark: - REALM
                 
-                let realm = try! Realm()
+                let realm = try! Realm(configuration: Constants.AppGroupConfiguration())
                 
                 try realm.write {
                     for item in json {
@@ -42,15 +42,16 @@ class CoinHandler {
                         allCoins.percentChangeLastSevenDays = item.1["percent_change_7d"].floatValue
                         allCoins.lastUpdated = item.1["last_updated"].stringValue
                         
+                        
                         realm.add(allCoins, update: true)
                         // Upcomming feature
 //                        allCoins.priceLocalCurrency = item.1[""].floatValue
 //                        allCoins.twentyFourHourVolumeLocalCurrency = item.1["24h_volume_eur"].floatValue
 //                        allCoins.marketCapLocalCurrency = item.1[""].floatValue
                         
-                        
                     }
                 }
+                
                 DispatchQueue.main.async {
                     RealmManager.sharedInstance.refreshPortfolioData()
                 }
