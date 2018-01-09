@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="qiq-cS-Oe9">
-                            <rect key="frame" x="0.0" y="305.5" width="375" height="44"/>
+                            <rect key="frame" x="0.0" y="349.5" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WEm-vR-y9C">
@@ -132,6 +132,27 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ffi-l8-7cc">
+                                        <rect key="frame" x="0.0" y="287.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ffi-l8-7cc" id="NTJ-6b-LR6">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share with Friends" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aEH-hA-nlA">
+                                                    <rect key="frame" x="16" y="11" width="343" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.22352941179999999" green="0.25490196079999999" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="aEH-hA-nlA" secondAttribute="trailing" constant="16" id="C3D-Fq-gLz"/>
+                                                <constraint firstItem="aEH-hA-nlA" firstAttribute="leading" secondItem="NTJ-6b-LR6" secondAttribute="leading" constant="16" id="n5S-UK-lJ3"/>
+                                                <constraint firstItem="aEH-hA-nlA" firstAttribute="centerY" secondItem="NTJ-6b-LR6" secondAttribute="centerY" id="uL6-Rq-syf"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -177,7 +198,7 @@
                                                 <rect key="frame" x="120" y="26.5" width="195.5" height="87"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b0a-D1-tqh" customClass="CustomButton" customModule="Coin_Wallet" customModuleProvider="target">
-                                                        <rect key="frame" x="42" y="0.0" width="112" height="35"/>
+                                                        <rect key="frame" x="-139.5" y="0.0" width="112" height="35"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="35" id="IQy-Sf-pt7"/>
@@ -234,7 +255,7 @@
                                                 <rect key="frame" x="120" y="26.5" width="195.5" height="87"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v9N-gJ-Zsr" customClass="CustomButton" customModule="Coin_Wallet" customModuleProvider="target">
-                                                        <rect key="frame" x="42" y="0.0" width="112" height="35"/>
+                                                        <rect key="frame" x="-139.5" y="0.0" width="112" height="35"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="35" id="em6-xO-gDg"/>
@@ -291,7 +312,7 @@
                                                 <rect key="frame" x="120" y="27" width="195.5" height="87"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5kZ-sZ-rpc" customClass="CustomButton" customModule="Coin_Wallet" customModuleProvider="target">
-                                                        <rect key="frame" x="27" y="0.0" width="142" height="35"/>
+                                                        <rect key="frame" x="-139.5" y="0.0" width="142" height="35"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="35" id="XwY-2p-9vz"/>
@@ -348,7 +369,7 @@
                                                 <rect key="frame" x="120" y="26.5" width="200.5" height="87"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UqG-i0-zyN" customClass="CustomButton" customModule="Coin_Wallet" customModuleProvider="target">
-                                                        <rect key="frame" x="44.5" y="0.0" width="112" height="35"/>
+                                                        <rect key="frame" x="-139.5" y="0.0" width="112" height="35"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="35" id="ygf-Fc-Jah"/>

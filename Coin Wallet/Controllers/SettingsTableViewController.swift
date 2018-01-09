@@ -12,7 +12,7 @@ class SettingsTableViewController: UITableViewController, SFSafariViewController
     @IBOutlet weak var versionLabel: UILabel!
     
     let securityItems = ["Enable Biometric Lock"]
-    let aboutItems = ["Support Developer", "View Source Code", "Rate and give Feedback"]
+    let aboutItems = ["Support Developer", "View Source Code", "Rate and give Feedback", "Share with Friends"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -157,6 +157,9 @@ class SettingsTableViewController: UITableViewController, SFSafariViewController
             } else if indexPath.row == 2 {
                 // Rate App
                 SKStoreReviewController.requestReview()
+            } else if indexPath.row == 3 {
+                // Rate App
+                shareApp()
             }
         default:
             break
@@ -176,6 +179,28 @@ class SettingsTableViewController: UITableViewController, SFSafariViewController
         }
     }
     */
+    
+    private func shareApp() {
+        // Placeholder message
+        let shareText = "Hey, I am using this Coin Portfolio tracking App :)  "
+        
+        // iTunes link to the app store
+        let shareAppURL = URL(string: "https://itunes.apple.com/app/coin-portfolio-tracking/id1326852500?at=1001lISI&app=itunes")!
+        
+        let vc = UIActivityViewController(activityItems: [shareText, shareAppURL], applicationActivities: [])
+        vc.excludedActivityTypes = [
+            UIActivityType.print,
+            UIActivityType.assignToContact,
+            UIActivityType.saveToCameraRoll,
+            UIActivityType.addToReadingList,
+            UIActivityType.postToFlickr,
+            UIActivityType.postToVimeo,
+            UIActivityType.postToTencentWeibo,
+            UIActivityType.airDrop,
+            UIActivityType.openInIBooks
+        ]
+        self.present(vc, animated: true)
+    }
  
 
     // MARK: - Safari
