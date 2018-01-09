@@ -13,6 +13,7 @@ class SettingsTableViewController: UITableViewController, SFSafariViewController
     
     let securityItems = ["Enable Biometric Lock"]
     let aboutItems = ["Support Developer", "View Source Code", "Rate and give Feedback", "Share with Friends"]
+    let linkItems = ["Buy and Sell on Coinbase"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -125,7 +126,7 @@ class SettingsTableViewController: UITableViewController, SFSafariViewController
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return [securityItems, aboutItems].count
+        return [securityItems, aboutItems, linkItems].count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -137,6 +138,8 @@ class SettingsTableViewController: UITableViewController, SFSafariViewController
             rows = securityItems.count
         case 1:
             rows = aboutItems.count
+        case 2:
+            rows = linkItems.count
         default:
             break
         }
@@ -158,8 +161,13 @@ class SettingsTableViewController: UITableViewController, SFSafariViewController
                 // Rate App
                 SKStoreReviewController.requestReview()
             } else if indexPath.row == 3 {
-                // Rate App
+                // Share App
                 shareApp()
+            }
+        case 2:
+            if indexPath.row == 0 {
+                // Open link to Coinbase
+                self.openLinkWithSafari(string: "https://www.coinbase.com/join/5a2ac0a68c4feb0308f73ba4")
             }
         default:
             break
@@ -202,6 +210,11 @@ class SettingsTableViewController: UITableViewController, SFSafariViewController
         self.present(vc, animated: true)
     }
  
+    func openLinkWithSafari(string: String) {
+        if let url = URL(string: string) {
+            UIApplication.shared.open(url, options: [:])
+        }
+    }
 
     // MARK: - Safari
     
@@ -213,6 +226,8 @@ class SettingsTableViewController: UITableViewController, SFSafariViewController
         self.present(safariVC, animated: true, completion: nil)
         safariVC.delegate = self
     }
+    
+    
     
     func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
         controller.dismiss(animated: true, completion: nil)
