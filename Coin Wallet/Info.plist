@@ -66,5 +66,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSFaceIDUsageDescription</key>
+	<string>Coin Portfolio uses Face ID to authenticate and lock your Portfolio</string>
 </dict>
 </plist>
