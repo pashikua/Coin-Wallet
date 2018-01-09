@@ -193,7 +193,7 @@ class SettingsTableViewController: UITableViewController, SFSafariViewController
         let shareText = "Hey, I am using this Coin Portfolio tracking App :)  "
         
         // iTunes link to the app store
-        let shareAppURL = URL(string: "https://itunes.apple.com/app/coin-portfolio-tracking/id1326852500?at=1001lISI&app=itunes")!
+        let shareAppURL = URL(string: "https://itunes.apple.com/app/coin-portfolio-tracking/id1326852500")!
         
         let vc = UIActivityViewController(activityItems: [shareText, shareAppURL], applicationActivities: [])
         vc.excludedActivityTypes = [
