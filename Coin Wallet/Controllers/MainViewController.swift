@@ -6,6 +6,7 @@ import Disk
 import SwiftyJSON
 import RealmSwift
 import PKHUD
+import StoreKit
 
 class MainViewController: UIViewController {
     
