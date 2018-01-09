@@ -45,6 +45,8 @@ class MainViewController: UIViewController {
         
         // Start of with last total
         totalPortfolioValueLabel.text = UserDefaults.init(suiteName: "group.com.oezguercelebi.Coin-Wallet")?.float(forKey: "totalPortfolioValue").changeToDollarCurrencyString() ?? "$0.00"
+        
+        requestReview()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -164,6 +166,17 @@ class MainViewController: UIViewController {
             print("is not equal")
             RealmManager.sharedInstance.addRLMObject(object: dailyTotalValue, update: true)
         }
+    }
+    
+    func requestReview() {
+        let launchCount = UserDefaults.standard.integer(forKey: "launchCount")
+        print("Launcounter: ", UserDefaults.standard.integer(forKey: "launchCount"))
+        
+        if launchCount == 3 {
+            SKStoreReviewController.requestReview()
+        }
+        
+        UserDefaults.standard.set(launchCount + 1, forKey: "launchCount")
     }
 }
 
