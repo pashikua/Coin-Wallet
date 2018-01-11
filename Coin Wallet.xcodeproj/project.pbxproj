@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		77052A2C2004BF28005B9ECC /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77052A2A2004BF27005B9ECC /* Crashlytics.framework */; };
-		77052A2D2004BF28005B9ECC /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77052A2B2004BF27005B9ECC /* Fabric.framework */; };
 		77135FF81FE359A9000B1122 /* FloatExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77135FF71FE359A9000B1122 /* FloatExtensions.swift */; };
+		771E8F2D200784BA0012D0B9 /* RLMSubscriptionPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771E8F2C200784BA0012D0B9 /* RLMSubscriptionPlan.swift */; };
+		771E8F2E20078C0A0012D0B9 /* RLMSubscriptionPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771E8F2C200784BA0012D0B9 /* RLMSubscriptionPlan.swift */; };
 		773F23801FDE81E600D1F7FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773F237F1FDE81E600D1F7FA /* AppDelegate.swift */; };
 		773F23821FDE81E600D1F7FA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773F23811FDE81E600D1F7FA /* MainViewController.swift */; };
 		773F23851FDE81E600D1F7FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 773F23831FDE81E600D1F7FA /* Main.storyboard */; };
@@ -23,6 +23,8 @@
 		774517C41FF54A9C00715AC5 /* SwiftyStoreKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 774517C21FF54A9C00715AC5 /* SwiftyStoreKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		774517C61FF639DA00715AC5 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774517C51FF639DA00715AC5 /* CustomImageView.swift */; };
 		774517C91FF6565A00715AC5 /* NetworkActivityIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774517C81FF6565A00715AC5 /* NetworkActivityIndicatorManager.swift */; };
+		775560532005195600C18171 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775560512005195500C18171 /* Crashlytics.framework */; };
+		775560542005195600C18171 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775560522005195500C18171 /* Fabric.framework */; };
 		7755FD291FE3DAE700624F23 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7755FD281FE3DAE700624F23 /* Constants.swift */; };
 		7755FD2B1FE3DB4C00624F23 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7755FD2A1FE3DB4C00624F23 /* UIColorExtensions.swift */; };
 		7755FD2F1FE40C8200624F23 /* SwipeCellKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7755FD2E1FE40C8200624F23 /* SwipeCellKit.framework */; };
@@ -133,9 +135,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		77052A2A2004BF27005B9ECC /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
-		77052A2B2004BF27005B9ECC /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		77135FF71FE359A9000B1122 /* FloatExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatExtensions.swift; sourceTree = "<group>"; };
+		771E8F2C200784BA0012D0B9 /* RLMSubscriptionPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLMSubscriptionPlan.swift; sourceTree = "<group>"; };
 		773F237C1FDE81E600D1F7FA /* Coin Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Coin Wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		773F237F1FDE81E600D1F7FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		773F23811FDE81E600D1F7FA /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +155,8 @@
 		774517C21FF54A9C00715AC5 /* SwiftyStoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyStoreKit.framework; path = Carthage/Build/iOS/SwiftyStoreKit.framework; sourceTree = "<group>"; };
 		774517C51FF639DA00715AC5 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		774517C81FF6565A00715AC5 /* NetworkActivityIndicatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkActivityIndicatorManager.swift; sourceTree = "<group>"; };
+		775560512005195500C18171 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		775560522005195500C18171 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		7755FD281FE3DAE700624F23 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7755FD2A1FE3DB4C00624F23 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		7755FD2E1FE40C8200624F23 /* SwipeCellKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwipeCellKit.framework; path = Carthage/Build/iOS/SwipeCellKit.framework; sourceTree = "<group>"; };
@@ -211,10 +214,10 @@
 				7776D5951FDF6B76006C42FD /* Kingfisher.framework in Frameworks */,
 				778E3BC81FDE835C00731CE4 /* SwiftyJSON.framework in Frameworks */,
 				774517C31FF54A9C00715AC5 /* SwiftyStoreKit.framework in Frameworks */,
-				77052A2D2004BF28005B9ECC /* Fabric.framework in Frameworks */,
+				775560542005195600C18171 /* Fabric.framework in Frameworks */,
 				778FF4381FFBDFF5003A8A47 /* Realm.framework in Frameworks */,
 				7755FD321FE4193500624F23 /* SCLAlertView.framework in Frameworks */,
-				77052A2C2004BF28005B9ECC /* Crashlytics.framework in Frameworks */,
+				775560532005195600C18171 /* Crashlytics.framework in Frameworks */,
 				77F8AC811FF6622A00150298 /* PKHUD.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,8 +244,8 @@
 		773F23731FDE81E600D1F7FA = {
 			isa = PBXGroup;
 			children = (
-				77052A2A2004BF27005B9ECC /* Crashlytics.framework */,
-				77052A2B2004BF27005B9ECC /* Fabric.framework */,
+				775560512005195500C18171 /* Crashlytics.framework */,
+				775560522005195500C18171 /* Fabric.framework */,
 				778FF4371FFBDFF5003A8A47 /* Realm.framework */,
 				778FF4341FFBDFC8003A8A47 /* RealmSwift.framework */,
 				77F8AC801FF6622900150298 /* PKHUD.framework */,
@@ -358,6 +361,7 @@
 				774517C81FF6565A00715AC5 /* NetworkActivityIndicatorManager.swift */,
 				778FF42E1FFBD55D003A8A47 /* RealmManager.swift */,
 				778FF4321FFBD6A2003A8A47 /* RLMCoin.swift */,
+				771E8F2C200784BA0012D0B9 /* RLMSubscriptionPlan.swift */,
 				778FF43A1FFBE62C003A8A47 /* RLMPortfolio.swift */,
 				77B4A61E20036BBA00EF6830 /* RLMDailyTotalValue.swift */,
 			);
@@ -609,6 +613,7 @@
 				778FF43B1FFBE62C003A8A47 /* RLMPortfolio.swift in Sources */,
 				776672772001040A0062A548 /* UIDeviceExtensions.swift in Sources */,
 				774517BF1FF5339300715AC5 /* SupportDeveloperViewController.swift in Sources */,
+				771E8F2D200784BA0012D0B9 /* RLMSubscriptionPlan.swift in Sources */,
 				7755FD2B1FE3DB4C00624F23 /* UIColorExtensions.swift in Sources */,
 				778E3BD91FDE969200731CE4 /* CoinTableViewCell.swift in Sources */,
 				77135FF81FE359A9000B1122 /* FloatExtensions.swift in Sources */,
@@ -655,6 +660,7 @@
 			files = (
 				7793CC5E20039E4E0031084E /* CoinHandler.swift in Sources */,
 				7793CC5A20039D730031084E /* RLMCoin.swift in Sources */,
+				771E8F2E20078C0A0012D0B9 /* RLMSubscriptionPlan.swift in Sources */,
 				777F305C1FF3F8DC00B44918 /* TodayViewController.swift in Sources */,
 				7793CC5C20039DA90031084E /* RealmManager.swift in Sources */,
 				7793CC5B20039D750031084E /* RLMPortfolio.swift in Sources */,
