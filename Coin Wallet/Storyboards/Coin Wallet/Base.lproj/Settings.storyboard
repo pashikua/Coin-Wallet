@@ -206,240 +206,225 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WLb-bz-6kf">
-                                <rect key="frame" x="19.5" y="30" width="335.5" height="590"/>
+                                <rect key="frame" x="16" y="88" width="343" height="535"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7gE-aZ-yMQ" customClass="CustomView" customModule="Coin_Wallet" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="335.5" height="140"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="kG9-1T-AbL">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="171.5"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="basicSupporter" translatesAutoresizingMaskIntoConstraints="NO" id="SBX-bk-7W9" customClass="CustomImageView" customModule="Coin_Wallet" customModuleProvider="target">
-                                                <rect key="frame" x="15" y="22.5" width="95" height="95"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="95" id="XhD-Mq-oaZ"/>
-                                                    <constraint firstAttribute="height" constant="95" id="w8y-sg-Pmc"/>
-                                                </constraints>
-                                            </imageView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="jkT-yK-wdH">
-                                                <rect key="frame" x="120" y="26.5" width="195.5" height="87"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g3X-Gc-qoD" userLabel="Plus Supporter" customClass="CustomView" customModule="Coin_Wallet" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="132.5"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b0a-D1-tqh" customClass="CustomButton" customModule="Coin_Wallet" customModuleProvider="target">
-                                                        <rect key="frame" x="42" y="0.0" width="112" height="35"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plusSupporter" translatesAutoresizingMaskIntoConstraints="NO" id="LAY-is-UeH" customClass="CustomImageView" customModule="Coin_Wallet" customModuleProvider="target">
+                                                        <rect key="frame" x="10" y="31" width="70" height="70"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="35" id="IQy-Sf-pt7"/>
+                                                            <constraint firstAttribute="height" constant="70" id="HVg-na-SaW"/>
+                                                            <constraint firstAttribute="width" constant="70" id="f0K-8C-PIU"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                        <state key="normal" title="  Basic Supporter  ">
-                                                            <color key="titleColor" red="0.1215686275" green="0.1215686275" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="8"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="basicBtnPressed:" destination="nob-aN-e2V" eventType="touchUpInside" id="9rX-Tl-fVb"/>
-                                                        </connections>
-                                                    </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="hFY-xp-wHG">
-                                                        <rect key="frame" x="-139.5" y="41" width="195.5" height="46"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    </imageView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="SRS-qe-UME">
+                                                        <rect key="frame" x="90" y="31" width="249" height="91.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plus Supporter" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="wEX-HU-9gf">
+                                                                <rect key="frame" x="0.0" y="0.0" width="117.5" height="20"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="20" id="aD2-zn-wFg"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sponsor a Cappuccino and delicious Vegan Cake" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VfK-aF-FDt" userLabel="Label">
+                                                                <rect key="frame" x="0.0" y="26" width="249" height="65.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
-                                            </stackView>
-                                        </subviews>
-                                        <color key="backgroundColor" red="0.0" green="0.47843137254901957" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="SBX-bk-7W9" firstAttribute="centerY" secondItem="7gE-aZ-yMQ" secondAttribute="centerY" id="AxV-d9-aBV"/>
-                                            <constraint firstItem="jkT-yK-wdH" firstAttribute="bottom" secondItem="SBX-bk-7W9" secondAttribute="bottom" constant="-4" id="FLq-cM-TcG"/>
-                                            <constraint firstItem="SBX-bk-7W9" firstAttribute="leading" secondItem="7gE-aZ-yMQ" secondAttribute="leading" constant="15" id="Uwx-96-1sm"/>
-                                            <constraint firstItem="jkT-yK-wdH" firstAttribute="top" secondItem="SBX-bk-7W9" secondAttribute="top" constant="4" id="YRH-Fv-cuk"/>
-                                            <constraint firstItem="jkT-yK-wdH" firstAttribute="leading" secondItem="SBX-bk-7W9" secondAttribute="trailing" constant="10" id="efP-mN-Qnk"/>
-                                            <constraint firstAttribute="trailing" secondItem="jkT-yK-wdH" secondAttribute="trailing" constant="20" id="z8I-LS-3ql"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="8"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g3X-Gc-qoD" customClass="CustomView" customModule="Coin_Wallet" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="150" width="335.5" height="140"/>
-                                        <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plusSupporter" translatesAutoresizingMaskIntoConstraints="NO" id="LAY-is-UeH" customClass="CustomImageView" customModule="Coin_Wallet" customModuleProvider="target">
-                                                <rect key="frame" x="15" y="22.5" width="95" height="95"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" red="0.35294117650000001" green="0.83529411760000005" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="95" id="HVg-na-SaW"/>
-                                                    <constraint firstAttribute="width" constant="95" id="f0K-8C-PIU"/>
+                                                    <constraint firstItem="SRS-qe-UME" firstAttribute="top" secondItem="LAY-is-UeH" secondAttribute="top" id="0xd-o4-LWa"/>
+                                                    <constraint firstItem="LAY-is-UeH" firstAttribute="leading" secondItem="g3X-Gc-qoD" secondAttribute="leading" constant="10" id="Jw9-9S-yr6"/>
+                                                    <constraint firstAttribute="trailing" secondItem="SRS-qe-UME" secondAttribute="trailing" constant="4" id="LRP-hv-XDb"/>
+                                                    <constraint firstItem="SRS-qe-UME" firstAttribute="leading" secondItem="LAY-is-UeH" secondAttribute="trailing" constant="10" id="Qn1-FC-IG4"/>
+                                                    <constraint firstItem="LAY-is-UeH" firstAttribute="centerY" secondItem="g3X-Gc-qoD" secondAttribute="centerY" id="e6n-m1-byl"/>
+                                                    <constraint firstAttribute="bottom" secondItem="SRS-qe-UME" secondAttribute="bottom" constant="10" id="fw4-Oq-pRx"/>
                                                 </constraints>
-                                            </imageView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="SRS-qe-UME">
-                                                <rect key="frame" x="120" y="26.5" width="195.5" height="87"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5SJ-cl-0wM" customClass="CustomButton" customModule="Coin_Wallet" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="136.5" width="343" height="35"/>
+                                                <color key="backgroundColor" red="0.35334819555282593" green="0.83707290887832642" blue="0.81034964323043823" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="35" id="ahA-Um-dcJ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <state key="normal" title="Loading Price...">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="plusBtnPressed:" destination="nob-aN-e2V" eventType="touchUpInside" id="bgE-FM-GAl"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Mow-a1-Ocx">
+                                        <rect key="frame" x="0.0" y="181.5" width="343" height="172"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zho-cM-ZSQ" userLabel="Premium Supporter" customClass="CustomView" customModule="Coin_Wallet" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="133"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v9N-gJ-Zsr" customClass="CustomButton" customModule="Coin_Wallet" customModuleProvider="target">
-                                                        <rect key="frame" x="42" y="0.0" width="112" height="35"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="premiumSupporter" translatesAutoresizingMaskIntoConstraints="NO" id="7Gw-7W-r0I" customClass="CustomImageView" customModule="Coin_Wallet" customModuleProvider="target">
+                                                        <rect key="frame" x="10" y="31.5" width="70" height="70"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="35" id="em6-xO-gDg"/>
+                                                            <constraint firstAttribute="width" constant="70" id="HDw-3l-3q5"/>
+                                                            <constraint firstAttribute="height" constant="70" id="KT6-4C-6uM"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <state key="normal" title="  Plus Supporter  ">
-                                                            <color key="titleColor" red="0.1215686275" green="0.1215686275" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="8"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="plusBtnPressed:" destination="nob-aN-e2V" eventType="touchUpInside" id="SyX-yH-NQs"/>
-                                                        </connections>
-                                                    </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="VfK-aF-FDt">
-                                                        <rect key="frame" x="-139.5" y="41" width="195.5" height="46"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    </imageView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="ylo-zS-kyi">
+                                                        <rect key="frame" x="90" y="31.5" width="249" height="91.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Premium Supporter" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="Vtn-gR-EM2">
+                                                                <rect key="frame" x="0.0" y="0.0" width="153.5" height="20"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="20" id="2LY-nj-dbw"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sponsor a Smoothie, Vegan Lunch and Dessert" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J3j-y5-giA">
+                                                                <rect key="frame" x="0.0" y="26" width="249" height="65.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
-                                            </stackView>
-                                        </subviews>
-                                        <color key="backgroundColor" red="0.35294117650000001" green="0.83529411760000005" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="SRS-qe-UME" firstAttribute="bottom" secondItem="LAY-is-UeH" secondAttribute="bottom" constant="-4" id="8Uh-7e-Ql5"/>
-                                            <constraint firstItem="SRS-qe-UME" firstAttribute="top" secondItem="LAY-is-UeH" secondAttribute="top" constant="4" id="9xX-Au-skC"/>
-                                            <constraint firstItem="LAY-is-UeH" firstAttribute="leading" secondItem="g3X-Gc-qoD" secondAttribute="leading" constant="15" id="Jw9-9S-yr6"/>
-                                            <constraint firstAttribute="trailing" secondItem="SRS-qe-UME" secondAttribute="trailing" constant="20" id="LRP-hv-XDb"/>
-                                            <constraint firstItem="SRS-qe-UME" firstAttribute="leading" secondItem="LAY-is-UeH" secondAttribute="trailing" constant="10" id="Qn1-FC-IG4"/>
-                                            <constraint firstItem="LAY-is-UeH" firstAttribute="centerY" secondItem="g3X-Gc-qoD" secondAttribute="centerY" id="e6n-m1-byl"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="8"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zho-cM-ZSQ" customClass="CustomView" customModule="Coin_Wallet" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="300" width="335.5" height="140"/>
-                                        <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="premiumSupporter" translatesAutoresizingMaskIntoConstraints="NO" id="7Gw-7W-r0I" customClass="CustomImageView" customModule="Coin_Wallet" customModuleProvider="target">
-                                                <rect key="frame" x="15" y="23" width="95" height="95"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" red="1" green="0.098039215686274508" blue="0.28627450980392155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="95" id="HDw-3l-3q5"/>
-                                                    <constraint firstAttribute="height" constant="95" id="KT6-4C-6uM"/>
+                                                    <constraint firstItem="7Gw-7W-r0I" firstAttribute="leading" secondItem="zho-cM-ZSQ" secondAttribute="leading" constant="10" id="GyQ-JR-se2"/>
+                                                    <constraint firstItem="7Gw-7W-r0I" firstAttribute="centerY" secondItem="zho-cM-ZSQ" secondAttribute="centerY" id="VYi-RD-0Oo"/>
+                                                    <constraint firstAttribute="trailing" secondItem="ylo-zS-kyi" secondAttribute="trailing" constant="4" id="m5I-Ul-ulQ"/>
+                                                    <constraint firstAttribute="bottom" secondItem="ylo-zS-kyi" secondAttribute="bottom" constant="10" id="nUN-bU-Bhs"/>
+                                                    <constraint firstItem="ylo-zS-kyi" firstAttribute="leading" secondItem="7Gw-7W-r0I" secondAttribute="trailing" constant="10" id="tC9-9t-4nP"/>
+                                                    <constraint firstItem="ylo-zS-kyi" firstAttribute="top" secondItem="7Gw-7W-r0I" secondAttribute="top" id="wD3-Nq-4jA"/>
                                                 </constraints>
-                                            </imageView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="ylo-zS-kyi">
-                                                <rect key="frame" x="120" y="27" width="195.5" height="87"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pts-QT-6lq" customClass="CustomButton" customModule="Coin_Wallet" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="137" width="343" height="35"/>
+                                                <color key="backgroundColor" red="0.99936336278915405" green="0.096195213496685028" blue="0.28793323040008545" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="35" id="GWT-6m-LrF"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <state key="normal" title="Loading Price...">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="premiumBtnPressed:" destination="nob-aN-e2V" eventType="touchUpInside" id="TQq-D2-pir"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="qE0-OJ-Ttm">
+                                        <rect key="frame" x="0.0" y="363.5" width="343" height="171.5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EoY-EW-GdF" userLabel="Max Supporter" customClass="CustomView" customModule="Coin_Wallet" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="132.5"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5kZ-sZ-rpc" customClass="CustomButton" customModule="Coin_Wallet" customModuleProvider="target">
-                                                        <rect key="frame" x="27" y="0.0" width="142" height="35"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="maxSupporter" translatesAutoresizingMaskIntoConstraints="NO" id="7RU-5w-0mu" customClass="CustomImageView" customModule="Coin_Wallet" customModuleProvider="target">
+                                                        <rect key="frame" x="10" y="31.5" width="70" height="70"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="35" id="XwY-2p-9vz"/>
+                                                            <constraint firstAttribute="width" constant="70" id="2dT-qH-afh"/>
+                                                            <constraint firstAttribute="height" constant="70" id="ddO-yl-yKn"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <state key="normal" title="  Premium Supporter  ">
-                                                            <color key="titleColor" red="0.1215686275" green="0.1215686275" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="8"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="premiumBtnPressed:" destination="nob-aN-e2V" eventType="touchUpInside" id="L8j-I7-g0n"/>
-                                                        </connections>
-                                                    </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="J3j-y5-giA">
-                                                        <rect key="frame" x="-139.5" y="41" width="195.5" height="46"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    </imageView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="lWh-u4-BKv">
+                                                        <rect key="frame" x="88" y="31.5" width="240" height="91"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max Supporter" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MKn-qa-Un3">
+                                                                <rect key="frame" x="0.0" y="0.0" width="114" height="20"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="20" id="uEN-vl-7cz"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Developer can work Full-Time on Coin Portfolio" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ek-g7-laG">
+                                                                <rect key="frame" x="0.0" y="26" width="240" height="65"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
-                                            </stackView>
-                                        </subviews>
-                                        <color key="backgroundColor" red="1" green="0.098039215686274508" blue="0.28627450980392155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="7Gw-7W-r0I" firstAttribute="leading" secondItem="zho-cM-ZSQ" secondAttribute="leading" constant="15" id="GyQ-JR-se2"/>
-                                            <constraint firstItem="ylo-zS-kyi" firstAttribute="top" secondItem="7Gw-7W-r0I" secondAttribute="top" constant="4" id="OPp-Bp-Gap"/>
-                                            <constraint firstItem="7Gw-7W-r0I" firstAttribute="centerY" secondItem="zho-cM-ZSQ" secondAttribute="centerY" id="VYi-RD-0Oo"/>
-                                            <constraint firstItem="ylo-zS-kyi" firstAttribute="bottom" secondItem="7Gw-7W-r0I" secondAttribute="bottom" constant="-4" id="b71-Gv-Wbj"/>
-                                            <constraint firstAttribute="trailing" secondItem="ylo-zS-kyi" secondAttribute="trailing" constant="20" id="m5I-Ul-ulQ"/>
-                                            <constraint firstItem="ylo-zS-kyi" firstAttribute="leading" secondItem="7Gw-7W-r0I" secondAttribute="trailing" constant="10" id="tC9-9t-4nP"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="8"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EoY-EW-GdF" customClass="CustomView" customModule="Coin_Wallet" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="450" width="335.5" height="140"/>
-                                        <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="maxSupporter" translatesAutoresizingMaskIntoConstraints="NO" id="7RU-5w-0mu" customClass="CustomImageView" customModule="Coin_Wallet" customModuleProvider="target">
-                                                <rect key="frame" x="15" y="22.5" width="95" height="95"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="95" id="2dT-qH-afh"/>
-                                                    <constraint firstAttribute="height" constant="95" id="ddO-yl-yKn"/>
+                                                    <constraint firstItem="lWh-u4-BKv" firstAttribute="top" secondItem="7RU-5w-0mu" secondAttribute="top" id="DW6-3a-SZ0"/>
+                                                    <constraint firstItem="7RU-5w-0mu" firstAttribute="leading" secondItem="EoY-EW-GdF" secondAttribute="leading" constant="10" id="E0l-tw-xsQ"/>
+                                                    <constraint firstAttribute="trailing" secondItem="lWh-u4-BKv" secondAttribute="trailing" constant="15" id="K9H-Ib-YQG"/>
+                                                    <constraint firstAttribute="bottom" secondItem="lWh-u4-BKv" secondAttribute="bottom" constant="10" id="Kl5-rG-ZXU"/>
+                                                    <constraint firstItem="7RU-5w-0mu" firstAttribute="centerY" secondItem="EoY-EW-GdF" secondAttribute="centerY" id="Lfx-Ev-jeA"/>
+                                                    <constraint firstItem="lWh-u4-BKv" firstAttribute="leading" secondItem="7RU-5w-0mu" secondAttribute="trailing" constant="8" id="zf5-Sp-FMY"/>
                                                 </constraints>
-                                            </imageView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="lWh-u4-BKv">
-                                                <rect key="frame" x="120" y="26.5" width="200.5" height="87"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UqG-i0-zyN" customClass="CustomButton" customModule="Coin_Wallet" customModuleProvider="target">
-                                                        <rect key="frame" x="44.5" y="0.0" width="112" height="35"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="35" id="ygf-Fc-Jah"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <state key="normal" title="  Max Supporter  ">
-                                                            <color key="titleColor" red="0.1215686275" green="0.1215686275" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="8"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="maxBtnPressed:" destination="nob-aN-e2V" eventType="touchUpInside" id="C8H-qr-ibk"/>
-                                                        </connections>
-                                                    </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="3ek-g7-laG">
-                                                        <rect key="frame" x="-139.5" y="41" width="195.5" height="46"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QSq-fV-3wV" customClass="CustomButton" customModule="Coin_Wallet" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="136.5" width="343" height="35"/>
+                                                <color key="backgroundColor" red="0.3460007905960083" green="0.33548757433891296" blue="0.84000390768051147" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="35" id="H0O-K9-3Yu"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <state key="normal" title="Loading Price...">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="maxBtnPressed:" destination="nob-aN-e2V" eventType="touchUpInside" id="PZr-PN-gpf"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="7RU-5w-0mu" firstAttribute="leading" secondItem="EoY-EW-GdF" secondAttribute="leading" constant="15" id="E0l-tw-xsQ"/>
-                                            <constraint firstItem="lWh-u4-BKv" firstAttribute="bottom" secondItem="7RU-5w-0mu" secondAttribute="bottom" constant="-4" id="HNR-KQ-opn"/>
-                                            <constraint firstAttribute="trailing" secondItem="lWh-u4-BKv" secondAttribute="trailing" constant="15" id="K9H-Ib-YQG"/>
-                                            <constraint firstItem="7RU-5w-0mu" firstAttribute="centerY" secondItem="EoY-EW-GdF" secondAttribute="centerY" id="Lfx-Ev-jeA"/>
-                                            <constraint firstItem="lWh-u4-BKv" firstAttribute="top" secondItem="7RU-5w-0mu" secondAttribute="top" constant="4" id="Sp0-3L-1vd"/>
-                                            <constraint firstItem="lWh-u4-BKv" firstAttribute="leading" secondItem="7RU-5w-0mu" secondAttribute="trailing" constant="10" id="zf5-Sp-FMY"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="8"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumScaleFactor="0.84999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="CbC-4Z-zMR">
-                                <rect key="frame" x="19.5" y="624" width="335.5" height="24"/>
+                                <rect key="frame" x="16" y="631" width="343" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="TEq-Qg-Opo"/>
                                 </constraints>
@@ -448,25 +433,37 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l7I-lh-FOE">
+                                <rect key="frame" x="16" y="34" width="343" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="NM8-u6-XOD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ubC-7J-lho" firstAttribute="trailing" secondItem="WLb-bz-6kf" secondAttribute="trailing" constant="20" id="9If-me-Ozu"/>
-                            <constraint firstItem="WLb-bz-6kf" firstAttribute="top" secondItem="ubC-7J-lho" secondAttribute="top" constant="10" id="LDh-G7-5uF"/>
-                            <constraint firstItem="CbC-4Z-zMR" firstAttribute="top" secondItem="WLb-bz-6kf" secondAttribute="bottom" constant="4" id="PV2-Ug-7Ma"/>
-                            <constraint firstItem="WLb-bz-6kf" firstAttribute="leading" secondItem="ubC-7J-lho" secondAttribute="leading" constant="20" id="Pu5-ld-Xiz"/>
-                            <constraint firstItem="CbC-4Z-zMR" firstAttribute="trailing" secondItem="WLb-bz-6kf" secondAttribute="trailing" id="QRp-i1-3xO"/>
-                            <constraint firstItem="CbC-4Z-zMR" firstAttribute="leading" secondItem="WLb-bz-6kf" secondAttribute="leading" id="S8E-Uf-meF"/>
-                            <constraint firstAttribute="bottom" secondItem="CbC-4Z-zMR" secondAttribute="bottom" constant="19" id="aXw-i7-pIC"/>
+                            <constraint firstAttribute="trailing" secondItem="CbC-4Z-zMR" secondAttribute="trailing" constant="16" id="0di-xt-osK"/>
+                            <constraint firstItem="ubC-7J-lho" firstAttribute="trailing" secondItem="WLb-bz-6kf" secondAttribute="trailing" constant="16" id="GhS-N2-wKR"/>
+                            <constraint firstItem="CbC-4Z-zMR" firstAttribute="top" secondItem="WLb-bz-6kf" secondAttribute="bottom" constant="8" id="PV2-Ug-7Ma"/>
+                            <constraint firstItem="WLb-bz-6kf" firstAttribute="leading" secondItem="ubC-7J-lho" secondAttribute="leading" constant="16" id="Pu5-ld-Xiz"/>
+                            <constraint firstAttribute="bottom" secondItem="CbC-4Z-zMR" secondAttribute="bottom" constant="12" id="aXw-i7-pIC"/>
+                            <constraint firstItem="l7I-lh-FOE" firstAttribute="top" secondItem="ubC-7J-lho" secondAttribute="top" constant="14" id="bTV-Y3-36A"/>
+                            <constraint firstItem="l7I-lh-FOE" firstAttribute="leading" secondItem="ubC-7J-lho" secondAttribute="leading" constant="16" id="dTO-sG-u9v"/>
+                            <constraint firstItem="WLb-bz-6kf" firstAttribute="top" secondItem="l7I-lh-FOE" secondAttribute="bottom" constant="14" id="opG-b0-iRd"/>
+                            <constraint firstItem="ubC-7J-lho" firstAttribute="trailing" secondItem="l7I-lh-FOE" secondAttribute="trailing" constant="16" id="p5U-sU-WSC"/>
+                            <constraint firstItem="CbC-4Z-zMR" firstAttribute="leading" secondItem="ubC-7J-lho" secondAttribute="leading" constant="16" id="xwF-Dv-2UJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ubC-7J-lho"/>
                     </view>
                     <navigationItem key="navigationItem" title="Support Developer" id="15v-3O-Tdv"/>
                     <connections>
-                        <outlet property="basicSupporterLabel" destination="hFY-xp-wHG" id="Lq5-0W-5jb"/>
-                        <outlet property="maxSupporterLabel" destination="3ek-g7-laG" id="YIc-RZ-sqG"/>
-                        <outlet property="plusSupporterLabel" destination="VfK-aF-FDt" id="6Ek-Of-AbE"/>
-                        <outlet property="premiumSupporterLabel" destination="J3j-y5-giA" id="HUK-ql-yVU"/>
+                        <outlet property="maxSupporterBtn" destination="QSq-fV-3wV" id="SCh-Tw-8KT"/>
+                        <outlet property="plusSupporterBtn" destination="5SJ-cl-0wM" id="ELx-Xl-bHc"/>
+                        <outlet property="premiumSupporterBtn" destination="pts-QT-6lq" id="8bX-ZW-cQL"/>
+                        <outlet property="subcriptionsInfoLabel" destination="l7I-lh-FOE" id="QtC-9Q-DWz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vck-QQ-rai" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -475,7 +472,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="basicSupporter" width="400" height="300"/>
         <image name="maxSupporter" width="400" height="300"/>
         <image name="plusSupporter" width="400" height="300"/>
         <image name="premiumSupporter" width="400" height="300"/>
