@@ -47,6 +47,11 @@ class MainViewController: UIViewController {
         totalPortfolioValueLabel.text = UserDefaults.init(suiteName: "group.com.oezguercelebi.Coin-Wallet")?.float(forKey: "totalPortfolioValue").changeToDollarCurrencyString() ?? "$0.00"
         
         requestReview()
+        
+        DispatchQueue.main.async {
+            RealmManager.sharedInstance.fetchSubPlans()
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
