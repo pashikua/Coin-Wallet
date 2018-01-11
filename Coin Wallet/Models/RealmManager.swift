@@ -3,6 +3,7 @@
 
 import UIKit
 import RealmSwift
+import SwiftyStoreKit
 
 protocol RealmManagerDelegate: class {
     func updatePortfolioValue(_ coinsPortfolio: [RLMPortfolio])
@@ -39,9 +40,16 @@ class RealmManager {
         let results = realm.objects(RLMPortfolio.self)
         return results
     }
+    
+    func getSubscriptionPlanDataFromRealm() -> Results<RLMSubscriptionPlan> {
+        let results = realm.objects(RLMSubscriptionPlan.self)
+        return results
+    }
+    
     func getPortfolioCoinsArray() -> [RLMPortfolio] {
         return portfolioCoins
     }
+    
     
     func deleteAllFromRealm()  {
         try! realm.write {
@@ -111,6 +119,62 @@ class RealmManager {
                 }
             }
             print("updated object from database")
+        }
+    }
+    
+    // TODO: Extract code logic from here
+    func fetchSubPlans() {
+        let appBundleId = "com.oezguercelebi.coinwallet.sub"
+        let purchasePlusSupporter = "plussupporter"
+        let purchasePremiumSupporter = "premiumsupporter"
+        let purchaseMaxSupporter = "maxsupporter"
+        
+        SwiftyStoreKit.retrieveProductsInfo([appBundleId + "." + purchasePlusSupporter]) { result in
+            
+            if let product = result.retrievedProducts.first {
+                if let priceString = product.localizedPrice {
+                    let plusSupporterPlan = RLMSubscriptionPlan()
+                    plusSupporterPlan.id = purchasePlusSupporter
+                    plusSupporterPlan.localizedPrice = priceString
+                    plusSupporterPlan.localizedDescription = product.localizedDescription
+                    
+                    try! self.realm.write {
+                        self.realm.add(plusSupporterPlan, update: true)
+                    }
+                }
+            }
+        }
+        
+        SwiftyStoreKit.retrieveProductsInfo([appBundleId + "." + purchasePremiumSupporter]) { result in
+            
+            if let product = result.retrievedProducts.first {
+                if let priceString = product.localizedPrice {
+                    let premiumSupporterPlan = RLMSubscriptionPlan()
+                    premiumSupporterPlan.id = purchasePremiumSupporter
+                    premiumSupporterPlan.localizedPrice = priceString
+                    premiumSupporterPlan.localizedDescription = product.localizedDescription
+                    
+                    try! self.realm.write {
+                        self.realm.add(premiumSupporterPlan, update: true)
+                    }
+                }
+            }
+        }
+        
+        SwiftyStoreKit.retrieveProductsInfo([appBundleId + "." + purchaseMaxSupporter]) { result in
+            
+            if let product = result.retrievedProducts.first {
+                if let priceString = product.localizedPrice {
+                    let maxSupporterPlan = RLMSubscriptionPlan()
+                    maxSupporterPlan.id = purchaseMaxSupporter
+                    maxSupporterPlan.localizedPrice = priceString
+                    maxSupporterPlan.localizedDescription = product.localizedDescription
+                    
+                    try! self.realm.write {
+                        self.realm.add(maxSupporterPlan, update: true)
+                    }
+                }
+            }
         }
     }
 }
