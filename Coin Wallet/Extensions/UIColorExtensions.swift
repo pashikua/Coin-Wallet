@@ -12,4 +12,8 @@ extension UIColor {
     
     // Mid Dark Text Color = #394149
     static let midDarkColor = UIColor(red:0.22, green:0.25, blue:0.29, alpha:1.0)
+    
+    // Light Gray = #F4F7FA
+    
+    // Dark Gray = #4E5C6E
 }
