@@ -7,7 +7,6 @@ import SwiftyStoreKit
 import PKHUD
 
 enum RegisteredPurchase: String {
-    case basicSupporter
     case plusSupporter
     case premiumSupporter
     case maxSupporter
@@ -15,31 +14,28 @@ enum RegisteredPurchase: String {
 
 class SupportDeveloperViewController: UIViewController {
     
-    @IBOutlet weak var basicSupporterLabel: UILabel!
-    @IBOutlet weak var plusSupporterLabel: UILabel!
-    @IBOutlet weak var premiumSupporterLabel: UILabel!
-    @IBOutlet weak var maxSupporterLabel: UILabel!
+    @IBOutlet weak var subcriptionsInfoLabel: UILabel!
     
+    @IBOutlet weak var plusSupporterBtn: CustomButton!
+    @IBOutlet weak var premiumSupporterBtn: CustomButton!
+    @IBOutlet weak var maxSupporterBtn: CustomButton!
     let appBundleId = "com.oezguercelebi.coinwallet.sub"
     
-    let purchaseBasicSupporter = RegisteredPurchase.basicSupporter
     let purchasePlusSupporter = RegisteredPurchase.plusSupporter
     let purchasePremiumSupporter = RegisteredPurchase.premiumSupporter
     let purchaseMaxSupporter = RegisteredPurchase.maxSupporter
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupPriceButtonTitles()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationItem.title = "Support Developer"
-        getDescriptionsForLabels()
+        self.subcriptionsInfoLabel.text = "Coin Portolio subscription plans will be billed annually"
     }
     
-    @IBAction func basicBtnPressed(_ sender: UIButton) {
-        print("basic supporter")
-        purchase(purchaseBasicSupporter)
-    }
     
     @IBAction func plusBtnPressed(_ sender: UIButton) {
         print("plus supporter")
@@ -58,42 +54,18 @@ class SupportDeveloperViewController: UIViewController {
     
     // Mark: - SwiftyStoreKit
 
-    func getDescriptionsForLabels() {
-        HUD.flash(.progress, delay: 2.0)
+    func setupPriceButtonTitles() {
         
-        SwiftyStoreKit.retrieveProductsInfo([appBundleId + "." + purchaseBasicSupporter.rawValue.lowercased()]) { result in
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            
-            if let product = result.retrievedProducts.first {
-                let priceString = product.localizedPrice!
-                self.basicSupporterLabel.text = "\(product.localizedDescription)\n \(priceString) for 1 year"
+        let objects = RealmManager.sharedInstance.getSubscriptionPlanDataFromRealm()
+        for object in objects {
+            if object.id == "plussupporter" {
+                self.plusSupporterBtn.setTitle(("\(object.localizedPrice) / 1 year"), for: .normal)
             }
-        }
-        
-        SwiftyStoreKit.retrieveProductsInfo([appBundleId + "." + purchasePlusSupporter.rawValue.lowercased()]) { result in
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            
-            if let product = result.retrievedProducts.first {
-                let priceString = product.localizedPrice!
-                self.plusSupporterLabel.text = "\(product.localizedDescription)\n \(priceString) for 1 year"
+            if object.id == "premiumsupporter" {
+                self.premiumSupporterBtn.setTitle(("\(object.localizedPrice) / 1 year"), for: .normal)
             }
-        }
-        
-        SwiftyStoreKit.retrieveProductsInfo([appBundleId + "." + purchasePremiumSupporter.rawValue.lowercased()]) { result in
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            
-            if let product = result.retrievedProducts.first {
-                let priceString = product.localizedPrice!
-                self.premiumSupporterLabel.text = "\(product.localizedDescription)\n \(priceString) for 1 year"
-            }
-        }
-        
-        SwiftyStoreKit.retrieveProductsInfo([appBundleId + "." + purchaseMaxSupporter.rawValue.lowercased()]) { result in
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            
-            if let product = result.retrievedProducts.first {
-                let priceString = product.localizedPrice!
-                self.maxSupporterLabel.text = "\(product.localizedDescription)\n \(priceString) for 1 year"
+            if object.id == "maxsupporter" {
+                self.maxSupporterBtn.setTitle(("\(object.localizedPrice) / 1 year"), for: .normal)
             }
         }
     }
@@ -149,14 +121,6 @@ class SupportDeveloperViewController: UIViewController {
                 let productId = self.appBundleId + "." + purchase.rawValue.lowercased()
                 
                 switch purchase {
-                case .basicSupporter:
-                    let purchaseResult = SwiftyStoreKit.verifySubscription(
-                        ofType: .autoRenewable,
-                        productId: productId,
-                        inReceipt: receipt,
-                        validUntil: Date()
-                    )
-                    self.showAlert(self.alertForVerifySubscription(purchaseResult))
                 case .plusSupporter:
                     let purchaseResult = SwiftyStoreKit.verifySubscription(
                         ofType: .autoRenewable,
