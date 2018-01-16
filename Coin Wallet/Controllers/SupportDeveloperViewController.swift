@@ -5,6 +5,7 @@ import UIKit
 import StoreKit
 import SwiftyStoreKit
 import PKHUD
+import SafariServices
 
 enum RegisteredPurchase: String {
     case plusSupporter
@@ -12,9 +13,10 @@ enum RegisteredPurchase: String {
     case maxSupporter
 }
 
-class SupportDeveloperViewController: UIViewController {
+class SupportDeveloperViewController: UIViewController, SFSafariViewControllerDelegate {
     
     @IBOutlet weak var subcriptionsInfoLabel: UILabel!
+    @IBOutlet weak var subcriptionTermsLabel: UILabel!
     
     @IBOutlet weak var plusSupporterBtn: CustomButton!
     @IBOutlet weak var premiumSupporterBtn: CustomButton!
@@ -29,6 +31,9 @@ class SupportDeveloperViewController: UIViewController {
         super.viewDidLoad()
         
         setupPriceButtonTitles()
+        
+        let tap = UITapGestureRecognizer(target: self, action:#selector(SupportDeveloperViewController.infoLabelTapped))
+        subcriptionTermsLabel.addGestureRecognizer(tap)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,6 +55,11 @@ class SupportDeveloperViewController: UIViewController {
     @IBAction func maxBtnPressed(_ sender: UIButton) {
         print("max supporter")
         purchase(purchaseMaxSupporter)
+    }
+    
+    @objc func infoLabelTapped(sender:UITapGestureRecognizer) {
+        print("tap working")
+        presentTermsAndPrivacyPolicy()
     }
     
     // Mark: - SwiftyStoreKit
@@ -81,7 +91,7 @@ class SupportDeveloperViewController: UIViewController {
     }
     
     func purchase(_ purchase: RegisteredPurchase) {
-        HUD.show(.label("Requesting Purchase..."))
+//        HUD.show(.label("Requesting Purchase..."))
         SwiftyStoreKit.purchaseProduct(appBundleId + "." + purchase.rawValue.lowercased(), atomically: true) { result in
             HUD.hide()
             
@@ -151,6 +161,23 @@ class SupportDeveloperViewController: UIViewController {
                 self.showAlert(self.alertForVerifyReceipt(result))
             }
         }
+    }
+    
+    // MARK: - Safari
+    
+    func presentTermsAndPrivacyPolicy() {
+        guard let url = URL(string: "https://coinportfolio.co/#privacy") else {
+            return //be safe
+        }
+        let safariVC = SFSafariViewController(url: url)
+        self.present(safariVC, animated: true, completion: nil)
+        safariVC.delegate = self
+    }
+    
+    
+    
+    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        controller.dismiss(animated: true, completion: nil)
     }
 }
 
