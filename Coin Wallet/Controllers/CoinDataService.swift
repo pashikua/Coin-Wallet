@@ -64,7 +64,7 @@ class CoinDataService: NSObject, UITableViewDataSource, UITableViewDelegate, Swi
                 }
             }
             
-            alert.showCustom("Edit", subTitle: "Update your holding value", color: .primaryColor, icon: UIImage(named: "editFilled")!)
+            alert.showCustom("Edit", subTitle: "Enter new value", color: .primaryColor, icon: UIImage(named: "editFilled")!)
         }
         // Customize appearance
         editAction.image = UIImage(named: "editRoundFilled")
