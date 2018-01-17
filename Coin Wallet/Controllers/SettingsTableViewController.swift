@@ -80,7 +80,9 @@ class SettingsTableViewController: UITableViewController, SFSafariViewController
             })
         } else {
             print("Error")
-            self.touchIDSwitch.isOn = false
+            DispatchQueue.main.async {
+                self.touchIDSwitch.isOn = false
+            }
             // Touch ID is not available on Device, use password.
             if authErrorPointer?.code == -7 {
                 self.showAlertWith(title: "Error", message: "Biometric Authentication is not enabled on this Device. Enable it and try again")
