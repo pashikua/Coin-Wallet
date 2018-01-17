@@ -18,7 +18,6 @@
 		774517B81FF5118500715AC5 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774517B71FF5118500715AC5 /* SettingsTableViewController.swift */; };
 		774517BB1FF52A0000715AC5 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 774517B91FF52A0000715AC5 /* Settings.storyboard */; };
 		774517BF1FF5339300715AC5 /* SupportDeveloperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774517BE1FF5339300715AC5 /* SupportDeveloperViewController.swift */; };
-		774517C11FF5444800715AC5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 774517C01FF5444800715AC5 /* StoreKit.framework */; };
 		774517C31FF54A9C00715AC5 /* SwiftyStoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 774517C21FF54A9C00715AC5 /* SwiftyStoreKit.framework */; };
 		774517C41FF54A9C00715AC5 /* SwiftyStoreKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 774517C21FF54A9C00715AC5 /* SwiftyStoreKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		774517C61FF639DA00715AC5 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774517C51FF639DA00715AC5 /* CustomImageView.swift */; };
@@ -71,6 +70,7 @@
 		7793CC5C20039DA90031084E /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778FF42E1FFBD55D003A8A47 /* RealmManager.swift */; };
 		7793CC5E20039E4E0031084E /* CoinHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778E3BF81FDF2C0900731CE4 /* CoinHandler.swift */; };
 		7793CC5F2003C0180031084E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7755FD281FE3DAE700624F23 /* Constants.swift */; };
+		77B062D7200E4E3E00BE47DB /* ReviewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B062D6200E4E3E00BE47DB /* ReviewHandler.swift */; };
 		77B4A61D2003671B00EF6830 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B4A61C2003671B00EF6830 /* DateExtensions.swift */; };
 		77B4A61F20036BBA00EF6830 /* RLMDailyTotalValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B4A61E20036BBA00EF6830 /* RLMDailyTotalValue.swift */; };
 		77B4A6242003890100EF6830 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 778FF4371FFBDFF5003A8A47 /* Realm.framework */; };
@@ -151,7 +151,6 @@
 		774517B71FF5118500715AC5 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		774517BA1FF52A0000715AC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Coin Wallet/Base.lproj/Settings.storyboard"; sourceTree = "<group>"; };
 		774517BE1FF5339300715AC5 /* SupportDeveloperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportDeveloperViewController.swift; sourceTree = "<group>"; };
-		774517C01FF5444800715AC5 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		774517C21FF54A9C00715AC5 /* SwiftyStoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyStoreKit.framework; path = Carthage/Build/iOS/SwiftyStoreKit.framework; sourceTree = "<group>"; };
 		774517C51FF639DA00715AC5 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		774517C81FF6565A00715AC5 /* NetworkActivityIndicatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkActivityIndicatorManager.swift; sourceTree = "<group>"; };
@@ -191,6 +190,7 @@
 		778FF4341FFBDFC8003A8A47 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		778FF4371FFBDFF5003A8A47 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		778FF43A1FFBE62C003A8A47 /* RLMPortfolio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLMPortfolio.swift; sourceTree = "<group>"; };
+		77B062D6200E4E3E00BE47DB /* ReviewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewHandler.swift; sourceTree = "<group>"; };
 		77B4A61C2003671B00EF6830 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		77B4A61E20036BBA00EF6830 /* RLMDailyTotalValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLMDailyTotalValue.swift; sourceTree = "<group>"; };
 		77F8AC801FF6622900150298 /* PKHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PKHUD.framework; path = Carthage/Build/iOS/PKHUD.framework; sourceTree = "<group>"; };
@@ -206,7 +206,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				774517C11FF5444800715AC5 /* StoreKit.framework in Frameworks */,
 				7776D5921FDF6158006C42FD /* Disk.framework in Frameworks */,
 				778FF4351FFBDFC8003A8A47 /* RealmSwift.framework in Frameworks */,
 				7755FD2F1FE40C8200624F23 /* SwipeCellKit.framework in Frameworks */,
@@ -277,6 +276,7 @@
 		773F237E1FDE81E600D1F7FA /* Coin Wallet */ = {
 			isa = PBXGroup;
 			children = (
+				77B062D8200E505800BE47DB /* ViewModels */,
 				774517B61FF4086500715AC5 /* Coin Wallet.entitlements */,
 				773F238B1FDE81E600D1F7FA /* Info.plist */,
 				773F237F1FDE81E600D1F7FA /* AppDelegate.swift */,
@@ -326,7 +326,6 @@
 		777F30571FF3F8DC00B44918 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				774517C01FF5444800715AC5 /* StoreKit.framework */,
 				777F30581FF3F8DC00B44918 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
@@ -355,6 +354,7 @@
 		778E3BCD1FDE841C00731CE4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				77B062D6200E4E3E00BE47DB /* ReviewHandler.swift */,
 				778E3BCE1FDE842600731CE4 /* Coin.swift */,
 				778E3BF81FDF2C0900731CE4 /* CoinHandler.swift */,
 				7755FD281FE3DAE700624F23 /* Constants.swift */,
@@ -429,6 +429,13 @@
 				77B4A61C2003671B00EF6830 /* DateExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		77B062D8200E505800BE47DB /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -508,7 +515,7 @@
 								enabled = 1;
 							};
 							com.apple.InAppPurchase = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -611,6 +618,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				778FF43B1FFBE62C003A8A47 /* RLMPortfolio.swift in Sources */,
+				77B062D7200E4E3E00BE47DB /* ReviewHandler.swift in Sources */,
 				776672772001040A0062A548 /* UIDeviceExtensions.swift in Sources */,
 				774517BF1FF5339300715AC5 /* SupportDeveloperViewController.swift in Sources */,
 				771E8F2D200784BA0012D0B9 /* RLMSubscriptionPlan.swift in Sources */,
