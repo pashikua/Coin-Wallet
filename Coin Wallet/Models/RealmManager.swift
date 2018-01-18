@@ -31,6 +31,12 @@ class RealmManager {
         return portfolioCoins[index]
     }
     
+    func getResultsByCoinID(index: Int) -> RLMCoin {
+        let coin = realm.objects(RLMCoin.self).filter("id CONTAINS '\(portfolioCoins[index].id)'").first
+        
+        return coin!
+    }
+    
     func getCoinsDataFromRealm() -> Results<RLMCoin> {
         let results = realm.objects(RLMCoin.self)
         return results
