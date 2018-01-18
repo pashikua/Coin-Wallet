@@ -14,10 +14,13 @@ class CoinDataService: NSObject, UITableViewDataSource, UITableViewDelegate, Swi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "coinCell") as! CoinTableViewCell
         
+        
+        
         let coin = RealmManager.sharedInstance.coinAtIndex(index: indexPath.row)
+        let coinResult = RealmManager.sharedInstance.getResultsByCoinID(index: indexPath.row)
         
         cell.delegate = self
-        cell.configCoinCell(with: coin)
+        cell.configCoinCell(with: coin, result: coinResult)
         
         return cell
     }
