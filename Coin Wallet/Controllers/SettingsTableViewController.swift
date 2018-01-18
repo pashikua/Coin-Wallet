@@ -12,8 +12,8 @@ class SettingsTableViewController: UITableViewController, SFSafariViewController
     @IBOutlet weak var versionLabel: UILabel!
     
     let securityItems = ["Enable Biometric Lock"]
-    let aboutItems = ["Support Developer", "View Source Code", "Rate and give Feedback", "Share with Friends"]
-    let linkItems = ["Buy and Sell on Coinbase"]
+    let aboutItems = ["View Source Code", "Rate and give Feedback", "Share with Friends"]
+    let linkItems = ["Buy and Sell on Coinbase", "Buy and Sell on Binance"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,7 +80,9 @@ class SettingsTableViewController: UITableViewController, SFSafariViewController
             })
         } else {
             print("Error")
-            self.touchIDSwitch.isOn = false
+            DispatchQueue.main.async {
+                self.touchIDSwitch.isOn = false
+            }
             // Touch ID is not available on Device, use password.
             if authErrorPointer?.code == -7 {
                 self.showAlertWith(title: "Error", message: "Biometric Authentication is not enabled on this Device. Enable it and try again")
@@ -151,16 +153,18 @@ class SettingsTableViewController: UITableViewController, SFSafariViewController
         print(indexPath.section)
         switch indexPath.section {
         case 1:
+//            if indexPath.row == 0 {
+//                // Support Developer
+////                self.performSegue(withIdentifier: "SupportDeveloperSegue", sender: self)
+//            } else
+            
             if indexPath.row == 0 {
-                // Support Developer
-                self.performSegue(withIdentifier: "SupportDeveloperSegue", sender: self)
-            } else if indexPath.row == 1 {
                 // Source Code
                 presentOpenSourceProject()
-            } else if indexPath.row == 2 {
+            } else if indexPath.row == 1 {
                 // Rate App
                 SKStoreReviewController.requestReview()
-            } else if indexPath.row == 3 {
+            } else if indexPath.row == 2 {
                 // Share App
                 shareApp()
             }
@@ -168,6 +172,10 @@ class SettingsTableViewController: UITableViewController, SFSafariViewController
             if indexPath.row == 0 {
                 // Open link to Coinbase
                 self.openLinkWithSafari(string: "https://www.coinbase.com/join/5a2ac0a68c4feb0308f73ba4")
+            }
+            if indexPath.row == 1 {
+                // Open link to Binance
+                self.openLinkWithSafari(string: "https://www.binance.com/?ref=12691359")
             }
         default:
             break

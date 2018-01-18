@@ -11,7 +11,7 @@ class CoinHandler {
     typealias CompletionHandler = (_ success: Bool) -> Void
     
     static func fetchCoinsData(completion: @escaping CompletionHandler) {
-        HTTP.GET("https://api.coinmarketcap.com/v1/ticker/?limit=200") { response in
+        HTTP.GET("https://api.coinmarketcap.com/v1/ticker/?limit=1500") { response in
             if let err = response.error {
                 print("error: \(err.localizedDescription)")
                 return //also notify app of failure as needed

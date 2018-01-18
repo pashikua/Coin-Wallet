@@ -22,28 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Fabric.with([Crashlytics.self])
 //        Crashlytics.sharedInstance().crash()
         
-        completeIAPTransactions()
+        // TODO: turned off
+//        completeIAPTransactions()
         
-        checkForBiometricID()
+        isBiometricID(enabled: UserDefaults.standard.bool(forKey: "isTouchIDEnabled"))
         
         return true
-    }
-    
-    
-    
-    func saveDiskSampleDataForDatabaseSwitchTest() {
-        // Old way of saving coin
-        do {
-            let coins = [
-                Coin(id: "bitcoin", name: "Bitcoin", symbol: "AMK", rank: 2, price_usd: 100.0, last_updated: "123141241", holding: 1.0),
-                Coin(id: "ethereum", name: "Ethereum", symbol: "ETA", rank: 1, price_usd: 1000.0, last_updated: "123141241", holding: 0.30),
-                Coin(id: "litecoin", name: "Litecoin", symbol: "LITA", rank: 1, price_usd: 10.0, last_updated: "123141241", holding: 44.00)]
-            for coin in coins {
-                try Disk.append(coin, to: "coins.json", in: .caches)
-            }
-        } catch {
-            print("Coudlnt save to disk")
-        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -81,8 +65,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // Mark: - BiometricID
     
-    func checkForBiometricID() {
-        if UserDefaults.standard.bool(forKey: "isTouchIDEnabled") {
+    func isBiometricID(enabled: Bool) {
+        if enabled {
             // Check for fingerprint
             print("check for biometric")
             // Send user to Empty View Controlller while checking for TouchID
@@ -144,23 +128,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     // Mark: - SwiftyStoreKit
-
-    func completeIAPTransactions() {
-        SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
-            for purchase in purchases {
-                switch purchase.transaction.transactionState {
-                case .purchased, .restored:
-                    if purchase.needsFinishTransaction {
-                        // Deliver content from server, then:
-                        SwiftyStoreKit.finishTransaction(purchase.transaction)
-                    }
-                    print("\(purchase.transaction.transactionState.debugDescription): \(purchase.productId)")
-                // Unlock content
-                case .failed, .purchasing, .deferred:
-                    break // do nothing
-                }
-            }
-        }
-    }
+    // TODO: turned off
+//    func completeIAPTransactions() {
+//        SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
+//            for purchase in purchases {
+//                switch purchase.transaction.transactionState {
+//                case .purchased, .restored:
+//                    if purchase.needsFinishTransaction {
+//                        // Deliver content from server, then:
+//                        SwiftyStoreKit.finishTransaction(purchase.transaction)
+//                    }
+//                    print("\(purchase.transaction.transactionState.debugDescription): \(purchase.productId)")
+//                // Unlock content
+//                case .failed, .purchasing, .deferred:
+//                    break // do nothing
+//                }
+//            }
+//        }
+//    }
 }
 
