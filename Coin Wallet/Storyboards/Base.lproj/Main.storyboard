@@ -224,6 +224,9 @@
                                                 <state key="normal" title="Coin">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="coinBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NH6-Pz-nUg"/>
+                                                </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Vdt-Sq-dqk">
                                                 <rect key="frame" x="75" y="0.0" width="193" height="30"/>
@@ -234,6 +237,9 @@
                                                         <state key="normal" title="Holding">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="holdingBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="39S-JP-3qn"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SU0-Ww-3gL">
                                                         <rect key="frame" x="96.5" y="0.0" width="96.5" height="30"/>
@@ -241,10 +247,13 @@
                                                         <state key="normal" title="Price">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="priceBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rb3-7A-eac"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fk-XG-K3h" userLabel="24h">
+                                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fk-XG-K3h" userLabel="24h">
                                                 <rect key="frame" x="268" y="0.0" width="75" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="75" id="yZ0-z7-3dI"/>
@@ -253,6 +262,9 @@
                                                 <state key="normal" title="24h">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="percentageChangeBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gAY-9E-uok"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>

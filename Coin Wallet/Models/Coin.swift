@@ -18,9 +18,20 @@ struct Coin: Equatable, Codable {
             return false
         }
         
+        if lhs.symbol != rhs.symbol {
+            return false
+        }
+        
+        if lhs.price_usd != rhs.price_usd {
+            return false
+        }
+        
+        if lhs.holding != rhs.holding {
+            return false
+        }
+        
         return true
     }
-    
     
     let id: String
     let name: String?
