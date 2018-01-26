@@ -83,12 +83,14 @@ class MainViewController: UIViewController {
             
             if sortByKeyPath != keyPath {
                 RealmManager.sharedInstance.sortPorfolioCoins(ascending: ascending, keyPath: keyPath)
+                
+                UserDefaults.init(suiteName: "group.com.oezguercelebi.Coin-Wallet")?.setValue(ascending, forKey: "sortIsAscending")
             } else {
                 if let isAscending = UserDefaults.init(suiteName: "group.com.oezguercelebi.Coin-Wallet")?.bool(forKey: "sortIsAscending") {
-                    RealmManager.sharedInstance.sortPorfolioCoins(ascending: !isAscending, keyPath: keyPath)
-                    
                     // Switch
                     let newIsAscending = isAscending ? false : true
+                    
+                    RealmManager.sharedInstance.sortPorfolioCoins(ascending: newIsAscending, keyPath: keyPath)
                     
                     // Set new ascending bool
                     UserDefaults.init(suiteName: "group.com.oezguercelebi.Coin-Wallet")?.setValue(newIsAscending, forKey: "sortIsAscending")
