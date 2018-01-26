@@ -101,6 +101,8 @@ class RealmManager {
     
     func sortPorfolioCoins(ascending: Bool, keyPath: String) {
         if portfolioCoins.count != 0 {
+            portfolioCoins.removeAll()
+            
             let results = realm.objects(RLMPortfolio.self)
             let sortedCoins = results.sorted(byKeyPath: keyPath, ascending: ascending).toArray(ofType: RLMPortfolio.self)
             
