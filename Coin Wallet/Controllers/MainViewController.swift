@@ -51,13 +51,56 @@ class MainViewController: UIViewController {
         DispatchQueue.main.async {
             RealmManager.sharedInstance.fetchSubPlans()
         }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         print("viewWillAppear")
         
         updateTableViewAndTotalPortfolioLabel()
+    }
+    
+    @IBAction func coinBtnPressed(_ sender: Any) {
+        print("coinBtnPressed")
+        sortAndReloadData(ascending: true, keyPath: "rank")
+    }
+    
+    @IBAction func holdingBtnPressed(_ sender: Any) {
+        print("holdingBtnPressed")
+        sortAndReloadData(ascending: false, keyPath: "holding")
+    }
+    
+    @IBAction func priceBtnPressed(_ sender: Any) {
+        print("priceBtnPressed")
+        sortAndReloadData(ascending: false, keyPath: "priceUSD")
+    }
+    
+    @IBAction func percentageChangeBtnPressed(_ sender: Any) {
+        print("percentageChangeBtnPressed")
+    }
+    
+    func sortAndReloadData(ascending: Bool, keyPath: String) {
+        if let sortByKeyPath = UserDefaults.init(suiteName: "group.com.oezguercelebi.Coin-Wallet")?.string(forKey: "sortByKeyPath") {
+            
+            if sortByKeyPath != keyPath {
+                RealmManager.sharedInstance.sortPorfolioCoins(ascending: ascending, keyPath: keyPath)
+                
+                UserDefaults.init(suiteName: "group.com.oezguercelebi.Coin-Wallet")?.setValue(ascending, forKey: "sortIsAscending")
+            } else {
+                if let isAscending = UserDefaults.init(suiteName: "group.com.oezguercelebi.Coin-Wallet")?.bool(forKey: "sortIsAscending") {
+                    // Switch
+                    let newIsAscending = isAscending ? false : true
+                    
+                    RealmManager.sharedInstance.sortPorfolioCoins(ascending: newIsAscending, keyPath: keyPath)
+                    
+                    // Set new ascending bool
+                    UserDefaults.init(suiteName: "group.com.oezguercelebi.Coin-Wallet")?.setValue(newIsAscending, forKey: "sortIsAscending")
+                }
+            }
+        }
+        
+        UserDefaults.init(suiteName: "group.com.oezguercelebi.Coin-Wallet")?.setValue(keyPath, forKey: "sortByKeyPath")
+        
+        self.coinTableView.reloadData()
     }
     
     @objc func refreshCoinData(_ sender: UIRefreshControl) {
@@ -68,10 +111,16 @@ class MainViewController: UIViewController {
             print("inside refresh coin data")
             if success {
                 DispatchQueue.main.async {
-                    RealmManager.sharedInstance.updatePortfolioCoinArray()
-                    self.coinTableView.reloadData()
                     self.updateTotalPortfolioLabel(coinsArray: RealmManager.sharedInstance.getPortfolioCoinsArray())
                     sender.endRefreshing()
+                    
+                    if let sortByKeyPath = UserDefaults.init(suiteName: "group.com.oezguercelebi.Coin-Wallet")?.string(forKey: "sortByKeyPath"), let isAscending = UserDefaults.init(suiteName: "group.com.oezguercelebi.Coin-Wallet")?.bool(forKey: "sortIsAscending") {
+                        
+                        self.sortAndReloadData(ascending: isAscending, keyPath: sortByKeyPath)
+                    } else {
+                        self.sortAndReloadData(ascending: true, keyPath: "rank")
+                        self.coinTableView.reloadData()
+                    }
                 }
             }
             print("is fetch successful: ",success)
@@ -109,6 +158,7 @@ class MainViewController: UIViewController {
     
     func updateTableViewAndTotalPortfolioLabel() {
         RealmManager.sharedInstance.updatePortfolioCoinArray()
+        
         coinTableView.reloadData()
         self.updateTotalPortfolioLabel(coinsArray: RealmManager.sharedInstance.getPortfolioCoinsArray())
     }

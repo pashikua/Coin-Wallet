@@ -16,10 +16,6 @@ class RealmManager {
     static let sharedInstance = RealmManager()
     
     private init() {
-        
-//        Realm.Configuration.defaultConfiguration = config
-//        print(Realm.Configuration.defaultConfiguration.fileURL!)
-        
         realm = try! Realm(configuration: Constants.AppGroupConfiguration())
     }
     
@@ -67,7 +63,7 @@ class RealmManager {
     func updatePortfolioCoinArray() {
         portfolioCoins.removeAll()
         
-        for coin in realm.objects(RLMPortfolio.self).sorted(byKeyPath: "rank").toArray(ofType: RLMPortfolio.self) {
+        for coin in realm.objects(RLMPortfolio.self).sorted(byKeyPath: "rank", ascending: true).toArray(ofType: RLMPortfolio.self) {
             portfolioCoins.append(coin)
         }
     }
@@ -101,6 +97,17 @@ class RealmManager {
         }
         updatePortfolioCoinArray()
         delegate?.updatePortfolioValue(portfolioCoins)
+    }
+    
+    func sortPorfolioCoins(ascending: Bool, keyPath: String) {
+        if portfolioCoins.count != 0 {
+            portfolioCoins.removeAll()
+            
+            let results = realm.objects(RLMPortfolio.self)
+            let sortedCoins = results.sorted(byKeyPath: keyPath, ascending: ascending).toArray(ofType: RLMPortfolio.self)
+            
+            portfolioCoins = sortedCoins
+        }
     }
     
     func refreshPortfolioData() {
