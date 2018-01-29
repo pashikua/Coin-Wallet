@@ -63,8 +63,16 @@ class RealmManager {
     func updatePortfolioCoinArray() {
         portfolioCoins.removeAll()
         
-        for coin in realm.objects(RLMPortfolio.self).sorted(byKeyPath: "rank", ascending: true).toArray(ofType: RLMPortfolio.self) {
-            portfolioCoins.append(coin)
+        if let sortByKeyPath = UserDefaults.init(suiteName: "group.com.oezguercelebi.Coin-Wallet")?.string(forKey: "sortByKeyPath") {
+            if let isAscending = UserDefaults.init(suiteName: "group.com.oezguercelebi.Coin-Wallet")?.bool(forKey: "sortIsAscending") {
+                for coin in realm.objects(RLMPortfolio.self).sorted(byKeyPath: sortByKeyPath, ascending: isAscending).toArray(ofType: RLMPortfolio.self) {
+                    portfolioCoins.append(coin)
+                }
+            }
+        } else {
+            for coin in realm.objects(RLMPortfolio.self).sorted(byKeyPath: "rank", ascending: true).toArray(ofType: RLMPortfolio.self) {
+                portfolioCoins.append(coin)
+            }
         }
     }
     

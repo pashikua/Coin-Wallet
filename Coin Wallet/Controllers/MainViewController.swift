@@ -114,13 +114,7 @@ class MainViewController: UIViewController {
                     self.updateTotalPortfolioLabel(coinsArray: RealmManager.sharedInstance.getPortfolioCoinsArray())
                     sender.endRefreshing()
                     
-                    if let sortByKeyPath = UserDefaults.init(suiteName: "group.com.oezguercelebi.Coin-Wallet")?.string(forKey: "sortByKeyPath"), let isAscending = UserDefaults.init(suiteName: "group.com.oezguercelebi.Coin-Wallet")?.bool(forKey: "sortIsAscending") {
-                        
-                        self.sortAndReloadData(ascending: isAscending, keyPath: sortByKeyPath)
-                    } else {
-                        self.sortAndReloadData(ascending: true, keyPath: "rank")
-                        self.coinTableView.reloadData()
-                    }
+                    RealmManager.sharedInstance.updatePortfolioCoinArray()
                 }
             }
             print("is fetch successful: ",success)
