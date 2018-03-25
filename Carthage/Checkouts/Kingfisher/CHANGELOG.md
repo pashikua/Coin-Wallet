@@ -2,6 +2,29 @@
 
 -----
 
+## [4.6.4 - Customize Activity Indicator](https://github.com/onevcat/Kingfisher/releases/tag/4.6.4) (2018-03-20)
+
+#### Fix
+* An issue caused customize activity indicator not working for Swift 4. [#872](https://github.com/onevcat/Kingfisher/issues/872)
+* Specify Swift compiler version explicity in pod spec file for CocoaPods 1.4. [#875](https://github.com/onevcat/Kingfisher/pull/875)
+
+---
+
+## [4.6.3 - Clean Demo](https://github.com/onevcat/Kingfisher/releases/tag/4.6.3) (2018-03-01)
+
+#### Fix
+* Move demo project out from Kingfisher framework project. [#867](https://github.com/onevcat/Kingfisher/pull/867)
+* An issue that caused stack overflow when prefetching too many images, while they are already cached. [#866](https://github.com/onevcat/Kingfisher/pull/866)
+
+---
+
+## [4.6.2 - GIF frames](https://github.com/onevcat/Kingfisher/releases/tag/4.6.2) (2018-02-14)
+
+#### Fix
+* Animated image view now will call finished delegate method in correct timing. [#860](https://github.com/onevcat/Kingfisher/issues/860)
+
+---
+
 ## [4.6.1 - MD5](https://github.com/onevcat/Kingfisher/releases/tag/4.6.1) (2017-12-28)
 
 #### Fix

@@ -31,7 +31,6 @@
 		7755FD321FE4193500624F23 /* SCLAlertView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7755FD311FE4193500624F23 /* SCLAlertView.framework */; };
 		7755FD331FE4193500624F23 /* SCLAlertView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7755FD311FE4193500624F23 /* SCLAlertView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		776672772001040A0062A548 /* UIDeviceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776672762001040A0062A548 /* UIDeviceExtensions.swift */; };
-		7776CD671FE7DC4E000CBF65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7776CD661FE7DC4D000CBF65 /* Assets.xcassets */; };
 		7776D5921FDF6158006C42FD /* Disk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7776D5911FDF6158006C42FD /* Disk.framework */; };
 		7776D5931FDF6158006C42FD /* Disk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7776D5911FDF6158006C42FD /* Disk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7776D5951FDF6B76006C42FD /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7776D5941FDF6B75006C42FD /* Kingfisher.framework */; };
@@ -74,6 +73,7 @@
 		77B4A61D2003671B00EF6830 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B4A61C2003671B00EF6830 /* DateExtensions.swift */; };
 		77B4A61F20036BBA00EF6830 /* RLMDailyTotalValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B4A61E20036BBA00EF6830 /* RLMDailyTotalValue.swift */; };
 		77B4A6242003890100EF6830 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 778FF4371FFBDFF5003A8A47 /* Realm.framework */; };
+		77BDE5782067C9F90052AA45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77BDE5772067C9F80052AA45 /* Assets.xcassets */; };
 		77F8AC811FF6622A00150298 /* PKHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77F8AC801FF6622900150298 /* PKHUD.framework */; };
 		77F8AC821FF6622A00150298 /* PKHUD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77F8AC801FF6622900150298 /* PKHUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		77F8AC841FF6864A00150298 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 77F8AC831FF6864A00150298 /* Keys.plist */; };
@@ -161,7 +161,6 @@
 		7755FD2E1FE40C8200624F23 /* SwipeCellKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwipeCellKit.framework; path = Carthage/Build/iOS/SwipeCellKit.framework; sourceTree = "<group>"; };
 		7755FD311FE4193500624F23 /* SCLAlertView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SCLAlertView.framework; path = Carthage/Build/iOS/SCLAlertView.framework; sourceTree = "<group>"; };
 		776672762001040A0062A548 /* UIDeviceExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceExtensions.swift; sourceTree = "<group>"; };
-		7776CD661FE7DC4D000CBF65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7776D5911FDF6158006C42FD /* Disk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Disk.framework; path = Carthage/Build/iOS/Disk.framework; sourceTree = "<group>"; };
 		7776D5941FDF6B75006C42FD /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		777F30561FF3F8DB00B44918 /* Today Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Today Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -193,6 +192,7 @@
 		77B062D6200E4E3E00BE47DB /* ReviewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewHandler.swift; sourceTree = "<group>"; };
 		77B4A61C2003671B00EF6830 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		77B4A61E20036BBA00EF6830 /* RLMDailyTotalValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLMDailyTotalValue.swift; sourceTree = "<group>"; };
+		77BDE5772067C9F80052AA45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		77F8AC801FF6622900150298 /* PKHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PKHUD.framework; path = Carthage/Build/iOS/PKHUD.framework; sourceTree = "<group>"; };
 		77F8AC831FF6864A00150298 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		77F8AC851FF6966900150298 /* UITextFieldExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtensions.swift; sourceTree = "<group>"; };
@@ -317,7 +317,7 @@
 			isa = PBXGroup;
 			children = (
 				77F8AC831FF6864A00150298 /* Keys.plist */,
-				7776CD661FE7DC4D000CBF65 /* Assets.xcassets */,
+				77BDE5772067C9F80052AA45 /* Assets.xcassets */,
 				773F23881FDE81E600D1F7FA /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
@@ -562,9 +562,9 @@
 			files = (
 				77F8AC8A1FF6A71F00150298 /* Empty.storyboard in Resources */,
 				773F238A1FDE81E600D1F7FA /* LaunchScreen.storyboard in Resources */,
-				7776CD671FE7DC4E000CBF65 /* Assets.xcassets in Resources */,
 				773F23851FDE81E600D1F7FA /* Main.storyboard in Resources */,
 				774517BB1FF52A0000715AC5 /* Settings.storyboard in Resources */,
+				77BDE5782067C9F90052AA45 /* Assets.xcassets in Resources */,
 				77F8AC841FF6864A00150298 /* Keys.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -4,7 +4,7 @@
 //
 //  Created by Wei Wang on 15/4/17.
 //
-//  Copyright (c) 2017 Wei Wang <onevcat@gmail.com>
+//  Copyright (c) 2018 Wei Wang <onevcat@gmail.com>
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -361,7 +361,21 @@ class ImageViewExtensionTests: XCTestCase {
         XCTAssertNotNil(imageView.kf.indicator, "The indicator should exist when indicatorType is different than .none")
         XCTAssertTrue(imageView.kf.indicator is ActivityIndicator)
 
-
+        imageView.kf.indicatorType = .none
+        XCTAssertNil(imageView.kf.indicator, "The indicator should be removed when indicatorType is .none")
+    }
+    
+    func testCustomizeStructIndicatorExisting() {
+        struct StructIndicator: Indicator {
+            let view = View()
+            func startAnimatingView() {}
+            func stopAnimatingView() {}
+        }
+        
+        imageView.kf.indicatorType = .custom(indicator: StructIndicator())
+        XCTAssertNotNil(imageView.kf.indicator, "The indicator should exist when indicatorType is different than .none")
+        XCTAssertTrue(imageView.kf.indicator is StructIndicator)
+        
         imageView.kf.indicatorType = .none
         XCTAssertNil(imageView.kf.indicator, "The indicator should be removed when indicatorType is .none")
     }

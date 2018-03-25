@@ -14,7 +14,7 @@ class CoinDataService: NSObject, UITableViewDataSource, UITableViewDelegate, Swi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "coinCell") as! CoinTableViewCell
         
-        
+      
         
         let coin = RealmManager.sharedInstance.coinAtIndex(index: indexPath.row)
         let coinResult = RealmManager.sharedInstance.getResultsByCoinID(index: indexPath.row)
@@ -66,8 +66,8 @@ class CoinDataService: NSObject, UITableViewDataSource, UITableViewDelegate, Swi
                     }
                 }
             }
-            
-            alert.showCustom("Edit", subTitle: "Enter new value", color: .primaryColor, icon: UIImage(named: "editFilled")!)
+          
+            alert.showCustom("Edit", subTitle: "Enter new value", color: .primaryColor, closeButtonTitle: "Done", timeout: nil, colorTextButton: 1, circleIconImage: UIImage(named: "editFilled")!, animationStyle: .topToBottom)
         }
         // Customize appearance
         editAction.image = UIImage(named: "editRoundFilled")

@@ -17,14 +17,14 @@ class CoinTableViewCell: SwipeTableViewCell {
     
     func configCoinCell(with coin: RLMPortfolio, result: RLMCoin) {
         // Parse image from url
-        let url = URL(string: "http://files.coinmarketcap.com.s3-website-us-east-1.amazonaws.com/static/img/coins/200x200/" + coin.id + ".png")!
-        let placeHolderImage = UIImage(named: "coinIconPlaceHolder")
-        self.coinImageView?.kf.setImage(with: url, placeholder: placeHolderImage)
-        
-//        if let img = UIImage(named: coin.id) {
-//           self.coinImageView.image = img
-//        }
-        
+//        let url = URL(string: "https://cryptocoincharts.info/img/coins/" + coin.id + ".png")!
+//        let placeHolderImage = UIImage(named: "coinIconPlaceHolder")
+//        self.coinImageView?.kf.setImage(with: url, placeholder: placeHolderImage)
+      
+        if let img = UIImage(named: coin.symbol.uppercased()) {
+           self.coinImageView.image = img
+        }
+      
         self.symbolLabel?.text = coin.symbol
         
         let value = coin.priceUSD * coin.holding
